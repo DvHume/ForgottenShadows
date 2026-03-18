@@ -1,0 +1,27 @@
+{
+  "display": {
+    "background": "minecraft:textures/block/stone.png",
+    "icon": {
+      "item": "frs:herbal_bandage"
+    },
+    "title": {
+      "translate": "advancement.frs.kick_bleeding.title"
+    },
+    "description": {
+      "translate": "advancement.frs.kick_bleeding.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "got_bleeding": {
+      "trigger": "minecraft:effects_changed",
+      "conditions": {
+        "effects": {
+          "frs:bleeding": {}
+        }
+      }
+    }
+  }
+}

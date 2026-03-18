@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  S",
+    " P ",
+    "P  "
+  ],
+  "key": {
+    "S": { "item": "frs:dark_steel_ingot" },
+    "P": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "item": "frs:dark_steel_spear",
+    "count": 1
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "frs:block/alloy_furnace_top",
+    "up": "frs:block/alloy_furnace_top",
+    "north": "frs:block/alloy_furnace_front",
+    "south": "frs:block/alloy_furnace_side",
+    "west": "frs:block/alloy_furnace_side",
+    "east": "frs:block/alloy_furnace_side"
+  }
+}

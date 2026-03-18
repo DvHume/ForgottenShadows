@@ -1,0 +1,18 @@
+{
+  "display": {
+    "icon": {"item": "frs.divine_metal"},
+    "title": {"translate":  "advancement.frs.god_innovation.title"},
+    "description": {"translate": "advancement.frs.god_innovation.description"},
+    "frame": "task"
+  },
+  "criteria": {
+    "has_divine_metal": {
+      "trigger": "minecraft.inventory.changed",
+      "conditions": {
+        "items": [
+          {"item": "frs.divine_metal"}
+        ]
+      }
+    }
+  }
+}

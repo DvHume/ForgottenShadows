@@ -1,0 +1,13 @@
+{
+  "herbal_bandage_use": {
+    "sounds": [
+      "frs:herbal_bandage_use"
+    ]
+  },
+  "mode_switch": {
+    "sounds": [
+      "frs:mode_switch"
+    ]
+  }
+}
+
