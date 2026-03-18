@@ -39,10 +39,10 @@ public class SoulHudHandler {
             int y = screenHeight - 49;
 
             //
-            AbstractGui.fill(matrix, x - 1, y -1, x + BAR_WIDTH + 1, y + BAR_HEIGHT + 1, 0x88000000);//Здесь 6 нулей(чтобы не вглядываться)
+            AbstractGui.fill(matrix, x - 1, y -1, x + BAR_WIDTH + 1, y + BAR_HEIGHT + 1, 0xFF00BCD4);
 
             String text = I18n.get("hud.frs.souls") + ": " + (int)souls.getSouls();
-            mc.font.draw(matrix, text, x, y -10, 0xFF00BCD4);
+            mc.font.draw(matrix, text, x, y -10, 0xFFADD8E6);
         });
     }
 }

@@ -2,6 +2,7 @@ package main;
 
 import main.capability.SoulCapability;
 import main.init.*;
+import main.network.ModNetwork;
 import main.screen.AlloyFurnaceScreen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -55,6 +56,7 @@ public class ForgottenShadows
     {
         // some preinit code
         SoulCapability.register();
+        ModNetwork.register();
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
