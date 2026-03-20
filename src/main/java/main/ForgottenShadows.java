@@ -39,6 +39,7 @@ public class ForgottenShadows
         ModBlocks.BLOCKS.register(bus);
         ModTiles.TILES.register(bus);
         ModContainers.CONTAINERS.register(bus);
+        ModEntities.ENTITIES.register(bus);
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading

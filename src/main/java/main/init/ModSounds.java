@@ -15,4 +15,14 @@ public class ModSounds {
             "mode_switch",
             () -> new SoundEvent(new ResourceLocation("frs", "mode_switch"))
     );
+
+    public static final RegistryObject<SoundEvent> METEOR_FLY = SOUNDS.register(
+            "meteor_fly",
+            () -> new SoundEvent(new ResourceLocation("frs", "meteor_fly"))
+    );
+
+    public static final RegistryObject<SoundEvent> METEOR_IMPACT = SOUNDS.register(
+            "meteor_impact",
+            () -> new SoundEvent(new ResourceLocation("frs", "meteor_impact"))
+    );
 }

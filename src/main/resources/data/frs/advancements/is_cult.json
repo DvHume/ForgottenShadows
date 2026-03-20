@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {"item": "frs:is_cult"},
+    "title": {"translate":  "advancement.frs.is_cult.title"},
+    "description": {"translate": "advancement.frs.is_cult.description"},
+    "frame": "task"
+  },
+  "parent": "frs:kick_bleeding",
+  "criteria": {
+    "has_divine_metal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {"item": "frs:is_cult"}
+        ]
+      }
+    }
+  }
+}

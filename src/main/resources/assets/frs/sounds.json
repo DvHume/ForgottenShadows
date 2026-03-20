@@ -8,6 +8,16 @@
     "sounds": [
       "frs:mode_switch"
     ]
+  },
+  "meteor_fly": {
+    "sounds": [
+      "frs:meteor_fly"
+    ]
+  },
+  "meteor_impact": {
+    "sounds": [
+      "frs:meteor_impact"
+    ]
   }
 }
 

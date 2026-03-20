@@ -9,6 +9,7 @@ import net.minecraft.command.Commands;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -33,7 +34,7 @@ public class SoulCommand {
                                             });
 
                                             ctx.getSource().sendSuccess(
-                                                    new StringTextComponent("Душа установлена: " + amount)
+                                                    new StringTextComponent("Soul set to: " + amount)
                                                             .withStyle(TextFormatting.AQUA), false
                                             );
 
@@ -62,7 +63,7 @@ public class SoulCommand {
                                             });
 
                                             ctx.getSource().sendSuccess(
-                                                    new StringTextComponent("Душа изменена на: " + amount)
+                                                    new StringTextComponent("Soul added: " + amount)
                                                             .withStyle(TextFormatting.AQUA), false
                                             );
 
@@ -86,7 +87,7 @@ public class SoulCommand {
 
                                     player.getCapability(SoulCapability.SOUL_CAP).ifPresent(souls -> {
                                         ctx.getSource().sendSuccess(
-                                                new StringTextComponent("Текущая душа: " + souls.getSouls())
+                                                new StringTextComponent("Soul: " + souls.getSouls())
                                                         .withStyle(TextFormatting.AQUA), false
                                         );
                                     });

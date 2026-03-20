@@ -81,12 +81,16 @@ public class SoulEventHandler {
                 // (int)(Math.abs(currentSouls) - 20) / 10 — count how many thresholds have been hit
                 if (currentSouls <= -20) {
                     int slowLevel = (int)(Math.abs(currentSouls) - 20) / 10;
-                    player.addEffect(new EffectInstance(
-                            Effects.MOVEMENT_SLOWDOWN,
-                            3600, //3 min
-                            Math.min(slowLevel, 5), //max 6 lvl
-                            false, false
-                    ));
+                    EffectInstance current = player.getEffect(Effects.MOVEMENT_SLOWDOWN);
+                    boolean needsUpdate = current == null || current.getAmplifier() != slowLevel;
+                    if (needsUpdate) {
+                        player.addEffect(new EffectInstance(
+                                Effects.MOVEMENT_SLOWDOWN,
+                                3600, //3 min
+                                Math.min(slowLevel, 5), //max 6 lvl
+                                false, false
+                        ));
+                    }
                 }
             }
         });

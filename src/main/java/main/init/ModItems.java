@@ -36,4 +36,24 @@ public class ModItems {
     public static final RegistryObject<Item> DARK_STEEL_INGOT = ITEMS.register("dark_steel_ingot", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
 
     public static final RegistryObject<Item> DARK_STEEL_SPEAR = ITEMS.register("dark_steel_spear", () -> new DarkSteelSpear());
+
+    public static final RegistryObject<Item> IS_CULT = ITEMS.register("is_cult", () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> VIRTON_SHARD = ITEMS.register("virton_shard", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+
+    public static final RegistryObject<Item> VIRTON_CRYSTAL = ITEMS.register("virton_crystal", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+
+    public static final RegistryObject<Item> METEOR_IRON_ORE = ITEMS.register("meteor_iron_ore", () -> new BlockItem(ModBlocks.METEOR_IRON_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> METEOR_GOLD_ORE = ITEMS.register("meteor_gold_ore", () -> new BlockItem(ModBlocks.METEOR_GOLD_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> IRIDIUM_ORE = ITEMS.register("iridium_ore", () -> new BlockItem(ModBlocks.IRIDIUM_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> OSMIUM_ORE = ITEMS.register("osmium_ore", () -> new BlockItem(ModBlocks.OSMIUM_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> PLATINUM_ORE = ITEMS.register("platinum_ore", () -> new BlockItem(ModBlocks.PLATINUM_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> METEOR_ROCK = ITEMS.register("meteor_rock", () -> new BlockItem(ModBlocks.METEOR_ROCK.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> METEOR_MAGMA = ITEMS.register("meteor_magma", () -> new BlockItem(ModBlocks.METEOR_MAGMA.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 }
