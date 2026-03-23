@@ -1,5 +1,7 @@
 package main.block;
 
+import main.init.ModBlocks;
+import main.world.MeteorCraterGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
@@ -8,6 +10,7 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
@@ -21,16 +24,34 @@ public class MeteorMagmaBlock extends Block {
     }
 
     @Override
-    public void entityInside(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (!world.isClientSide) {
+    public void stepOn(World world, BlockPos pos, Entity entity) {
+        if (!world.isClientSide && entity instanceof net.minecraft.entity.LivingEntity) {
             entity.hurt(DamageSource.HOT_FLOOR, 3.0f);
+        }
+        super.stepOn(world, pos, entity);
+    }
+
+    @Override
+    public void onPlace(BlockState state, World world, BlockPos pos, BlockState oldState, boolean isMoving) {
+        world.getBlockTicks().scheduleTick(pos, this, 1000 + world.random.nextInt(400));
+    }
+
+    @Override
+    public void tick(BlockState state, ServerWorld world,BlockPos pos,Random rand) {
+        BlockState hotRock = ModBlocks.METEOR_ROCK.get()
+                .defaultBlockState()
+                .setValue(MeteorRockBlock.HOT, true);
+        world.setBlock(pos, hotRock, 3);
+
+        if (rand.nextFloat() < 0.4f) {
+            world.setBlock(pos, MeteorCraterGenerator.getRandomOre(rand), 3);
         }
     }
 
     @Override
-    public void animateTick(BlockState state, World world, BlockPos pos, Random rand) {
+    public void animateTick(BlockState state, World world,BlockPos pos, Random rand) {
         if (rand.nextInt(3) == 0) {
-            world.addParticle(ParticleTypes.LAVA,
+            world.addParticle(ParticleTypes.SOUL_FIRE_FLAME,
                     pos.getX() + rand.nextDouble(),
                     pos.getY() + 1.0,
                     pos.getZ() + rand.nextDouble(), 0, 0.05, 0);

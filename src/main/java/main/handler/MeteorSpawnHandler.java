@@ -1,6 +1,7 @@
 package main.handler;
 
 import main.entity.MeteorEntity;
+import main.init.ModEntities;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.TickEvent;
@@ -9,7 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
 import java.util.Random;
-
+@Mod.EventBusSubscriber(modid = "frs")
 public class MeteorSpawnHandler {
 
     private static final int MIN_INTERVAL = 24000 * 2;
@@ -41,15 +42,20 @@ public class MeteorSpawnHandler {
         ServerPlayerEntity target = players.get(world.random.nextInt(players.size()));
 
         Random rand = world.random;
+        int distance = 150 + rand.nextInt(250);
+        double angle = rand.nextDouble() * 2 * Math.PI;
         int offsetX = (100 + rand.nextInt(50)) * (rand.nextBoolean() ? 1 : -1);
         int offsetZ = (100 + rand.nextInt(50)) * (rand.nextBoolean() ? 1 : -1);
 
         double x = target.getX() + offsetX;
         double z = target.getZ() + offsetZ;
         //spawn in air
-        double y = 300;
+        double y = 200;
 
-        MeteorEntity meteor = new MeteorEntity(world, x, y, z);
+        MeteorEntity meteor = new MeteorEntity(ModEntities.METEOR.get(), world);
+        meteor.setPos(x, y, z);
+
+        meteor.setDeltaMovement((rand.nextDouble() - 0.5) * 0.5, -0.8, (rand.nextDouble() - 0.5) * 0.5);
         world.addFreshEntity(meteor);
     }
     private static int getRandomInterval(Random rand) {

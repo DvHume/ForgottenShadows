@@ -1,6 +1,6 @@
 {
   "advancement.frs.kick_bleeding.title": "Что???",
-  "advancement.frs.kick_bleeding.description": "Просто подсказка: кровотечение можно излечить бинтом с травами",
+  "advancement.frs.kick_bleeding.description": "Кровотечение можно излечить бинтом с травами",
   "advancement.frs.god_innovation.title": "test",
   "advancement.frs.god_innovation.description": "test too",
   "advancement.frs.is_cult.title": "is this a cult?",
@@ -31,7 +31,7 @@
   "item.frs.flaming_pickaxe.tooltip_hint": "Shift+ПКМ для изменения",
   "effect.frs.heavy_wound": "Тяжёлая рана",
   "effect.frs.bleeding": "Кровотечение",
-  "item.frs.herbal_bandage": "Бинт из трав",
+  "item.frs.herbal_bandage": "Бинт с травами",
   "item.frs.tin_ingot": "Слиток олова",
   "item.frs.flaming_ingot": "Пылающий слиток",
   "item.frs.dark_steel_ingot": "Слиток тёмной стали",

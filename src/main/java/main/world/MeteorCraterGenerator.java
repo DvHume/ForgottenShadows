@@ -10,9 +10,10 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class MeteorCraterGenerator {
-
+//Right now the meteorite looks a half-empty sphere
+    //Feel free to fix it yourself if you can be bothered. Thanks!
     public static void generate(World world, BlockPos center, Random rand) {
-        int radius = 4 + rand.nextInt(3); //radius crater
+        int radius = 4 + rand.nextInt(8); //radius crater
 
         for (int x = -radius; x <= radius; x++) {
             for (int z = -radius; z <= radius; z++) {
@@ -21,6 +22,11 @@ public class MeteorCraterGenerator {
                     double dist = Math.sqrt(x*x + y*y + z*z);
 
                     if (dist > radius) continue;
+
+                    if (y > 0 && dist < radius * 0.8) {
+                        world.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+                        continue;
+                    }
                     //core
                     if (dist < radius * 0.4) {
                         world.setBlock(pos, ModBlocks.METEOR_MAGMA.get().defaultBlockState(), 3);
@@ -40,15 +46,12 @@ public class MeteorCraterGenerator {
                         world.setBlock(pos, ModBlocks.METEOR_ROCK.get()
                                 .defaultBlockState(), 3);
                     }
-                    if (y > 0 && dist < radius * 0.8) {
-                        world.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
-                    }
                 }
             }
         }
     }
 
-    private  static BlockState getRandomOre(Random rand) {
+    public static BlockState getRandomOre(Random rand) {
         int roll = rand.nextInt(100);
 
         if (roll < 30) return ModBlocks.METEOR_IRON_ORE.get().defaultBlockState();
@@ -56,6 +59,6 @@ public class MeteorCraterGenerator {
         if (roll < 70) return ModBlocks.PLATINUM_ORE.get().defaultBlockState();
         if (roll < 82) return ModBlocks.IRIDIUM_ORE.get().defaultBlockState();
         if (roll < 92) return ModBlocks.OSMIUM_ORE.get().defaultBlockState();
-        return ModBlocks.METEOR_ROCK.get().defaultBlockState();
+        return ModBlocks.METEOR_ROCK.get().defaultBlockState().setValue(MeteorRockBlock.HOT, false);
     }
 }

@@ -9,6 +9,9 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
+
+import java.util.Random;
 
 
 public class MeteorRockBlock extends Block {
@@ -26,6 +29,20 @@ public class MeteorRockBlock extends Block {
     @Override
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(HOT);
+    }
+
+    @Override
+    public void onPlace(BlockState state, World world, BlockPos pos, BlockState oldState, boolean isMoving) {
+        if (state.getValue(HOT)) {
+            world.getBlockTicks().scheduleTick(pos, this, 2000 + world.random.nextInt(400));
+        }
+    }
+
+    @Override
+    public void tick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
+        if (state.getValue(HOT)) {
+            world.setBlock(pos, state.setValue(HOT, false), 3);
+        }
     }
 
     @Override

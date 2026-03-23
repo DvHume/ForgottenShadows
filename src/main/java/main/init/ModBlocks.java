@@ -1,6 +1,8 @@
 package main.init;
 
 import main.block.AlloyFurnace;
+import main.block.MeteorMagmaBlock;
+import main.block.MeteorRockBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -25,7 +27,7 @@ public class ModBlocks {
 
     public static final  RegistryObject<Block> PLATINUM_ORE = BLOCKS.register("platinum_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(5.0f).requiresCorrectToolForDrops()));
 
-    public static final  RegistryObject<Block> METEOR_ROCK = BLOCKS.register("meteor_rock", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.5f).requiresCorrectToolForDrops()));
+    public static final  RegistryObject<Block> METEOR_ROCK = BLOCKS.register("meteor_rock", () -> new MeteorRockBlock());
 
-    public static final  RegistryObject<Block> METEOR_MAGMA = BLOCKS.register("meteor_magma", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(4.2f).requiresCorrectToolForDrops()));
+    public static final  RegistryObject<Block> METEOR_MAGMA = BLOCKS.register("meteor_magma", () -> new MeteorMagmaBlock());
 }
