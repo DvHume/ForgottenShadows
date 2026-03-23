@@ -38,8 +38,7 @@ public class MeteorCraterGenerator {
                     }
                     else {
                         world.setBlock(pos, ModBlocks.METEOR_ROCK.get()
-                                .defaultBlockState()
-                                .setValue(MeteorRockBlock.HOT, true), 3);
+                                .defaultBlockState(), 3);
                     }
                     if (y > 0 && dist < radius * 0.8) {
                         world.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);

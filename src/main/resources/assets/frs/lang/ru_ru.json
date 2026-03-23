@@ -14,6 +14,8 @@
   "block.frs.iridium_ore": "Иридиевая руда",
   "block.frs.osmium_ore": "Осмиевая руда",
   "block.frs.platinum_ore": "Платиновая руда",
+  "block.frs.meteor_rock": "Блок метеорита",
+  "block.frs.meteor_magma": "Метеоритовая магма",
   "tooltip.frs.hold_shift": "Shift для подробной информации",
   "item.frs.divine_sword": "Меч из божественного металла",
   "item.frs.divine_sword.tooltip": "Боги выковали этот меч, чтобы убивать других богов!",

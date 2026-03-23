@@ -21,9 +21,10 @@ public class MeteorMagmaBlock extends Block {
     }
 
     @Override
-    public void stepOn(World world, BlockPos pos, Entity entity) {
-        entity.hurt(DamageSource.HOT_FLOOR, 3.0f);
-        super.stepOn(world, pos, entity);
+    public void entityInside(BlockState state, World world, BlockPos pos, Entity entity) {
+        if (!world.isClientSide) {
+            entity.hurt(DamageSource.HOT_FLOOR, 3.0f);
+        }
     }
 
     @Override

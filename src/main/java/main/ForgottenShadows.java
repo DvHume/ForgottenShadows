@@ -1,17 +1,21 @@
 package main;
 
 import main.capability.SoulCapability;
+import main.entity.MeteorEntity;
 import main.init.*;
 import main.network.ModNetwork;
 import main.screen.AlloyFurnaceScreen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -66,6 +70,14 @@ public class ForgottenShadows
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
         ScreenManager.register(ModContainers.ALLOY_FURNACE.get(), AlloyFurnaceScreen::new);
+        RenderingRegistry.registerEntityRenderingHandler(
+                ModEntities.METEOR.get(), manager -> new net.minecraft.client.renderer.entity.EntityRenderer<MeteorEntity>(manager) {
+                    @Override
+                    public net.minecraft.util.ResourceLocation getTextureLocation(MeteorEntity entity) {
+                        return new net.minecraft.util.ResourceLocation("frs", "textures/entity/meteor.png");
+                    }
+                }
+        );
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

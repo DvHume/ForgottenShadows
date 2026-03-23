@@ -14,6 +14,8 @@
   "block.frs.iridium_ore": "Iridium ore",
   "block.frs.osmium_ore": "Osmium ore",
   "block.frs.platinum_ore": "Platinum ore",
+  "block.frs.meteor_rock": "Meteor rock",
+  "meteor.frs.meteor_magma": "Meteor magma",
   "tooltip.frs.hold_shift": "Hold on Shift",
   "item.frs.divine_sword": "Sword of Divine metal",
   "item.frs.divine_sword.tooltip": "The gods forged this sword to kill other gods!",

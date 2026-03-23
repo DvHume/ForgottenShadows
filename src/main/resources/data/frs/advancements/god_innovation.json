@@ -1,16 +1,17 @@
 {
   "display": {
-    "icon": {"item": "frs.divine_metal"},
+    "icon": {"item": "frs:divine_metal"},
     "title": {"translate":  "advancement.frs.god_innovation.title"},
     "description": {"translate": "advancement.frs.god_innovation.description"},
     "frame": "task"
   },
+  "parent": "frs:kick_bleeding",
   "criteria": {
     "has_divine_metal": {
-      "trigger": "minecraft.inventory.changed",
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
-          {"item": "frs.divine_metal"}
+          {"item": "frs:divine_metal"}
         ]
       }
     }
