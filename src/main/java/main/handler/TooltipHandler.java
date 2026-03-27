@@ -38,18 +38,15 @@ public class TooltipHandler {
         if (stack.getItem() == ModItems.ALLOY_FURNACE.get()) {
             long tick = System.currentTimeMillis() / 100;
             TextFormatting color = RAINBOW[(int)(tick % RAINBOW.length)];
-            // Обычное описание
             event.getToolTip().add(new TranslationTextComponent("block.frs.alloy_furnace.tooltip")
                     .withStyle(color));
 
             event.getToolTip().add(new StringTextComponent(" "));
 
-            // Описание при зажатом Shift
             if (net.minecraft.client.gui.screen.Screen.hasShiftDown()) {
                 event.getToolTip().add(new TranslationTextComponent("block.frs.alloy_furnace.tooltip_shift")
                         .withStyle(TextFormatting.RED));
             } else {
-                // Подсказка что есть доп. описание
                 event.getToolTip().add(new TranslationTextComponent("tooltip.frs.hold_shift")
                         .withStyle(TextFormatting.YELLOW));
             }
@@ -77,6 +74,25 @@ public class TooltipHandler {
 
             event.getToolTip().add(new TranslationTextComponent("item.frs.flaming_pickaxe.tooltip_hint")
                     .withStyle(TextFormatting.YELLOW));
+        }
+
+        if (stack.getItem() == ModItems.HERBAL_BANDAGE.get()) {
+            event.getToolTip().add(new TranslationTextComponent("item.frs.herbal_bandage.tooltip")
+                    .withStyle(TextFormatting.GOLD));
+            event.getToolTip().add(new TranslationTextComponent("item.frs.herbal_bandage.tool")
+                    .withStyle(TextFormatting.RED));
+        }
+
+        if (stack.getItem() == ModItems.VIRTON_SHARD.get()) {
+            event.getToolTip().add(new TranslationTextComponent("item.frs.virton_shard.tooltip")
+                    .withStyle(TextFormatting.AQUA));
+        }
+
+        if (stack.getItem() == ModItems.HERBAL_SOLUTION.get()) {
+            event.getToolTip().add(new TranslationTextComponent("item.frs.herbal_solution.tooltip")
+                    .withStyle(TextFormatting.GRAY));
+            event.getToolTip().add(new TranslationTextComponent("item.frs.herbal_solution.tool")
+                    .withStyle(TextFormatting.GREEN));
         }
     }
 }

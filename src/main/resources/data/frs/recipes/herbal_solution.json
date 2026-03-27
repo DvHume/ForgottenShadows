@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {"item": "minecraft:dandelion"},
+    {"item": "minecraft:dandelion"},
+    {"item": "minecraft:oxeye_daisy"},
+    {"item": "minecraft:oxeye_daisy"},
+    {"item": "minecraft:potion", "nbt": "{Potion:\"minecraft:water\"}"}
+  ],
+  "result": {
+    "item": "frs:herbal_solution"
+  }
+}

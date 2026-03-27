@@ -2,6 +2,7 @@
   "type": "minecraft:block",
   "pools": [
     {
+      "name": "main_block",
       "rolls": 1,
       "entries": [
         {
@@ -14,19 +15,25 @@
           "condition": "minecraft:survives_explosion"
         }
       ]
-    }
-  ],
-  "rolls": 1,
-  "entries": [
+    },
     {
-      "type": "minecraft:item",
-      "name": "frs:virton_shard"
-    }
-  ],
-  "conditions": [
-    {
-      "condition": "minecraft:random_chance",
-      "chance": 0.5
+      "name": "extra_drop",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "frs:virton_shard"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.3
+        },
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
     }
   ]
 }

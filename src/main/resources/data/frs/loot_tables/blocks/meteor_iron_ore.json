@@ -2,6 +2,7 @@
   "type": "minecraft:block",
   "pools": [
     {
+      "name": "meteor_iron",
       "rolls": 1,
       "entries": [
         {
@@ -10,6 +11,25 @@
         }
       ],
       "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    },
+    {
+      "name": "nickel",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "frs:nickel_ingot"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.45
+        },
         {
           "condition": "minecraft:survives_explosion"
         }

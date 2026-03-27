@@ -62,7 +62,7 @@ public class MeteorEntity extends Entity {
 
         Vector3d motion = this.getDeltaMovement();
         double gravity = -0.02;
-        double maxFallSpeed = -0.6;
+        double maxFallSpeed = -0.8;
 
         double newY = motion.y + gravity;
         if (newY < maxFallSpeed) newY = maxFallSpeed;

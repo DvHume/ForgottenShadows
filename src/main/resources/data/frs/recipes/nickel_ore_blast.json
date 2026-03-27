@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "frs:nickel_ore"
+  },
+  "result": "frs:nickel_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

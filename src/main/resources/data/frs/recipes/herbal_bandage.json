@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "M", "S"
+  ],
+  "key": {
+    "M": {
+      "item": "frs:disinfected_cloth"
+    },
+    "S": {
+      "item": "frs:shepherds_purse"
+    }
+  },
+  "result": {
+    "item": "frs:herbal_bandage",
+    "count": 1
+  }
+}

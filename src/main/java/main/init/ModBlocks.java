@@ -3,6 +3,7 @@ package main.init;
 import main.block.AlloyFurnace;
 import main.block.MeteorMagmaBlock;
 import main.block.MeteorRockBlock;
+import main.block.ShepherdsPurse;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -30,4 +31,8 @@ public class ModBlocks {
     public static final  RegistryObject<Block> METEOR_ROCK = BLOCKS.register("meteor_rock", () -> new MeteorRockBlock());
 
     public static final  RegistryObject<Block> METEOR_MAGMA = BLOCKS.register("meteor_magma", () -> new MeteorMagmaBlock());
+
+    public static final RegistryObject<Block> SHEPHERDS_PURSE = BLOCKS.register("shepherds_purse", () -> new ShepherdsPurse());
+
+    public static final RegistryObject<Block> NICKEL_ORE = BLOCKS.register("nickel_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.0f).requiresCorrectToolForDrops()));
 }

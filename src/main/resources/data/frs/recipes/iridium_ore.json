@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "frs:iridium_ore"
+  },
+  "result": "frs:iridium_ingot",
+  "experience": 0.7,
+  "cookingtime": 200
+}
