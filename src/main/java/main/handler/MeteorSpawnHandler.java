@@ -18,8 +18,8 @@ import java.util.Random;
 @Mod.EventBusSubscriber(modid = "frs")
 public class MeteorSpawnHandler {
 
-    private static final int MIN_INTERVAL = 24000 * 2;
-    private static final int MAX_INTERVAL = 24000 * 3;
+    private static final int MIN_INTERVAL = 36000;
+    private static final int MAX_INTERVAL = 24000 * 2;
 
     @SubscribeEvent
     public static void onWorldTick(TickEvent.WorldTickEvent event) {
@@ -53,7 +53,7 @@ public class MeteorSpawnHandler {
 
         double x = target.getX() + offsetX;
         double z = target.getZ() + offsetZ;
-        double y = 150;
+        double y = 130;
 
         MeteorEntity meteor = new MeteorEntity(ModEntities.METEOR.get(), world);
         meteor.setPos(x, y, z);

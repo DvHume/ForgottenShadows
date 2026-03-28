@@ -7,7 +7,7 @@
   },
   "parent": "frs:kick_bleeding",
   "criteria": {
-    "has_divine_metal": {
+    "is_cult": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

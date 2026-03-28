@@ -85,14 +85,21 @@ public class TooltipHandler {
 
         if (stack.getItem() == ModItems.VIRTON_SHARD.get()) {
             event.getToolTip().add(new TranslationTextComponent("item.frs.virton_shard.tooltip")
-                    .withStyle(TextFormatting.AQUA));
+                    .withStyle(TextFormatting.LIGHT_PURPLE));
         }
 
         if (stack.getItem() == ModItems.HERBAL_SOLUTION.get()) {
             event.getToolTip().add(new TranslationTextComponent("item.frs.herbal_solution.tooltip")
-                    .withStyle(TextFormatting.GRAY));
+                    .withStyle(TextFormatting.GOLD));
             event.getToolTip().add(new TranslationTextComponent("item.frs.herbal_solution.tool")
                     .withStyle(TextFormatting.GREEN));
+        }
+
+        if (stack.getItem() == ModItems.ROTTEN_EGG.get()) {
+            event.getToolTip().add(new TranslationTextComponent("item.frs.rotten_egg.tooltip")
+                    .withStyle(TextFormatting.GREEN));
+            event.getToolTip().add(new TranslationTextComponent("item.frs.rotten_egg.tool")
+                    .withStyle(TextFormatting.DARK_RED));
         }
     }
 }

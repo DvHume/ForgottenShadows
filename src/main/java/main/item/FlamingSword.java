@@ -6,7 +6,7 @@ import net.minecraft.item.*;
 public class FlamingSword extends SwordItem {
 
     public FlamingSword() {
-        super(ItemTier.NETHERITE, 8, -2.4F, new Item.Properties().tab(ItemGroup.TAB_COMBAT));
+        super(ItemTier.NETHERITE, 6, -2.4F, new Item.Properties().tab(ItemGroup.TAB_COMBAT));
     }
 
     @Override

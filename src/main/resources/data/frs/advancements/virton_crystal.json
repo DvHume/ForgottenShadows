@@ -1,0 +1,27 @@
+{
+  "display": {
+    "background": "frs:textures/block/meteor_rock.png",
+    "icon": {
+      "item": "frs:virton_shard"
+    },
+    "title": {
+      "translate": "advancement.frs.virton_crystal.title"
+    },
+    "description": {
+      "translate": "advancement.frs.virton_crystal.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "has_virton_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {"item": "frs:virton_crystal"}
+        ]
+      }
+    }
+  }
+}

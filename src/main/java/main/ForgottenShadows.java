@@ -9,6 +9,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -77,6 +79,12 @@ public class ForgottenShadows
                         return new net.minecraft.util.ResourceLocation("frs", "textures/entity/meteor.png");
                     }
                 }
+        );
+        RenderTypeLookup.setRenderLayer(ModBlocks.SHEPHERDS_PURSE.get(), RenderType.cutout());
+
+        RenderingRegistry.registerEntityRenderingHandler(
+                ModEntities.ROTTEN_EGG.get(),
+                manager -> new SpriteRenderer<>(manager, Minecraft.getInstance().getItemRenderer())
         );
     }
 

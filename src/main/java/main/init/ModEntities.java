@@ -1,6 +1,7 @@
 package main.init;
 
 import main.entity.MeteorEntity;
+import main.entity.RottenEggEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
@@ -18,4 +19,12 @@ public class ModEntities {
                             .sized(2.0f, 2.0f)
                             .build("meteor")
             );
+
+    public static final RegistryObject<EntityType<RottenEggEntity>> ROTTEN_EGG =
+            ENTITIES.register("rotten_egg", () ->
+                    EntityType.Builder.<RottenEggEntity>of(RottenEggEntity::new, EntityClassification.MISC)
+                            .sized(0.25f, 0.25f)
+                            .build("rotten_egg")
+            );
+
 }

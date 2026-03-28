@@ -10,12 +10,13 @@ import net.minecraft.item.BlockItem;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "frs");
-    //Items
     public static final RegistryObject<Item> DIVINE_METAL = ITEMS.register("divine_metal", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
 
     public static final RegistryObject<Item> DIVINE_SWORD = ITEMS.register("divine_sword", () -> new DivineSword());
 
     public static final RegistryObject<Item> HERBAL_BANDAGE = ITEMS.register("herbal_bandage", () -> new HerbalBandage());
+
+    public static final RegistryObject<Item> TIN_ORE = ITEMS.register("tin_ore", () -> new BlockItem(ModBlocks.TIN_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
      //TIN - я забыл добавить ingot извините за путаницу
     public static final RegistryObject<Item> TIN = ITEMS.register("tin_ingot", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
 
@@ -32,6 +33,8 @@ public class ModItems {
     public static final RegistryObject<Item> VIRTON_SHARD = ITEMS.register("virton_shard", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
 
     public static final RegistryObject<Item> VIRTON_CRYSTAL = ITEMS.register("virton_crystal", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+
+    public static final RegistryObject<Item> METEOR_IRON_ORE = ITEMS.register("meteor_iron_ore", () -> new BlockItem(ModBlocks.METEOR_IRON_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
     public static final RegistryObject<Item> METEOR_GOLD_ORE = ITEMS.register("meteor_gold_ore", () -> new BlockItem(ModBlocks.METEOR_GOLD_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
@@ -59,7 +62,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> PLATINUM_INGOT = ITEMS.register("platinum_ingot", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
 
-    //Blocks. Ok, I'm lazy to move it
     public static final RegistryObject<Item> SHEPHERDS_PURSE = ITEMS.register("shepherds_purse", () -> new BlockItem(ModBlocks.SHEPHERDS_PURSE.get(), new Item.Properties().tab(ItemGroup.TAB_MISC)));
 
     public static final RegistryObject<Item> FLAMING_SWORD = ITEMS.register("flaming_sword", () -> new FlamingSword());
@@ -69,9 +71,9 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.ALLOY_FURNACE.get(), new Item.Properties())
     );
 
-    public static final RegistryObject<Item> TIN_ORE = ITEMS.register("tin_ore", () -> new BlockItem(ModBlocks.TIN_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
-
-    public static final RegistryObject<Item> METEOR_IRON_ORE = ITEMS.register("meteor_iron_ore", () -> new BlockItem(ModBlocks.METEOR_IRON_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
-
     public static final RegistryObject<Item> NICKEL_ORE = ITEMS.register("nickel_ore", () -> new BlockItem(ModBlocks.NICKEL_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> LEAFY_STEM = ITEMS.register("leafy_stem", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MISC)));
+
+    public static final RegistryObject<Item> ROTTEN_EGG = ITEMS.register("rotten_egg", () -> new RottenEgg());
 }
