@@ -1,11 +1,8 @@
 {
-  "parent": "block/cube",
+  "parent": "minecraft:block/orientable",
   "textures": {
-    "down": "frs:block/alloy_furnace_top",
-    "up": "frs:block/alloy_furnace_top",
-    "north": "frs:block/alloy_furnace_front",
-    "south": "frs:block/alloy_furnace_side",
-    "west": "frs:block/alloy_furnace_side",
-    "east": "frs:block/alloy_furnace_side"
+    "top": "frs:block/alloy_furnace_top",
+    "front": "frs:block/alloy_furnace_front",
+    "side": "frs:block/alloy_furnace_side"
   }
 }

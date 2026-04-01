@@ -30,11 +30,13 @@ public class RottenEgg extends Item {
 
         if (!world.isClientSide) {
             RottenEggEntity egg = new RottenEggEntity(world, player);
+            egg.setItem(stack);
             egg.shootFromRotation(player, player.xRot, player.yRot, 0.0f, 1.5f, 1.0f);
             world.addFreshEntity(egg);
         }
-
-        stack.shrink(1);
+        if (!player.abilities.instabuild) {
+            stack.shrink(1);
+        }
         return ActionResult.success(stack);
     }
 }

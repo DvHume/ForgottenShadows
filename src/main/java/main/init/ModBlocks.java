@@ -1,11 +1,9 @@
 package main.init;
 
-import main.block.AlloyFurnace;
-import main.block.MeteorMagmaBlock;
-import main.block.MeteorRockBlock;
-import main.block.ShepherdsPurse;
+import main.block.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -35,4 +33,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> SHEPHERDS_PURSE = BLOCKS.register("shepherds_purse", () -> new ShepherdsPurse());
 
     public static final RegistryObject<Block> NICKEL_ORE = BLOCKS.register("nickel_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.0f).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> BLOOD_QUARTZ_ORE = BLOCKS.register("blood_quartz_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.0f).sound(SoundType.NETHERRACK)));
+
+    public static final RegistryObject<Block> FERROX_ORE = BLOCKS.register("ferrox_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.1f)));
+
+    public static final RegistryObject<Block> FLAMING_ORE = BLOCKS.register("flaming_ore", () -> new FlamingOre());
 }

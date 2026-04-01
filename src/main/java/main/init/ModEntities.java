@@ -24,6 +24,9 @@ public class ModEntities {
             ENTITIES.register("rotten_egg", () ->
                     EntityType.Builder.<RottenEggEntity>of(RottenEggEntity::new, EntityClassification.MISC)
                             .sized(0.25f, 0.25f)
+                            .setTrackingRange(64)
+                            .setUpdateInterval(3)
+                            .setShouldReceiveVelocityUpdates(true)
                             .build("rotten_egg")
             );
 

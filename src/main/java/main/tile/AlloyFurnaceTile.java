@@ -101,14 +101,14 @@ public class AlloyFurnaceTile extends TileEntity implements INamedContainerProvi
         ItemStack slot2 = inventory.getStackInSlot(2);
         ItemStack output = inventory.getStackInSlot(4);
 
-        boolean hasGold = slot0.getItem() == Items.GOLD_INGOT;
-        boolean hasIron = slot1.getItem() == Items.IRON_INGOT;
-        boolean hasTin = slot2.getItem() == ModItems.TIN.get();
+        boolean hasFerrox = slot0.getItem() == ModItems.FERROX_POWDER.get();
+        boolean hasObsidian = slot1.getItem() == ModItems.OBSIDIAN_POWDER.get();
+        boolean hasPlatinum = slot2.getItem() == ModItems.PLATINUM_INGOT.get();
 
 
         boolean outputEmpty = output.isEmpty();
-        boolean outputFits = output.getItem() == ModItems.DIVINE_METAL.get() && output.getCount() < output.getMaxStackSize();
-        return hasGold && hasIron && hasTin && (outputEmpty || outputFits);
+        boolean outputFits = output.getItem() == ModItems.FERROX_INGOT.get() && output.getCount() < output.getMaxStackSize();
+        return hasFerrox && hasObsidian && hasPlatinum && (outputEmpty || outputFits);
     }
 
     private void craftItem() {
@@ -118,7 +118,7 @@ public class AlloyFurnaceTile extends TileEntity implements INamedContainerProvi
         inventory.extractItem(2, 1, false);
 
         if (output.isEmpty()) {
-            inventory.setStackInSlot(4, new ItemStack(ModItems.DIVINE_METAL.get(), 1));
+            inventory.setStackInSlot(4, new ItemStack(ModItems.FERROX_INGOT.get(), 1));
         } else {
             output.grow(1);
         }

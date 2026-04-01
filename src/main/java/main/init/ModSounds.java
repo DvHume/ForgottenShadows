@@ -11,18 +11,9 @@ public class ModSounds {
 
     public static final RegistryObject<SoundEvent> HERBAL_BANDAGE_USE = SOUNDS.register("herbal_bandage_use", () -> new SoundEvent(new ResourceLocation("frs", "herbal_bandage_use")));
 
-    public static final RegistryObject<SoundEvent> MODE_SWITCH = SOUNDS.register(
-            "mode_switch",
-            () -> new SoundEvent(new ResourceLocation("frs", "mode_switch"))
-    );
+    public static final RegistryObject<SoundEvent> MODE_SWITCH = SOUNDS.register("mode_switch", () -> new SoundEvent(new ResourceLocation("frs", "mode_switch")));
 
-    public static final RegistryObject<SoundEvent> METEOR_FLY = SOUNDS.register(
-            "meteor_fly",
-            () -> new SoundEvent(new ResourceLocation("frs", "meteor_fly"))
-    );
+    public static final RegistryObject<SoundEvent> METEOR_FLY = SOUNDS.register("meteor_fly", () -> new SoundEvent(new ResourceLocation("frs", "meteor_fly")));
 
-    public static final RegistryObject<SoundEvent> METEOR_IMPACT = SOUNDS.register(
-            "meteor_impact",
-            () -> new SoundEvent(new ResourceLocation("frs", "meteor_impact"))
-    );
+    public static final RegistryObject<SoundEvent> METEOR_IMPACT = SOUNDS.register("meteor_impact", () -> new SoundEvent(new ResourceLocation("frs", "meteor_impact")));
 }

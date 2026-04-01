@@ -76,7 +76,7 @@ public class MeteorEntity extends Entity {
     private void onImpact() {
         if (level.isClientSide) return;
 
-        level.playSound(null, getX(), getY(), getZ(),
+        level.playSound(null, getX(), getY() + 1.0D, getZ(),
                 ModSounds.METEOR_IMPACT.get(),
                 SoundCategory.AMBIENT, 10.0f, 1.0f);
 

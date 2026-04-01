@@ -8,10 +8,12 @@ import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.projectile.ProjectileItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.network.IPacket;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.network.NetworkHooks;
 
 public class RottenEggEntity extends ProjectileItemEntity {
 
@@ -21,6 +23,11 @@ public class RottenEggEntity extends ProjectileItemEntity {
 
     public RottenEggEntity(World world, LivingEntity thrower) {
         super(ModEntities.ROTTEN_EGG.get(), thrower, world);
+    }
+
+    @Override
+    public IPacket<?> getAddEntityPacket() {
+        return NetworkHooks.getEntitySpawningPacket(this);
     }
 
     @Override
@@ -35,7 +42,7 @@ public class RottenEggEntity extends ProjectileItemEntity {
         if (result.getEntity() instanceof VillagerEntity) {
             result.getEntity().hurt(DamageSource.MAGIC, Float.MAX_VALUE);
         } else if (result.getEntity() instanceof LivingEntity) {
-            result.getEntity().hurt(DamageSource.MAGIC, 1.0f);
+            result.getEntity().hurt(DamageSource.MAGIC, 0.0f);
         }
     }
 

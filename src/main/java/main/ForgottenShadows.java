@@ -1,6 +1,7 @@
 package main;
 
 import main.capability.SoulCapability;
+import main.client.render.MeteorRenderer;
 import main.entity.MeteorEntity;
 import main.init.*;
 import main.network.ModNetwork;
@@ -72,14 +73,7 @@ public class ForgottenShadows
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
         ScreenManager.register(ModContainers.ALLOY_FURNACE.get(), AlloyFurnaceScreen::new);
-        RenderingRegistry.registerEntityRenderingHandler(
-                ModEntities.METEOR.get(), manager -> new net.minecraft.client.renderer.entity.EntityRenderer<MeteorEntity>(manager) {
-                    @Override
-                    public net.minecraft.util.ResourceLocation getTextureLocation(MeteorEntity entity) {
-                        return new net.minecraft.util.ResourceLocation("frs", "textures/entity/meteor.png");
-                    }
-                }
-        );
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.METEOR.get(), MeteorRenderer::new);
         RenderTypeLookup.setRenderLayer(ModBlocks.SHEPHERDS_PURSE.get(), RenderType.cutout());
 
         RenderingRegistry.registerEntityRenderingHandler(

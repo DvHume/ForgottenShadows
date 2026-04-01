@@ -23,6 +23,28 @@ public class WorldGen {
 
     @SubscribeEvent
     public static void onBiomeLoad(BiomeLoadingEvent event) {
+
+        if (event.getCategory() == Biome.Category.NETHER) {
+            generateOre(event.getGeneration(),
+                    OreFeatureConfig.FillerBlockType.NETHERRACK,
+                    ModBlocks.BLOOD_QUARTZ_ORE.get().defaultBlockState(),
+                    6,
+                    10,
+                    100,
+                    8
+            );
+        }
+
+        if (event.getCategory() == Biome.Category.SWAMP) {
+            generateOre(event.getGeneration(),
+                    OreFeatureConfig.FillerBlockType.NATURAL_STONE,
+                    ModBlocks.FERROX_ORE.get().defaultBlockState(),
+                    5,
+                    10,
+                    30,
+                    4
+            );
+        }
         //
         if (event.getCategory() == Biome.Category.NETHER ||
                 event.getCategory() == Biome.Category.THEEND) return;
@@ -33,7 +55,7 @@ public class WorldGen {
                 8,
                 20,
                 50,
-                6
+                8
         );
 
         if (event.getCategory() == Biome.Category.NETHER ||
@@ -45,13 +67,14 @@ public class WorldGen {
                 8,
                 20,
                 50,
-                8
+                6
         );
 
         if (event.getCategory() != Biome.Category.NETHER &&
         event.getCategory() != Biome.Category.THEEND &&
         event.getCategory() != Biome.Category.DESERT &&
-        event.getCategory() != Biome.Category.ICY) {
+        event.getCategory() != Biome.Category.ICY &&
+        event.getCategory() != Biome.Category.SWAMP) {
 
             //There were some problems while writing this crap, so look at this terrible code
             event.getGeneration().addFeature(

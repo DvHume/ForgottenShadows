@@ -2,7 +2,7 @@
   "display": {
     "background": "frs:textures/block/meteor_rock.png",
     "icon": {
-      "item": "frs:virton_shard"
+      "item": "frs:virton_crystal"
     },
     "title": {
       "translate": "advancement.frs.virton_crystal.title"

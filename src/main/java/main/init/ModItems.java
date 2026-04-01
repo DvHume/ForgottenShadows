@@ -66,14 +66,25 @@ public class ModItems {
 
     public static final RegistryObject<Item> FLAMING_SWORD = ITEMS.register("flaming_sword", () -> new FlamingSword());
 
-    public static final RegistryObject<Item> ALLOY_FURNACE = ITEMS.register(
-            "alloy_furnace",
-            () -> new BlockItem(ModBlocks.ALLOY_FURNACE.get(), new Item.Properties())
-    );
+    public static final RegistryObject<Item> ALLOY_FURNACE = ITEMS.register("alloy_furnace", () -> new BlockItem(ModBlocks.ALLOY_FURNACE.get(), new Item.Properties().tab(ItemGroup.TAB_DECORATIONS)));
 
     public static final RegistryObject<Item> NICKEL_ORE = ITEMS.register("nickel_ore", () -> new BlockItem(ModBlocks.NICKEL_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
     public static final RegistryObject<Item> LEAFY_STEM = ITEMS.register("leafy_stem", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MISC)));
 
     public static final RegistryObject<Item> ROTTEN_EGG = ITEMS.register("rotten_egg", () -> new RottenEgg());
+
+    public static final RegistryObject<Item> BLOOD_QUARTZ_ORE = ITEMS.register("blood_quartz_ore", () -> new BlockItem(ModBlocks.BLOOD_QUARTZ_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> FERROX_ORE = ITEMS.register("ferrox_ore", () -> new BlockItem(ModBlocks.FERROX_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> BLOOD_QUARTZ = ITEMS.register("blood_quartz", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+
+    public static final RegistryObject<Item> FERROX_POWDER = ITEMS.register("ferrox_powder", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+
+    public static final RegistryObject<Item> FERROX_INGOT = ITEMS.register("ferrox_ingot", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+
+    public static final RegistryObject<Item> OBSIDIAN_POWDER = ITEMS.register("obsidian_powder", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MISC)));
+
+    public static final RegistryObject<Item> FLAMING_ORE = ITEMS.register("flaming_ore", () -> new BlockItem(ModBlocks.FLAMING_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 }

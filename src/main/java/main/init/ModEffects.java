@@ -1,6 +1,7 @@
 package main.init;
 
 import main.effect.CurseSoulEffect;
+import main.effect.GoodRestEffect;
 import main.effect.HeavyWoundEffect;
 import main.effect.BleedingEffect;
 import main.item.DivineSword;
@@ -20,4 +21,6 @@ public class ModEffects {
     public static final RegistryObject<Effect> BLEEDING = EFFECTS.register("bleeding", BleedingEffect::new);
 
     public static final RegistryObject<Effect> CURSE_SOUL = EFFECTS.register("curse_soul", CurseSoulEffect::new);
+
+    public static final RegistryObject<Effect> GOOD_REST = EFFECTS.register("good_rest", GoodRestEffect::new);
 }

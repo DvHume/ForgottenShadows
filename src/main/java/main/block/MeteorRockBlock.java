@@ -1,9 +1,12 @@
 package main.block;
 
+import main.init.ModEffects;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.DamageSource;
@@ -47,8 +50,10 @@ public class MeteorRockBlock extends Block {
 
     @Override
     public void stepOn(World world, BlockPos pos, Entity entity) {
-        if (world.getBlockState(pos).getValue(HOT)) {
-            entity.hurt(DamageSource.HOT_FLOOR, 2.0f);
+        if (!world.isClientSide) {
+            if (world.getBlockState(pos).getValue(HOT)) {
+                entity.hurt(DamageSource.HOT_FLOOR, 2.0f);
+            }
         }
         super.stepOn(world, pos, entity);
     }
