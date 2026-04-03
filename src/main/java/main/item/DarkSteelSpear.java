@@ -1,6 +1,5 @@
 package main.item;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -20,9 +19,7 @@ public class DarkSteelSpear extends TridentItem {
 
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        // Наносим магический урон — игнорирует броню
         target.hurt(DamageSource.MAGIC, 8.0f);
-        // Изнашиваем кирку
         stack.hurtAndBreak(1, attacker, (e) -> e.broadcastBreakEvent(
                 attacker instanceof PlayerEntity ?
                         ((PlayerEntity) attacker).getUsedItemHand() :
@@ -33,7 +30,6 @@ public class DarkSteelSpear extends TridentItem {
 
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment) {
-        // Запрещаем конкретные зачарования
         if (enchantment == net.minecraft.enchantment.Enchantments.LOYALTY) return false;
         if (enchantment == net.minecraft.enchantment.Enchantments.RIPTIDE) return false;
         if (enchantment == net.minecraft.enchantment.Enchantments.CHANNELING) return false;

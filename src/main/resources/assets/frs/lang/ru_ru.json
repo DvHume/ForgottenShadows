@@ -69,7 +69,7 @@
   "message.frs.herbal_bandage": "Ты не истекаешь кровью, оставь это!",
   "message.frs.herbal_bandage2": "Кровотечение ослаблено",
   "message.frs.herbal_bandage3": "Кровотечение остановлено",
-  "container.frs.alloy_furnace": "Плавильная печь",
+  "container.frs.alloy_furnace": "Печь для плавки металлов",
   "itemGroup.frs:blocks": "Руды и Блоки",
   "hud.frs.souls": "Душа"
 }

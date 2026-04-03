@@ -26,7 +26,6 @@ public class MeteorModel<T extends MeteorEntity> extends EntityModel<T> {
 
     @Override
     public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        // Здесь мы заставим его вращаться[cite: 2]
         group.xRot = ageInTicks * 0.1f;
         group.yRot = ageInTicks * 0.1f;
     }

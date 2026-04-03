@@ -18,7 +18,6 @@ public class BleedingEffect  extends Effect {
 
     @Override
     public boolean isDurationEffectTick(int duration, int amplifier) {
-        //каждые 3 секунды
         return duration % 60 == 0;
     }
 }
