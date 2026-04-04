@@ -3,6 +3,7 @@ package main.init;
 import main.block.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.RegistryObject;
@@ -39,4 +40,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> FERROX_ORE = BLOCKS.register("ferrox_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.1f)));
 
     public static final RegistryObject<Block> FLAMING_ORE = BLOCKS.register("flaming_ore", () -> new FlamingOre());
+
+    public static final RegistryObject<Block> ASH_LOG = BLOCKS.register("ash_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD).strength(2).requiresCorrectToolForDrops()));
 }

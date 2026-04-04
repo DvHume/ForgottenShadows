@@ -87,4 +87,6 @@ public class ModItems {
     public static final RegistryObject<Item> OBSIDIAN_POWDER = ITEMS.register("obsidian_powder", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MISC)));
 
     public static final RegistryObject<Item> FLAMING_ORE = ITEMS.register("flaming_ore", () -> new BlockItem(ModBlocks.FLAMING_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> ASH_LOG = ITEMS.register("ash_log", () -> new BlockItem(ModBlocks.ASH_LOG.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 }

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "frs:block/ash_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "frs:block/ash_log"
+    },
+    "axis=z": {
+      "model": "frs:block/ash_log",
+      "x": 90
+    }
+  }
+}

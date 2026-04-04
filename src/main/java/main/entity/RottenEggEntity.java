@@ -44,6 +44,10 @@ public class RottenEggEntity extends ProjectileItemEntity {
         } else if (result.getEntity() instanceof LivingEntity) {
             result.getEntity().hurt(DamageSource.MAGIC, 0.0f);
         }
+        result.getEntity().push(
+                this.getDeltaMovement().x * 0.4, 0.4,
+                this.getDeltaMovement().z * 0.4
+        );
     }
 
     @Override
