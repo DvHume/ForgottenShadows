@@ -2,14 +2,12 @@ package main.command;
 
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import main.capability.SoulCapability;
-import main.network.ModNetwork;
+import main.init.ModNetwork;
 import main.network.SoulSyncPacket;
-import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -22,7 +20,7 @@ public class SoulCommand {
     public static void onRegisterCommands(RegisterCommandsEvent event) {
         event.getDispatcher().register(
                 Commands.literal("soul")
-                        ///soul set
+                        // /soul set
                         .then(Commands.literal("set")
                                 .then(Commands.argument("amount", FloatArgumentType.floatArg(-100, 100))
                                         .executes(ctx -> {
@@ -51,7 +49,7 @@ public class SoulCommand {
                                         })
                                 )
                         )
-                        ///soul add
+                        // /soul add
                         .then(Commands.literal("add")
                                 .then(Commands.argument("amount", FloatArgumentType.floatArg(-100, 100))
                                         .executes(ctx -> {

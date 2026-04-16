@@ -89,4 +89,6 @@ public class ModItems {
     public static final RegistryObject<Item> FLAMING_ORE = ITEMS.register("flaming_ore", () -> new BlockItem(ModBlocks.FLAMING_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
     public static final RegistryObject<Item> ASH_LOG = ITEMS.register("ash_log", () -> new BlockItem(ModBlocks.ASH_LOG.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> HEART_ITEM = ITEMS.register("heart_item", () -> new HeartItem());
 }

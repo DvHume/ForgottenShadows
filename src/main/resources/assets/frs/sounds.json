@@ -18,6 +18,16 @@
     "sounds": [
       "frs:meteor_impact"
     ]
+  },
+  "iron_golem_en": {
+    "sounds": [
+      "frs:iron_golem_en"
+    ]
+  },
+  "iron_golem_ru": {
+    "sounds": [
+      "frs:iron_golem_ru"
+    ]
   }
 }
 

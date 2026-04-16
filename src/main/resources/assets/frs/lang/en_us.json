@@ -70,6 +70,8 @@
   "item.frs.ferrox_powder": "Ferrox powder",
   "item.frs.ferrox_ingot": "Ferrox ingot",
   "item.frs.obsidian_powder": "Obsidian powder",
+  "item.frs.heart_item": "Heart",
+  "item.frs.heart_item.golem": "He suffers, even though he seems soulless.",
   "message.frs.herbal_bandage": "Not Bleeding",
   "message.frs.herbal_bandage2": "The bleeding has decreased",
   "message.frs.herbal_bandage3": "The bleeding has stopped",

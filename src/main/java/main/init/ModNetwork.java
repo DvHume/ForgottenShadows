@@ -1,5 +1,7 @@
-package main.network;
+package main.init;
 
+import main.network.LanguageSyncPacket;
+import main.network.SoulSyncPacket;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
@@ -19,5 +21,10 @@ public class ModNetwork {
                 SoulSyncPacket::encode,
                 SoulSyncPacket::decode,
                 SoulSyncPacket::handle);
+
+        CHANNEL.registerMessage(1, LanguageSyncPacket.class,
+                LanguageSyncPacket::encode,
+                LanguageSyncPacket::decode,
+                LanguageSyncPacket::handle);
     }
 }

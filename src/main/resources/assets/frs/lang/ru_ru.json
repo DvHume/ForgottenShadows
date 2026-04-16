@@ -68,6 +68,8 @@
   "item.frs.ferrox_powder": "Ферроксовый порошок",
   "item.frs.ferrox_ingot": "Слиток феррокса",
   "item.frs.obsidian_powder": "Обсидиановый порошок",
+  "item.frs.heart_item": "Сердце",
+  "item.frs.heart_item.golem": "Он страдает, Хоть и кажется бездушным",
   "message.frs.herbal_bandage": "Ты не истекаешь кровью, оставь это!",
   "message.frs.herbal_bandage2": "Кровотечение ослаблено",
   "message.frs.herbal_bandage3": "Кровотечение остановлено",

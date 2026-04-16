@@ -1,7 +1,7 @@
 package main.effect;
 
 import main.capability.SoulCapability;
-import main.network.ModNetwork;
+import main.init.ModNetwork;
 import main.network.SoulSyncPacket;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;

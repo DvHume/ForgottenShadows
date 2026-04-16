@@ -2,9 +2,8 @@ package main;
 
 import main.capability.SoulCapability;
 import main.client.render.MeteorRenderer;
-import main.entity.MeteorEntity;
 import main.init.*;
-import main.network.ModNetwork;
+import main.init.ModNetwork;
 import main.screen.AlloyFurnaceScreen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
