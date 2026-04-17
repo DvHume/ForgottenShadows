@@ -28,6 +28,11 @@
     "sounds": [
       "frs:iron_golem_ru"
     ]
+  },
+  "stomach_gurgle": {
+    "sounds": [
+      "frs:stomach_gurgle"
+    ]
   }
 }
 

@@ -20,4 +20,6 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> IRON_GOLEM_EN = SOUNDS.register("iron_golem_en", () -> new SoundEvent(new ResourceLocation("frs", "iron_golem_en")));
 
     public static final RegistryObject<SoundEvent> IRON_GOLEM_RU = SOUNDS.register("iron_golem_ru", () -> new SoundEvent(new ResourceLocation("frs", "iron_golem_ru")));
+
+    public static final RegistryObject<SoundEvent> STOMACH_GURGLE = SOUNDS.register("stomach_gurgle", () -> new SoundEvent(new ResourceLocation("frs", "stomach_gurgle")));
 }

@@ -10,4 +10,11 @@ public class ModItemGroups {
             return new ItemStack(ModBlocks.TIN_ORE.get());
         }
     };
+
+    public static final ItemGroup CONSUMABLES = new ItemGroup("frs:consumables") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.HERBAL_SOLUTION.get());
+        }
+    };
 }

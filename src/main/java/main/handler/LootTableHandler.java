@@ -24,6 +24,7 @@ public class LootTableHandler {
 
             event.getTable().addPool(
                     LootPool.lootPool()
+                            .setRolls(ConstantRange.exactly(1))
                             .add(ItemLootEntry.lootTableItem(ModItems.CLOTH.get())
                                     .setWeight(15)
                                     .apply(SetCount.setCount(

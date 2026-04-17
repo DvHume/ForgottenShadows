@@ -91,4 +91,10 @@ public class ModItems {
     public static final RegistryObject<Item> ASH_LOG = ITEMS.register("ash_log", () -> new BlockItem(ModBlocks.ASH_LOG.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
     public static final RegistryObject<Item> HEART_ITEM = ITEMS.register("heart_item", () -> new HeartItem());
+
+    public static final RegistryObject<Item> MUG_BEER = ITEMS.register("mug_beer", () -> new MugBeer());
+
+    public static final RegistryObject<Item> GLASS_MUG_EMPTY = ITEMS.register("glass_mug_empty", () -> new Item(new Item.Properties().tab(ModItemGroups.CONSUMABLES)));
+
+    //public static final RegistryObject<Item> ANCIENT_RESIN = ITEMS.register("ancient_resin", () -> new AncientResin());
 }
