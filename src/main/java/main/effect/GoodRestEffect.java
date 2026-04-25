@@ -1,6 +1,5 @@
 package main.effect;
 
-import main.init.ModEffects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;

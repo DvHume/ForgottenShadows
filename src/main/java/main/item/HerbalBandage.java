@@ -1,10 +1,10 @@
 package main.item;
 
 import main.init.ModEffects;
+import main.init.ModItemGroups;
 import main.init.ModSounds;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.ActionResult;
@@ -13,12 +13,11 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
-import net.minecraft.potion.Effect;
 
 public class HerbalBandage extends Item {
 
     public HerbalBandage() {
-        super(new Properties().tab(ItemGroup.TAB_MISC).stacksTo(1).durability(5));
+        super(new Properties().tab(ModItemGroups.CONSUMABLES).stacksTo(1).durability(5));
     }
 
     @Override

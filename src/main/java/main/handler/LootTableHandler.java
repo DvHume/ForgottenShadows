@@ -1,11 +1,8 @@
 package main.handler;
 
 import main.init.ModItems;
-import net.minecraft.item.ItemStack;
 import net.minecraft.loot.*;
-import net.minecraft.loot.conditions.ILootCondition;
 import net.minecraft.loot.functions.SetCount;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

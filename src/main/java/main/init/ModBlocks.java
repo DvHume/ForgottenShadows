@@ -42,4 +42,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> FLAMING_ORE = BLOCKS.register("flaming_ore", () -> new FlamingOre());
 
     public static final RegistryObject<Block> ASH_LOG = BLOCKS.register("ash_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD).strength(2)));
+
+    //public static final RegistryObject<Block> BARLEY_BLOCK = BLOCKS.register("barley_block", () -> new BarleyBlock());
 }
