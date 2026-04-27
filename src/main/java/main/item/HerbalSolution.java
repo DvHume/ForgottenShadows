@@ -23,9 +23,7 @@ public class HerbalSolution extends Item {
             PlayerEntity player = (PlayerEntity) entity;
             player.addEffect(new EffectInstance(Effects.POISON, 400, 0, false, true));
             stack.shrink(1);
-            if (!player.isCreative()) {
-                player.inventory.add(new ItemStack(Items.GLASS_BOTTLE));
-            }
+            player.inventory.add(new ItemStack(Items.GLASS_BOTTLE));
         }
         return stack;
     }

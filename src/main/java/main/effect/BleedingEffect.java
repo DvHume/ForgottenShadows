@@ -1,9 +1,9 @@
 package main.effect;
 
+import main.init.utils.ModDamageSources;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
-import net.minecraft.util.DamageSource;
 
 public class BleedingEffect  extends Effect {
     public BleedingEffect() {
@@ -13,7 +13,7 @@ public class BleedingEffect  extends Effect {
     @Override
     public void applyEffectTick(LivingEntity entity, int amplifier) {
         float damage = 0.5f * (amplifier + 1);
-        entity.hurt(DamageSource.MAGIC, damage);
+        entity.hurt(ModDamageSources.BLEEDING, damage);
     }
 
     @Override

@@ -1,6 +1,5 @@
 package main.item;
 
-import main.init.ModEffects;
 import main.init.ModItemGroups;
 import main.init.ModItems;
 import net.minecraft.entity.LivingEntity;
@@ -14,9 +13,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class MugBeer extends Item {
+public class Wine extends Item {
 
-    public MugBeer() {
+    public Wine() {
         super(new Item.Properties()
                 .tab(ModItemGroups.CONSUMABLES)
                 .stacksTo(1));
@@ -26,10 +25,10 @@ public class MugBeer extends Item {
     public ItemStack finishUsingItem(ItemStack stack, World world, LivingEntity entity) {
         if (!world.isClientSide && entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
-            player.addEffect(new EffectInstance(Effects.CONFUSION, 400, 0, false, false));
-            player.addEffect(new EffectInstance(ModEffects.FERMENTATION.get(), 400, 0, false, true));
+            player.addEffect(new EffectInstance(Effects.CONFUSION, 400, 0, false, true));
+            player.addEffect(new EffectInstance(Effects.REGENERATION, 200, 0, false, true));
             stack.shrink(1);
-            player.inventory.add(new ItemStack(ModItems.GLASS_MUG_EMPTY.get()));
+            player.inventory.add(new ItemStack(ModItems.EMPTY_WINE_BOTTLE.get()));
         }
         return stack;
     }

@@ -11,6 +11,20 @@ public class ModItemGroups {
         }
     };
 
+    public static final ItemGroup FUNCTIONAL_BLOCKS = new ItemGroup("frs:functional_blocks") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModBlocks.ALLOY_FURNACE.get());
+        }
+    };
+
+    public static final ItemGroup MATERIALS = new ItemGroup("frs:materials") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.TIN.get());
+        }
+    };
+
     public static final ItemGroup CONSUMABLES = new ItemGroup("frs:consumables") {
         @Override
         public ItemStack makeIcon() {
