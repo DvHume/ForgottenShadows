@@ -1,6 +1,6 @@
 # Mod
 
-## What is this?
+## What is it?
 Mod
 
 Minecraft mod
