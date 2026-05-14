@@ -44,4 +44,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> ASH_LOG = BLOCKS.register("ash_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD).strength(2)));
 
     //public static final RegistryObject<Block> BARLEY_BLOCK = BLOCKS.register("barley_block", () -> new BarleyBlock());
+
+    public static final RegistryObject<Block> CHEMISTRY_TABLE = BLOCKS.register("chemistry_table", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.5f).requiresCorrectToolForDrops()));
 }

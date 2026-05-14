@@ -103,4 +103,8 @@ public class ModItems {
     public static final RegistryObject<Item> WINE = ITEMS.register("wine", () -> new Wine());
 
     public static final RegistryObject<Item> EMPTY_WINE_BOTTLE = ITEMS.register("empty_wine_bottle", () -> new Item(new Item.Properties().tab(ModItemGroups.CONSUMABLES)));
+
+    public static final RegistryObject<Item> CHEMISTRY_TABLE = ITEMS.register("chemistry_table", () -> new BlockItem(ModBlocks.CHEMISTRY_TABLE.get(), new Item.Properties().tab(ModItemGroups.FUNCTIONAL_BLOCKS)));
+
+    public static final RegistryObject<Item> TEST_TUBE = ITEMS.register("test_tube", () -> new Item(new Item.Properties().tab(ModItemGroups.CONSUMABLES)));
 }
