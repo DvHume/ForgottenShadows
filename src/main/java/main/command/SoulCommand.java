@@ -22,7 +22,7 @@ public class SoulCommand {
                 Commands.literal("soul")
                         // /soul set
                         .then(Commands.literal("set")
-                                .then(Commands.argument("amount", FloatArgumentType.floatArg(-100, 100))
+                                .then(Commands.argument("amount", FloatArgumentType.floatArg(-200, 200))
                                         .executes(ctx -> {
                                             float amount = FloatArgumentType.getFloat(ctx, "amount");
                                             ServerPlayerEntity player = ctx.getSource().getPlayerOrException();
@@ -51,7 +51,7 @@ public class SoulCommand {
                         )
                         // /soul add
                         .then(Commands.literal("add")
-                                .then(Commands.argument("amount", FloatArgumentType.floatArg(-100, 100))
+                                .then(Commands.argument("amount", FloatArgumentType.floatArg(-200, 200))
                                         .executes(ctx -> {
                                             float amount = FloatArgumentType.getFloat(ctx, "amount");
                                             ServerPlayerEntity player = ctx.getSource().getPlayerOrException();

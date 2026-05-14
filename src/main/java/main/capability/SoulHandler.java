@@ -4,8 +4,8 @@ import net.minecraft.nbt.CompoundNBT;
 
 public class SoulHandler implements ISoulHandler{
     private float souls = 100.0f; //default
-    private  static final float MAX_SOULS = 100.0f;
-    private static final float MIN_SOULS = -100.0f;
+    private  static final float MAX_SOULS = 200.0f;
+    private static final float MIN_SOULS = -200.0f;
 
     @Override
     public float getSouls() {

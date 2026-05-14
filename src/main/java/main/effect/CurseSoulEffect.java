@@ -35,6 +35,6 @@ public class CurseSoulEffect extends Effect {
 
     @Override
     public boolean isDurationEffectTick(int duration, int amplifier) {
-        return duration % 30 == 0;
+        return duration % 60 == 0;
     }
 }
