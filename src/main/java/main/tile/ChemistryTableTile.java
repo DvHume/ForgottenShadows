@@ -9,6 +9,7 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.text.ITextComponent;
@@ -75,7 +76,7 @@ public class ChemistryTableTile extends TileEntity implements INamedContainerPro
     }
 
     static {
-        addRecipe(ModItems.SULFUR.get(), ModItems.FERROX_POWDER.get(), ModItems.FERROX_ACID_TUBE.get(), ModItems.TEST_TUBE.get(), new ItemStack(ModItems.FERROX_ACID_BUCKET.get()));
+        addRecipe(ModItems.SULFUR.get(), ModItems.FERROX_POWDER.get(), ModItems.TEST_TUBE.get(), Items.GLOWSTONE_DUST, new ItemStack(ModItems.FERROX_ACID_TUBE.get()));
     }
 
     private static void addRecipe(Item i1, Item i2, Item i3, Item i4, ItemStack result) {

@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class ChemistryTableContainer extends Container {
@@ -14,7 +15,14 @@ public class ChemistryTableContainer extends Container {
     public ChemistryTableContainer(int id, PlayerInventory playerInventory, ChemistryTableTile tile) {
         super(ModContainers.CHEMISTRY_TABLE.get(), id);
         this.tile = tile;
+        addSlots(playerInventory);
+    }
 
+    public ChemistryTableContainer(int id, PlayerInventory inv, PacketBuffer data) {
+        this(id, inv, (ChemistryTableTile) inv.player.level.getBlockEntity(data.readBlockPos()));
+    }
+
+    protected void addSlots(PlayerInventory playerInventory) {
         this.addSlot(new SlotItemHandler(tile.inventory, 0, 44, 17));
         this.addSlot(new SlotItemHandler(tile.inventory, 1, 62, 17));
         this.addSlot(new SlotItemHandler(tile.inventory, 2, 80, 17));

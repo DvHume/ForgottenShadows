@@ -13,7 +13,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
 public class ChemistryTableScreen extends ContainerScreen<ChemistryTableContainer> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("frs, textures/gui/container/chemistry_table.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation("frs", "textures/gui/container/chemistry_table.png");
 
     public ChemistryTableScreen(ChemistryTableContainer container, PlayerInventory playerInventory, ITextComponent title) {
         super(container, playerInventory, title);
