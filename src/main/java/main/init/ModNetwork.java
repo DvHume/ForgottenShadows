@@ -1,5 +1,6 @@
 package main.init;
 
+import main.network.ChemistryCraftPacket;
 import main.network.LanguageSyncPacket;
 import main.network.SoulSyncPacket;
 import net.minecraft.util.ResourceLocation;
@@ -26,5 +27,14 @@ public class ModNetwork {
                 LanguageSyncPacket::encode,
                 LanguageSyncPacket::decode,
                 LanguageSyncPacket::handle);
+
+        CHANNEL.registerMessage(2, ChemistryCraftPacket.class,
+                ChemistryCraftPacket::encode,
+                ChemistryCraftPacket::decode,
+                ChemistryCraftPacket::handle);
+    }
+
+    public static <MSG> void sendToServer(MSG message) {
+        CHANNEL.sendToServer(message);
     }
 }

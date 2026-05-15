@@ -1,12 +1,10 @@
 package main.init;
 
 import main.item.*;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraft.item.BlockItem;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "frs");
@@ -107,4 +105,10 @@ public class ModItems {
     public static final RegistryObject<Item> CHEMISTRY_TABLE = ITEMS.register("chemistry_table", () -> new BlockItem(ModBlocks.CHEMISTRY_TABLE.get(), new Item.Properties().tab(ModItemGroups.FUNCTIONAL_BLOCKS)));
 
     public static final RegistryObject<Item> TEST_TUBE = ITEMS.register("test_tube", () -> new Item(new Item.Properties().tab(ModItemGroups.CONSUMABLES)));
+
+    public static final RegistryObject<Item> SULFUR = ITEMS.register("sulfur", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS)));
+
+    public static final RegistryObject<Item> FERROX_ACID_TUBE = ITEMS.register("ferrox_acid_tube", () -> new Item(new Item.Properties().tab(ModItemGroups.CONSUMABLES)));
+
+    public static final RegistryObject<Item> FERROX_ACID_BUCKET = ITEMS.register("ferrox_acid_bucket", () -> new BucketItem(ModFluids.FERROX_ACID, new Item.Properties().tab(ItemGroup.TAB_MISC).stacksTo(1).craftRemainder(Items.BUCKET)));
 }

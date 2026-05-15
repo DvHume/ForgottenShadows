@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -25,7 +26,7 @@ public class ChemistryTable extends Block {
         if (!world.isClientSide) {
             TileEntity tile = world.getBlockEntity(pos);
             if (tile instanceof ChemistryTableTile) {
-                NetworkHooks.openGui((ServerPlayerEntity) player, (ChemistryTableTile) tile, pos);
+                NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider) tile, pos);
             }
         }
         return ActionResultType.SUCCESS;

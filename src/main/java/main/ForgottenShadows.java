@@ -40,6 +40,7 @@ public class ForgottenShadows
         ModEffects.EFFECTS.register(bus);
         ModItems.ITEMS.register(bus);
         ModSounds.SOUNDS.register(bus);
+        ModFluids.FLUIDS.register(bus);
         ModBlocks.BLOCKS.register(bus);
         ModTiles.TILES.register(bus);
         ModContainers.CONTAINERS.register(bus);
@@ -70,6 +71,9 @@ public class ForgottenShadows
                 ModEntities.ROTTEN_EGG.get(),
                 manager -> new SpriteRenderer<>(manager, Minecraft.getInstance().getItemRenderer())
         );
+
+        RenderTypeLookup.setRenderLayer(ModFluids.FERROX_ACID.get(), RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(ModFluids.FERROX_ACID_FLOWING.get(), RenderType.translucent());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
