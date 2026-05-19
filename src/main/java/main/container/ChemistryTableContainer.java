@@ -8,18 +8,22 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
+import net.minecraft.util.IIntArray;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class ChemistryTableContainer extends Container {
     public final ChemistryTableTile tile;
-    public ChemistryTableContainer(int id, PlayerInventory playerInventory, ChemistryTableTile tile) {
+    private final IIntArray data;
+    public ChemistryTableContainer(int id, PlayerInventory playerInventory, ChemistryTableTile tile, IIntArray data) {
         super(ModContainers.CHEMISTRY_TABLE.get(), id);
         this.tile = tile;
-        addSlots(playerInventory);
+        this.data = data;
+        this.addDataSlots(data);
+        this.addSlots(playerInventory);
     }
 
     public ChemistryTableContainer(int id, PlayerInventory inv, PacketBuffer data) {
-        this(id, inv, (ChemistryTableTile) inv.player.level.getBlockEntity(data.readBlockPos()));
+        this(id, inv, (ChemistryTableTile) inv.player.level.getBlockEntity(data.readBlockPos()), new net.minecraft.util.IntArray(2));
     }
 
     protected void addSlots(PlayerInventory playerInventory) {
@@ -39,6 +43,12 @@ public class ChemistryTableContainer extends Container {
         for (int col = 0; col < 9; col++) {
             this.addSlot(new Slot(playerInventory, col, 8 + col * 18, 142));
         }
+    }
+
+    public int getProgressionScaled() {
+        int progress = this.data.get(0);
+        int maxProgress = this.data.get(1);
+        return maxProgress != 0 && progress != 0 ? progress * 24 / maxProgress : 0;
     }
 
     @Override

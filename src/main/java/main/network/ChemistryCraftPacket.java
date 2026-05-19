@@ -30,7 +30,7 @@ public class ChemistryCraftPacket {
             if (world.isLoaded(msg.pos)) {
                 TileEntity tile = world.getBlockEntity(msg.pos);
                 if (tile instanceof ChemistryTableTile) {
-                    ((ChemistryTableTile) tile).craft();
+                    ((ChemistryTableTile) tile).startCraft();
                 }
             }
         });

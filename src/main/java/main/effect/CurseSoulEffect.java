@@ -1,4 +1,4 @@
-package main.effect;
+/*package main.effect;
 
 import main.capability.SoulCapability;
 import main.init.ModNetwork;
@@ -37,4 +37,4 @@ public class CurseSoulEffect extends Effect {
     public boolean isDurationEffectTick(int duration, int amplifier) {
         return duration % 60 == 0;
     }
-}
+}*/

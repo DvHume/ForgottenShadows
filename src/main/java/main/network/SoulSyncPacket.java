@@ -1,4 +1,4 @@
-package main.network;
+/*package main.network;
 
 import main.capability.SoulCapability;
 import net.minecraft.client.Minecraft;
@@ -40,3 +40,4 @@ public class SoulSyncPacket {
         });
     }
 }
+*/

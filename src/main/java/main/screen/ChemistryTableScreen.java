@@ -7,6 +7,7 @@ import main.init.ModNetwork;
 import main.network.ChemistryCraftPacket;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.gui.widget.button.Button;
+import net.minecraft.client.gui.widget.button.ImageButton;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -28,7 +29,7 @@ public class ChemistryTableScreen extends ContainerScreen<ChemistryTableContaine
         int x = (this.width - this.imageWidth) / 2;
         int y = (this.height - this.imageHeight) / 2;
 
-        this.addButton(new Button(x + 70, y + 40, 40, 20, new TranslationTextComponent("button.frs.chemistry_table"), (button -> {
+        this.addButton(new ImageButton(x + 103, y + 52, 18, 18, 176, 0, 0, TEXTURE, (button -> {
             ModNetwork.sendToServer(new ChemistryCraftPacket(menu.tile.getBlockPos()));
         })));
     }
@@ -41,6 +42,9 @@ public class ChemistryTableScreen extends ContainerScreen<ChemistryTableContaine
         int x = (this.width - this.imageWidth) / 2;
         int y = (this.height - this.imageHeight) / 2;
         this.blit(matrixStack, x, y, 0, 0, this.imageWidth, this.imageHeight);
+
+        int arrowWidth = menu.getProgressionScaled();
+        this.blit(matrixStack, x + 100, y + 35, 176, 18, arrowWidth, 16);
     }
 
     @Override

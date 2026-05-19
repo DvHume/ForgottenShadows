@@ -1,4 +1,4 @@
-package main.capability;
+/*package main.capability;
 
 import net.minecraft.nbt.CompoundNBT;
 
@@ -42,3 +42,4 @@ public class SoulHandler implements ISoulHandler{
         souls = nbt.getFloat("souls");
     }
 }
+*/

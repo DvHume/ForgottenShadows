@@ -22,6 +22,6 @@ public class ModContainers {
     public static final RegistryObject<ContainerType<ChemistryTableContainer>> CHEMISTRY_TABLE = CONTAINERS.register("chemistry_table", () -> IForgeContainerType.create((id, playerInventory, data) -> {
         net.minecraft.util.math.BlockPos pos = data.readBlockPos();
         ChemistryTableTile tile = (ChemistryTableTile) playerInventory.player.level.getBlockEntity(pos);
-        return new ChemistryTableContainer(id, playerInventory, tile);
+        return new ChemistryTableContainer(id, playerInventory, tile, tile.dataAccess);
     }));
 }

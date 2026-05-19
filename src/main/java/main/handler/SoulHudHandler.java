@@ -1,4 +1,4 @@
-package main.handler;
+/*package main.handler;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import main.capability.SoulCapability;
@@ -46,3 +46,4 @@ public class SoulHudHandler {
         });
     }
 }
+*/

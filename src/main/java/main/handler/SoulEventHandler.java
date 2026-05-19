@@ -1,4 +1,4 @@
-package main.handler;
+/*package main.handler;
 
 import main.capability.SoulCapability;
 import main.capability.SoulHandler;
@@ -96,3 +96,4 @@ public class SoulEventHandler {
         });
     }
 }
+*/

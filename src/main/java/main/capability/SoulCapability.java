@@ -1,4 +1,4 @@
-package main.capability;
+/*package main.capability;
 
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
@@ -31,3 +31,4 @@ public class SoulCapability {
         );
     }
 }
+*/

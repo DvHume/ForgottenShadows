@@ -1,4 +1,4 @@
-package main.command;
+/*package main.command;
 
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import main.capability.SoulCapability;
@@ -94,4 +94,4 @@ public class SoulCommand {
                         )
         );
     }
-}
+}*/
