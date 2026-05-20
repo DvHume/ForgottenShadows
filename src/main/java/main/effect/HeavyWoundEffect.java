@@ -7,7 +7,7 @@ import net.minecraft.potion.EffectType;
 public class HeavyWoundEffect extends Effect {
 
     public HeavyWoundEffect() {
-        super(EffectType.HARMFUL, 0x8B0000); //dark red color effect
+        super(EffectType.HARMFUL, 0x8B0000);
     }
 
     @Override

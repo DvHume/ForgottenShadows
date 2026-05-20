@@ -16,8 +16,8 @@ public class ChemistryTableScreen extends ContainerScreen<ChemistryTableContaine
 
     public ChemistryTableScreen(ChemistryTableContainer container, PlayerInventory playerInventory, ITextComponent title) {
         super(container, playerInventory, title);
-        this.imageWidth = 176; //176
-        this.imageHeight = 166; //166
+        this.imageWidth = 176;
+        this.imageHeight = 166;
     }
 
     @Override

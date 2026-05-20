@@ -17,6 +17,10 @@ import net.minecraft.world.World;
 
 import java.util.Optional;
 
+/*  **********************************
+    I don't want to develop this code
+    **********************************
+ */
 
 public class HeartItem extends Item {
 
@@ -35,7 +39,7 @@ public class HeartItem extends Item {
 
         if (entityRay != null && entityRay.getEntity() instanceof IronGolemEntity) {
 
-            //Gets the player's language from the server
+            // Gets the player's language from the server
             String lang = LanguageSyncPacket.playerLanguages
                     .getOrDefault(player.getUUID(), "en_us");
 

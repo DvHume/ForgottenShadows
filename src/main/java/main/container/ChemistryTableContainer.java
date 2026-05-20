@@ -28,13 +28,13 @@ public class ChemistryTableContainer extends Container {
     }
 
     protected void addSlots(PlayerInventory playerInventory) {
-        this.addSlot(new SlotItemHandler(tile.inventory, 0, 59, 17)); //62
+        this.addSlot(new SlotItemHandler(tile.inventory, 0, 59, 17));
         this.addSlot(new SlotItemHandler(tile.inventory, 1, 79, 17));
-        this.addSlot(new SlotItemHandler(tile.inventory, 2, 99, 17)); //98
+        this.addSlot(new SlotItemHandler(tile.inventory, 2, 99, 17));
 
-        this.addSlot(new SlotItemHandler(tile.inventory, 3, 59, 56)); //too
+        this.addSlot(new SlotItemHandler(tile.inventory, 3, 59, 56));
         this.addSlot(new SlotItemHandler(tile.inventory, 4, 79, 56));
-        this.addSlot(new SlotItemHandler(tile.inventory, 5, 99, 56)); //too
+        this.addSlot(new SlotItemHandler(tile.inventory, 5, 99, 56));
 
         this.addSlot(new SlotItemHandler(tile.inventory, 6, 17, 17));
 

@@ -76,7 +76,7 @@ public class WorldGen {
         event.getCategory() != Biome.Category.ICY &&
         event.getCategory() != Biome.Category.SWAMP) {
 
-            //There were some problems while writing this crap, so look at this terrible code
+            // There were some problems while writing this crap, so look at this terrible code
             event.getGeneration().addFeature(
                     GenerationStage.Decoration.VEGETAL_DECORATION,
                     Feature.RANDOM_PATCH.configured(

@@ -31,20 +31,20 @@ public class CampfireHealHandler {
         boolean nearCampfire = isNearCampfire(player);
 
         if (!nearCampfire) {
-            //Reset the timer if the player moves away from the fire
+            // Reset the timer if the player moves away from the fire
             nbt.putInt("campfireTime", 0);
             nbt.putInt("campfireDelay", 0);
             return;
         }
 
-        //Increase the time spent near the fire
+        // Increase the time spent near the fire
         int campfireTime = nbt.getInt("campfireTime") + 1;
         nbt.putInt("campfireTime", campfireTime);
 
-        //Initial delay
+        // Initial delay
         if (campfireTime < INITIAL_DELAY) return;
 
-        //Reduces Heavy wound by 1lvl
+        // Reduces Heavy wound by 1lvl
         if (player.hasEffect(ModEffects.HEAVY_WOUND.get())) {
             int delay = nbt.getInt("campfireDelay") + 1;
             nbt.putInt("campfireDelay", delay);
@@ -69,7 +69,7 @@ public class CampfireHealHandler {
             }
         }
 
-        //GOOD REST effect after 1 minute
+        // GOOD REST effect after 1 minute
         if (campfireTime >= REST_TIME) {
             if (!player.hasEffect(ModEffects.GOOD_REST.get())) {
                 player.addEffect(new EffectInstance(
@@ -79,7 +79,7 @@ public class CampfireHealHandler {
                         false, false
                 ));
             }
-            //Resets to avoid spam
+            // Resets to avoid spam
             nbt.putInt("campfireTime", 0);
         }
 
@@ -98,7 +98,7 @@ public class CampfireHealHandler {
             for (int y = -RADIUS; y <= RADIUS; y++) {
                 for (int z = -RADIUS; z <= RADIUS; z++) {
                     BlockPos pos = playerPos.offset(x, y, z);
-                    //Check that the fire is only a regular one
+                    // Check that the fire is only a regular one
                     if (world.getBlockState(pos).getBlock() == Blocks.CAMPFIRE) {
                         return true;
                     }

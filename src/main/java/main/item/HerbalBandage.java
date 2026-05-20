@@ -27,7 +27,7 @@ public class HerbalBandage extends Item {
         if (world.isClientSide) {
             return ActionResult.pass(stack);
         }
-        //if no effect
+        // if no effect
         if (!player.hasEffect(ModEffects.BLEEDING.get())) {
             player.displayClientMessage(new TranslationTextComponent("message.frs.herbal_bandage").withStyle(TextFormatting.RED), true);
             return ActionResult.fail(stack);

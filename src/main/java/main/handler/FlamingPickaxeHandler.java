@@ -23,10 +23,9 @@ public class FlamingPickaxeHandler {
         net.minecraft.entity.player.PlayerEntity player = event.getPlayer();
         ItemStack held = player.getMainHandItem();
 
-        //Checking that is this a FlamingPickaxe
+        // Checking that is this a FlamingPickaxe
         if (held.getItem() != ModItems.FLAMING_PICKAXE.get()) return;
 
-        //Проверяем включён ли режим плавки
         CompoundNBT nbt = held.getOrCreateTag();
         if (!nbt.getBoolean("smelting")) return;
 

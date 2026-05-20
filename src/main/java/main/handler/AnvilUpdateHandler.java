@@ -11,6 +11,10 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.Map;
+
+/*  It prevents enchanting with an anvil.
+    But i don't want to do that right now
+ */
 @Mod.EventBusSubscriber
 public class AnvilUpdateHandler {
     @SubscribeEvent
@@ -22,13 +26,12 @@ public class AnvilUpdateHandler {
         ItemStack right = event.getRight();
         if (right.getItem() != Items.ENCHANTED_BOOK) return;
 
-        // Проверяем есть ли запрещённые зачарования в книге
         Map<Enchantment, Integer> enchants = EnchantmentHelper.getEnchantments(right);
 
         if (enchants.containsKey(Enchantments.RIPTIDE) ||
                 enchants.containsKey(Enchantments.LOYALTY) ||
                 enchants.containsKey(Enchantments.CHANNELING)) {
-            event.setCanceled(true); // блокируем применение
+            event.setCanceled(true);
         }
     }
 }
