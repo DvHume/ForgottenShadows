@@ -81,7 +81,7 @@
   "item.frs.wine": "Вино",
   "item.frs.ancient_resin": "Древняя смола",
   "item.frs.empty_wine_bottle": "Пустая бутыль из под вина",
-  "item.frs.sulfur": "",
+  "item.frs.sulfur": "Сера",
   "item.frs.test_tube": "Пустая пробирка",
   "item.frs.ferrox_acid_tube": "Пробирка с ферроксовой кислотой",
   "item.frs.ferrox_acid_bucket": "Ведро ферроксовой кислоты",
@@ -91,6 +91,5 @@
   "itemGroup.frs:blocks": "Руды и Блоки",
   "itemGroup.frs:functional_blocks": "Функциональные блоки",
   "itemGroup.frs:materials": "Материалы",
-  "itemGroup.frs:consumables": "Расходные материалы",
-  "hud.frs.souls": "Душа"
+  "itemGroup.frs:consumables": "Расходные материалы"
 }

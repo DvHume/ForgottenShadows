@@ -108,7 +108,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> SULFUR = ITEMS.register("sulfur", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS)));
 
-    public static final RegistryObject<Item> FERROX_ACID_TUBE = ITEMS.register("ferrox_acid_tube", () -> new Item(new Item.Properties().tab(ModItemGroups.CONSUMABLES)));
+    public static final RegistryObject<Item> FERROX_ACID_TUBE = ITEMS.register("ferrox_acid_tube", () -> new Item(new Item.Properties().tab(ModItemGroups.CONSUMABLES).stacksTo(1)));
 
     public static final RegistryObject<Item> FERROX_ACID_BUCKET = ITEMS.register("ferrox_acid_bucket", () -> new BucketItem(ModFluids.FERROX_ACID, new Item.Properties().tab(ItemGroup.TAB_MISC).stacksTo(1).craftRemainder(Items.BUCKET)));
 }

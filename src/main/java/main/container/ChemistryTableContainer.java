@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.IIntArray;
 import net.minecraftforge.items.SlotItemHandler;
@@ -23,16 +24,19 @@ public class ChemistryTableContainer extends Container {
     }
 
     public ChemistryTableContainer(int id, PlayerInventory inv, PacketBuffer data) {
-        this(id, inv, (ChemistryTableTile) inv.player.level.getBlockEntity(data.readBlockPos()), new net.minecraft.util.IntArray(2));
+        this(id, inv, (ChemistryTableTile) inv.player.level.getBlockEntity(data.readBlockPos()), new net.minecraft.util.IntArray(4));
     }
 
     protected void addSlots(PlayerInventory playerInventory) {
-        this.addSlot(new SlotItemHandler(tile.inventory, 0, 44, 17));
-        this.addSlot(new SlotItemHandler(tile.inventory, 1, 62, 17));
-        this.addSlot(new SlotItemHandler(tile.inventory, 2, 80, 17));
-        this.addSlot(new SlotItemHandler(tile.inventory, 3, 62, 53));
+        this.addSlot(new SlotItemHandler(tile.inventory, 0, 59, 17)); //62
+        this.addSlot(new SlotItemHandler(tile.inventory, 1, 79, 17));
+        this.addSlot(new SlotItemHandler(tile.inventory, 2, 99, 17)); //98
 
-        this.addSlot(new SlotItemHandler(tile.inventory, 4, 134, 35));
+        this.addSlot(new SlotItemHandler(tile.inventory, 3, 59, 56)); //too
+        this.addSlot(new SlotItemHandler(tile.inventory, 4, 79, 56));
+        this.addSlot(new SlotItemHandler(tile.inventory, 5, 99, 56)); //too
+
+        this.addSlot(new SlotItemHandler(tile.inventory, 6, 17, 17));
 
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 9; col++) {
@@ -51,6 +55,12 @@ public class ChemistryTableContainer extends Container {
         return maxProgress != 0 && progress != 0 ? progress * 24 / maxProgress : 0;
     }
 
+    public int getFuelScaled() {
+        int fuel = this.data.get(2);
+        int maxFuel = this.data.get(3);
+        return maxFuel != 0 ? fuel * 14 / maxFuel : 0;
+    }
+
     @Override
     public boolean stillValid(PlayerEntity player) {return true;}
 
@@ -62,10 +72,16 @@ public class ChemistryTableContainer extends Container {
             ItemStack itemStack1 = slot.getItem();
             itemStack = itemStack1.copy();
 
-            if (index < 5) {
-                if (!this.moveItemStackTo(itemStack1, 5, 41, true)) return ItemStack.EMPTY;
+            if (index < 7) {
+                if (!this.moveItemStackTo(itemStack1, 7, 43, true)) return ItemStack.EMPTY;
             } else {
-                if (!this.moveItemStackTo(itemStack1, 0, 4, false)) return ItemStack.EMPTY;
+                if (itemStack1.getItem() == Items.BLAZE_POWDER) {
+                    if (!this.moveItemStackTo(itemStack1, 6, 7, false)) {
+                        if (!this.moveItemStackTo(itemStack1, 0, 3, false)) return ItemStack.EMPTY;
+                    }
+                } else {
+                    if (!this.moveItemStackTo(itemStack1, 0, 3, false)) return ItemStack.EMPTY;
+                }
             }
 
             if (itemStack1.isEmpty()) slot.set(ItemStack.EMPTY);

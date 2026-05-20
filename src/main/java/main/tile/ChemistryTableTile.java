@@ -24,10 +24,12 @@ import java.util.List;
 
 public class ChemistryTableTile extends TileEntity implements INamedContainerProvider, ITickableTileEntity {
 
-    private static final List<ChemistryRecipe> RECIPES = new ArrayList<>();
+    public static final List<ChemistryRecipe> RECIPES = new ArrayList<>();
 
     public int progress = 0;
     public final int maxProgress = 200;
+    public int fuel = 0;
+    public int maxFuel = 15;
     public boolean isCrafting = false;
 
     // array for automatic transfer of progress to the client
@@ -37,6 +39,8 @@ public class ChemistryTableTile extends TileEntity implements INamedContainerPro
             switch (index) {
                 case 0: return ChemistryTableTile.this.progress;
                 case 1: return ChemistryTableTile.this.maxProgress;
+                case 2: return ChemistryTableTile.this.fuel;
+                case 3: return ChemistryTableTile.this.maxFuel;
                 default: return 0;
             }
         }
@@ -45,16 +49,15 @@ public class ChemistryTableTile extends TileEntity implements INamedContainerPro
         public void set(int index, int value) {
             switch (index) {
                 case 0: ChemistryTableTile.this.progress = value; break;
+                case 2: ChemistryTableTile.this.fuel = value; break;
             }
         }
 
         @Override
-        public int getCount() {
-            return 2;
-        }
+        public int getCount() {return 4;}
     };
 
-    public final ItemStackHandler inventory = new ItemStackHandler(5) {
+    public final ItemStackHandler inventory = new ItemStackHandler(7) {
         @Override
         protected void onContentsChanged(int slot) {setChanged();}
     };
@@ -77,7 +80,7 @@ public class ChemistryTableTile extends TileEntity implements INamedContainerPro
     // the method is called when a button is clicked
     public void startCraft() {
         ChemistryRecipe recipe = getRecipe();
-        if (recipe != null && canCraft(recipe.output)) {
+        if (recipe != null && HavelAndCanOutput(recipe)) {
             this.isCrafting = true;
             setChanged();
         }
@@ -87,20 +90,29 @@ public class ChemistryTableTile extends TileEntity implements INamedContainerPro
     public void tick() {
         if (level == null || level.isClientSide) return;
 
+        ItemStack fuelStack = inventory.getStackInSlot(6);
+        if (this.fuel <= 0 && fuelStack.getItem() == Items.BLAZE_POWDER) {
+            this.fuel = maxFuel;
+            fuelStack.shrink(1);
+            setChanged();
+        }
+
         if (isCrafting) {
             ChemistryRecipe recipe = getRecipe();
-            if (recipe != null && canCraft(recipe.output)) {
+            if (recipe != null && HavelAndCanOutput(recipe) && this.fuel > 0) {
                 progress++;
                 setChanged();
 
                 if (progress >= maxProgress) {
-                    inventory.extractItem(0, 1, false);
-                    inventory.extractItem(1, 1, false);
-                    inventory.extractItem(2, 1, false);
-                    inventory.extractItem(3, 1, false);
+                    inventory.extractItem(0, recipe.inputs[0].getCount(), false);
+                    inventory.extractItem(1, recipe.inputs[1].getCount(), false);
+                    inventory.extractItem(2, recipe.inputs[2].getCount(), false);
 
-                    inventory.insertItem(4, recipe.output.copy(), false);
+                    inventory.insertItem(3, recipe.output1.copy(), false);
+                    inventory.insertItem(4, recipe.output2.copy(), false);
+                    inventory.insertItem(5, recipe.output3.copy(), false);
 
+                    this.fuel--;
                     progress = 0;
                     isCrafting = false;
                     setChanged();
@@ -117,18 +129,23 @@ public class ChemistryTableTile extends TileEntity implements INamedContainerPro
 
     private ChemistryRecipe getRecipe() {
         for (ChemistryRecipe recipe : RECIPES) {
-            if (recipe.matches(inventory.getStackInSlot(0), inventory.getStackInSlot(1), inventory.getStackInSlot(2), inventory.getStackInSlot(3))) {
+            if (recipe.matches(inventory.getStackInSlot(0), inventory.getStackInSlot(1), inventory.getStackInSlot(2))) {
                 return recipe;
             }
         }
         return null;
     }
 
-    private boolean canCraft(ItemStack result) {
-        ItemStack outputSlot = inventory.getStackInSlot(4);
-        if (outputSlot.isEmpty()) return true;
-        if (!outputSlot.sameItem(result)) return false;
-        return outputSlot.getCount() + result.getCount() <= outputSlot.getMaxStackSize();
+    private boolean HavelAndCanOutput(ChemistryRecipe recipe) {
+        return canInsert(3, recipe.output1) && canInsert(4, recipe.output2) && canInsert(5, recipe.output3);
+    }
+
+    private boolean canInsert(int slot, ItemStack result) {
+        if (result == null || result.isEmpty()) return true;
+        ItemStack current = inventory.getStackInSlot(slot);
+        if (current.isEmpty()) return true;
+        if (!current.sameItem(result)) return false;
+        return current.getCount() + result.getCount() <= current.getMaxStackSize();
     }
 
     @Override
@@ -136,6 +153,7 @@ public class ChemistryTableTile extends TileEntity implements INamedContainerPro
         super.load(state, nbt);
         inventory.deserializeNBT(nbt.getCompound("inventory"));
         this.progress = nbt.getInt("Progress");
+        this.fuel = nbt.getInt("Fuel");
         this.isCrafting = nbt.getBoolean("IsCrafting");
     }
 
@@ -143,32 +161,38 @@ public class ChemistryTableTile extends TileEntity implements INamedContainerPro
     public CompoundNBT save(CompoundNBT nbt) {
         nbt.put("inventory", inventory.serializeNBT());
         nbt.putInt("Progress", this.progress);
+        nbt.putInt("Fuel", this.fuel);
         nbt.putBoolean("IsCrafting", this.isCrafting);
         return super.save(nbt);
     }
 
     static {
-        addRecipe(ModItems.SULFUR.get(), ModItems.FERROX_POWDER.get(), ModItems.TEST_TUBE.get(), Items.GLOWSTONE_DUST, new ItemStack(ModItems.FERROX_ACID_TUBE.get()));
+        addRecipe(ModItems.SULFUR.get(), 3, ModItems.FERROX_POWDER.get(), 1, Items.GLOWSTONE_DUST, 3, new ItemStack(ModItems.FERROX_ACID_TUBE.get()), ItemStack.EMPTY, ItemStack.EMPTY);
     }
 
-    private static void addRecipe(Item i1, Item i2, Item i3, Item i4, ItemStack result) {
-        RECIPES.add(new ChemistryRecipe(i1, i2, i3, i4, result));
+    public static void addRecipe(Item i1, int c1, Item i2, int c2, Item i3, int c3, ItemStack o1, ItemStack o2, ItemStack o3) {
+        RECIPES.add(new ChemistryRecipe(new ItemStack(i1, c1),
+                new ItemStack(i2, c2),
+                new ItemStack(i3, c3), o1, o2, o3));
     }
 
-    private static class ChemistryRecipe {
-        private final Item[] inputs;
-        private final ItemStack output;
+    public static class ChemistryRecipe {
+        public final ItemStack[] inputs;
+        public final ItemStack output1;
+        public final ItemStack output2;
+        public final ItemStack output3;
 
-        public ChemistryRecipe(Item i1, Item i2, Item i3, Item i4, ItemStack output) {
-            this.inputs = new Item[]{i1, i2, i3, i4};
-            this.output = output;
+        public ChemistryRecipe(ItemStack i1, ItemStack i2, ItemStack i3, ItemStack o1, ItemStack o2, ItemStack o3) {
+            this.inputs = new ItemStack[]{i1, i2, i3};
+            this.output1 = o1;
+            this.output2 = o2;
+            this.output3 = o3;
         }
 
-        public boolean matches(ItemStack s1, ItemStack s2, ItemStack s3, ItemStack s4) {
-            return s1.getItem() == inputs[0] &&
-                    s2.getItem() == inputs[1] &&
-                    s3.getItem() == inputs[2] &&
-                    s4.getItem() == inputs[3];
+        public boolean matches(ItemStack s1, ItemStack s2, ItemStack s3) {
+            return s1.getItem() == inputs[0].getItem() && s1.getCount() >= inputs[0].getCount() &&
+                    s2.getItem() == inputs[1].getItem() && s2.getCount() >= inputs[1].getCount() &&
+                    s3.getItem() == inputs[2].getItem() && s3.getCount() >= inputs[2].getCount();
         }
     }
 }

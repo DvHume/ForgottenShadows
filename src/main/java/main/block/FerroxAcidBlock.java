@@ -1,16 +1,17 @@
 package main.block;
 
 import main.init.utils.ModDamageSources;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.fluid.FlowingFluid;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 
-import java.util.Random;
 
 public class FerroxAcidBlock extends FlowingFluidBlock {
 
@@ -26,13 +27,33 @@ public class FerroxAcidBlock extends FlowingFluidBlock {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
-        BlockPos below = pos.below();
-        BlockState belowState = world.getBlockState(below);
+    public void onPlace(BlockState state, World world, BlockPos pos, BlockState oldState, boolean isMoving) {
+        super.onPlace(state, world, pos, oldState, isMoving);
+        this.tryDissolveNeighbors(world, pos);
+    }
 
-        if (!belowState.isAir() && belowState.getBlock() != this && below.getY() >= 0) {
-            world.destroyBlock(below, false);
-            world.setBlock(below, this.defaultBlockState(), 3);
+    @Override
+    public void neighborChanged(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean isMoving) {
+        super.neighborChanged(state, world, pos, block, fromPos, isMoving);
+        this.tryDissolveNeighbors(world, pos);
+    }
+
+    private void tryDissolveNeighbors(World world, BlockPos pos) {
+        if (world.isClientSide) return;
+
+        for (Direction direction : Direction.values()) {
+            BlockPos targetPos = pos.relative(direction);
+            BlockState targetState = world.getBlockState(targetPos);
+
+            if (!targetState.isAir()
+            && targetState.getBlock() != Blocks.BEDROCK
+            && targetState.getBlock() != this
+            && targetState.getFluidState().isEmpty()) {
+
+                if (targetState.getDestroySpeed(world, targetPos) <= 5.0f) {
+                    world.setBlockAndUpdate(targetPos, Blocks.AIR.defaultBlockState());
+                }
+            }
         }
     }
 }
