@@ -1,4 +1,4 @@
-package main.item;
+package main.item.other;
 
 import main.init.ModEffects;
 import main.init.ModItemGroups;

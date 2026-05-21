@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {"item": "frs:redstone_battery"},
+    "title": {"translate":  "advancement.frs.high_energy.title"},
+    "description": {"translate": "advancement.frs.high_energy.description"},
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "crafted_any_battery": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "frs:redstone_battery"
+      }
+    }
+  },
+  "requirements": [
+    "crafted_any_battery"
+  ]
+}

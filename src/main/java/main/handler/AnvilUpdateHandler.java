@@ -1,6 +1,6 @@
 package main.handler;
 
-import main.item.DarkSteelSpear;
+import main.item.weapon.DarkSteelSpear;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;

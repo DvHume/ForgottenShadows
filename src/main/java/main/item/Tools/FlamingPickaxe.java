@@ -1,4 +1,4 @@
-package main.item;
+package main.item.Tools;
 
 import main.init.ModSounds;
 import net.minecraft.entity.player.PlayerEntity;

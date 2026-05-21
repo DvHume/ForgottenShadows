@@ -6,8 +6,8 @@ I don't expect anything more from this mod than could be.
 
 # Why exactly 1.16.5?
 
-``I originally had a diffrent idea for this mod,
-but i couldn't continue developing it due to some issues with my pc.``
+I originally had a different idea for this mod,
+but i couldn't continue developing it due to some issues with my pc.
 
 But then i got too lazy to continue my idea.
 And i decided to just do what like.

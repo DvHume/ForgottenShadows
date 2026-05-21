@@ -1,4 +1,4 @@
-package main.item;
+package main.item.weapon;
 
 import main.init.ModEffects;
 import net.minecraft.entity.LivingEntity;

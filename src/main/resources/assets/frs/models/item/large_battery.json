@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "frs:item/is_cult"
+    "layer0": "frs:item/large_battery"
   }
 }

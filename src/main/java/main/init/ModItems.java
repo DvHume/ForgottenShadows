@@ -1,6 +1,14 @@
 package main.init;
 
 import main.item.*;
+import main.item.Tools.FlamingPickaxe;
+import main.item.battery.LargeBatteryItem;
+import main.item.battery.RedstoneBatteryItem;
+import main.item.other.MugBeer;
+import main.item.other.Wine;
+import main.item.weapon.DarkSteelSpear;
+import main.item.weapon.DivineSword;
+import main.item.weapon.FlamingSword;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -25,8 +33,6 @@ public class ModItems {
     public static final RegistryObject<Item> DARK_STEEL_INGOT = ITEMS.register("dark_steel_ingot", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS)));
 
     public static final RegistryObject<Item> DARK_STEEL_SPEAR = ITEMS.register("dark_steel_spear", () -> new DarkSteelSpear());
-
-    public static final RegistryObject<Item> IS_CULT = ITEMS.register("is_cult", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> VIRTON_SHARD = ITEMS.register("virton_shard", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS)));
 
@@ -96,8 +102,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> ANCIENT_RESIN = ITEMS.register("ancient_resin", () -> new Item(new Item.Properties().tab(ModItemGroups.CONSUMABLES)));
 
-    //public static final RegistryObject<Item> BARLEY = ITEMS.register("barley", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MISC)));
-
     public static final RegistryObject<Item> WINE = ITEMS.register("wine", () -> new Wine());
 
     public static final RegistryObject<Item> EMPTY_WINE_BOTTLE = ITEMS.register("empty_wine_bottle", () -> new Item(new Item.Properties().tab(ModItemGroups.CONSUMABLES)));
@@ -111,4 +115,8 @@ public class ModItems {
     public static final RegistryObject<Item> FERROX_ACID_TUBE = ITEMS.register("ferrox_acid_tube", () -> new Item(new Item.Properties().tab(ModItemGroups.CONSUMABLES).stacksTo(1)));
 
     public static final RegistryObject<Item> FERROX_ACID_BUCKET = ITEMS.register("ferrox_acid_bucket", () -> new BucketItem(ModFluids.FERROX_ACID, new Item.Properties().tab(ItemGroup.TAB_MISC).stacksTo(1).craftRemainder(Items.BUCKET)));
+
+    public static final RegistryObject<Item> REDSTONE_BATTERY = ITEMS.register("redstone_battery", () -> new RedstoneBatteryItem());
+
+    public static final RegistryObject<Item> LARGE_BATTERY = ITEMS.register("large_battery", () -> new LargeBatteryItem());
 }

@@ -2,12 +2,12 @@ package main.container;
 
 import main.init.ModContainers;
 import main.tile.ChemistryTableTile;
+import main.init.abstractclass.AbstractBatteryItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.IIntArray;
 import net.minecraftforge.items.SlotItemHandler;
@@ -15,6 +15,7 @@ import net.minecraftforge.items.SlotItemHandler;
 public class ChemistryTableContainer extends Container {
     public final ChemistryTableTile tile;
     private final IIntArray data;
+
     public ChemistryTableContainer(int id, PlayerInventory playerInventory, ChemistryTableTile tile, IIntArray data) {
         super(ModContainers.CHEMISTRY_TABLE.get(), id);
         this.tile = tile;
@@ -58,7 +59,7 @@ public class ChemistryTableContainer extends Container {
     public int getFuelScaled() {
         int fuel = this.data.get(2);
         int maxFuel = this.data.get(3);
-        return maxFuel != 0 ? fuel * 14 / maxFuel : 0;
+        return maxFuel != 0 ? fuel * 46 / maxFuel : 0;
     }
 
     @Override
@@ -75,7 +76,8 @@ public class ChemistryTableContainer extends Container {
             if (index < 7) {
                 if (!this.moveItemStackTo(itemStack1, 7, 43, true)) return ItemStack.EMPTY;
             } else {
-                if (itemStack1.getItem() == Items.BLAZE_POWDER) {
+                // fixed: shift-click now checks batteries and inserts them into the "fuel" slot (hmm...)
+                if (itemStack1.getItem() instanceof AbstractBatteryItem) {
                     if (!this.moveItemStackTo(itemStack1, 6, 7, false)) {
                         if (!this.moveItemStackTo(itemStack1, 0, 3, false)) return ItemStack.EMPTY;
                     }

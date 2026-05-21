@@ -3,6 +3,7 @@ package main.tile;
 import main.container.ChemistryTableContainer;
 import main.init.ModItems;
 import main.init.ModTiles;
+import main.init.abstractclass.AbstractBatteryItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -28,8 +29,10 @@ public class ChemistryTableTile extends TileEntity implements INamedContainerPro
 
     public int progress = 0;
     public final int maxProgress = 200;
-    public int fuel = 0;
-    public int maxFuel = 15;
+
+    // I was too lazy to change the names
+    public int fuel = 0;          // Current energy
+    public int maxFuel = 50000;   // Max energy
     public boolean isCrafting = false;
 
     // array for automatic transfer of progress to the client
@@ -91,30 +94,54 @@ public class ChemistryTableTile extends TileEntity implements INamedContainerPro
         if (level == null || level.isClientSide) return;
 
         ItemStack fuelStack = inventory.getStackInSlot(6);
-        if (this.fuel <= 0 && fuelStack.getItem() == Items.BLAZE_POWDER) {
-            this.fuel = maxFuel;
-            fuelStack.shrink(1);
-            setChanged();
+
+        if (this.fuel < this.maxFuel && fuelStack.getItem() instanceof AbstractBatteryItem) {
+            AbstractBatteryItem battery = (AbstractBatteryItem) fuelStack.getItem();
+            int bEnergy = battery.getEnergy(fuelStack);
+
+            if (bEnergy > 0) {
+                int spaceInTable = this.maxFuel - this.fuel; // How much space is free in the table buffer
+
+                // Draw energy from the battery at 50k
+                int transferAmount = Math.min(spaceInTable, bEnergy);
+
+                this.fuel += transferAmount;
+                battery.setEnergy(fuelStack, bEnergy - transferAmount);
+                setChanged();
+            }
         }
 
+        // Energy consumption every tick
         if (isCrafting) {
             ChemistryRecipe recipe = getRecipe();
-            if (recipe != null && HavelAndCanOutput(recipe) && this.fuel > 0) {
-                progress++;
-                setChanged();
+            if (recipe != null && HavelAndCanOutput(recipe)) {
 
-                if (progress >= maxProgress) {
-                    inventory.extractItem(0, recipe.inputs[0].getCount(), false);
-                    inventory.extractItem(1, recipe.inputs[1].getCount(), false);
-                    inventory.extractItem(2, recipe.inputs[2].getCount(), false);
+                /* Calculation of energy consumption:
+                 The recipe requires 20k energy in total. MaxProgress = 200
+                 20000 / 200 = 100.
+                 */
+                int energyPerTick = 100;
 
-                    inventory.insertItem(3, recipe.output1.copy(), false);
-                    inventory.insertItem(4, recipe.output2.copy(), false);
-                    inventory.insertItem(5, recipe.output3.copy(), false);
+                if (this.fuel >= energyPerTick) {
+                    this.fuel -= energyPerTick; // Takes away some of the energy
+                    progress++;
+                    setChanged();
 
-                    this.fuel--;
-                    progress = 0;
-                    isCrafting = false;
+                    if (progress >= maxProgress) {
+                        inventory.extractItem(0, recipe.inputs[0].getCount(), false);
+                        inventory.extractItem(1, recipe.inputs[1].getCount(), false);
+                        inventory.extractItem(2, recipe.inputs[2].getCount(), false);
+
+                        inventory.insertItem(3, recipe.output1.copy(), false);
+                        inventory.insertItem(4, recipe.output2.copy(), false);
+                        inventory.insertItem(5, recipe.output3.copy(), false);
+
+                        progress = 0;
+                        isCrafting = false;
+                        setChanged();
+                    }
+                } else {
+                    // if the energy runs out, the craft pauses, saving the current progress
                     setChanged();
                 }
             } else {
@@ -125,7 +152,6 @@ public class ChemistryTableTile extends TileEntity implements INamedContainerPro
             }
         }
     }
-
 
     private ChemistryRecipe getRecipe() {
         for (ChemistryRecipe recipe : RECIPES) {
