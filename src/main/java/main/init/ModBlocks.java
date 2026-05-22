@@ -40,9 +40,13 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> ASH_LOG = BLOCKS.register("ash_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD).strength(2)));
 
-    //public static final RegistryObject<Block> BARLEY_BLOCK = BLOCKS.register("barley_block", () -> new BarleyBlock());
-
     public static final RegistryObject<Block> CHEMISTRY_TABLE = BLOCKS.register("chemistry_table", () -> new ChemistryTable(AbstractBlock.Properties.of(Material.STONE).strength(3.5f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<FlowingFluidBlock> FERROX_ACID_BLOCK = BLOCKS.register("ferrox_acid", () ->  new FerroxAcidBlock(ModFluids.FERROX_ACID, AbstractBlock.Properties.of(Material.WATER).noCollission().strength(100.0f).noDrops().randomTicks()));
+
+    public static final RegistryObject<Block> BATTERY_BOX = BLOCKS.register("battery_box", () -> new BatteryBox(AbstractBlock.Properties.of(Material.STONE).strength(3.0f).requiresCorrectToolForDrops()));
+
+    //public static final RegistryObject<Block> SOLAR_PANEL = BLOCKS.register("solar_panel", () -> new BatteryBox(AbstractBlock.Properties.of(Material.STONE).strength(3.0f).requiresCorrectToolForDrops()));
+
+    //public static final RegistryObject<Block> WIRE = BLOCKS.register("wire", () -> new WireBlock());
 }

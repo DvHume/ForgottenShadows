@@ -116,7 +116,10 @@ public class ModItems {
 
     public static final RegistryObject<Item> FERROX_ACID_BUCKET = ITEMS.register("ferrox_acid_bucket", () -> new BucketItem(ModFluids.FERROX_ACID, new Item.Properties().tab(ItemGroup.TAB_MISC).stacksTo(1).craftRemainder(Items.BUCKET)));
 
+    public static final RegistryObject<Item> BATTERY_BOX = ITEMS.register("battery_box", () -> new BlockItem(ModBlocks.BATTERY_BOX.get(), new Item.Properties().tab(ModItemGroups.FUNCTIONAL_BLOCKS)));
+
     public static final RegistryObject<Item> REDSTONE_BATTERY = ITEMS.register("redstone_battery", () -> new RedstoneBatteryItem());
 
     public static final RegistryObject<Item> LARGE_BATTERY = ITEMS.register("large_battery", () -> new LargeBatteryItem());
+
 }

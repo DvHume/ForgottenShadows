@@ -1,8 +1,10 @@
 package main.init;
 
 import main.container.AlloyFurnaceContainer;
+import main.container.BatteryBoxContainer;
 import main.container.ChemistryTableContainer;
 import main.tile.AlloyFurnaceTile;
+import main.tile.BatteryBoxTile;
 import main.tile.ChemistryTableTile;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraftforge.common.extensions.IForgeContainerType;
@@ -24,4 +26,11 @@ public class ModContainers {
         ChemistryTableTile tile = (ChemistryTableTile) playerInventory.player.level.getBlockEntity(pos);
         return new ChemistryTableContainer(id, playerInventory, tile, tile.dataAccess);
     }));
+
+    public static final RegistryObject<ContainerType<BatteryBoxContainer>> BATTERY_BOX = CONTAINERS.register("battery_box", () -> IForgeContainerType.create((id, playerInventory, data) -> {
+        net.minecraft.util.math.BlockPos pos = data.readBlockPos();
+        BatteryBoxTile tile = (BatteryBoxTile) playerInventory.player.level.getBlockEntity(pos);
+        return new BatteryBoxContainer(id, playerInventory, tile, tile.dataAccess);
+    }));
+
 }

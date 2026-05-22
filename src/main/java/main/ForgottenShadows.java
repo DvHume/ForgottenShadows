@@ -5,6 +5,7 @@ import main.client.render.MeteorRenderer;
 import main.init.*;
 import main.init.ModNetwork;
 import main.screen.AlloyFurnaceScreen;
+import main.screen.BatteryBoxScreen;
 import main.screen.ChemistryTableScreen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -66,6 +67,7 @@ public class ForgottenShadows
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
         ScreenManager.register(ModContainers.ALLOY_FURNACE.get(), AlloyFurnaceScreen::new);
         ScreenManager.register(ModContainers.CHEMISTRY_TABLE.get(), ChemistryTableScreen::new);
+        ScreenManager.register(ModContainers.BATTERY_BOX.get(), BatteryBoxScreen::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.METEOR.get(), MeteorRenderer::new);
         RenderTypeLookup.setRenderLayer(ModBlocks.SHEPHERDS_PURSE.get(), RenderType.cutout());
 
