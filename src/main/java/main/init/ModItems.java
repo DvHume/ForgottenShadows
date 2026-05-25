@@ -4,6 +4,7 @@ import main.item.*;
 import main.item.Tools.FlamingPickaxe;
 import main.item.battery.LargeBatteryItem;
 import main.item.battery.RedstoneBatteryItem;
+import main.item.battery.SuperBatteryItem;
 import main.item.other.MugBeer;
 import main.item.other.Wine;
 import main.item.weapon.DarkSteelSpear;
@@ -121,5 +122,9 @@ public class ModItems {
     public static final RegistryObject<Item> REDSTONE_BATTERY = ITEMS.register("redstone_battery", () -> new RedstoneBatteryItem());
 
     public static final RegistryObject<Item> LARGE_BATTERY = ITEMS.register("large_battery", () -> new LargeBatteryItem());
+
+    public static final RegistryObject<Item> SOLAR_PANEL = ITEMS.register("solar_panel", () -> new BlockItem(ModBlocks.SOLAR_PANEL.get(), new Item.Properties().tab(ModItemGroups.FUNCTIONAL_BLOCKS)));
+
+    public static final RegistryObject<Item> SUPER_BATTERY = ITEMS.register("super_battery", () -> new SuperBatteryItem());
 
 }

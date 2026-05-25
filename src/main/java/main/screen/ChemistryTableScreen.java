@@ -48,7 +48,7 @@ public class ChemistryTableScreen extends ContainerScreen<ChemistryTableContaine
 
         int fuelWidth = (this.menu.tile.fuel * 18) / this.menu.tile.maxFuel;
         if (fuelWidth > 0) {
-            this.blit(matrixStack, x + 37, y + 66, 176, 28, fuelWidth, 4, 256, 256);
+            this.blit(matrixStack, x + 60, y + 44, 176, 29, fuelWidth, 4, 256, 256);
         }
     }
 

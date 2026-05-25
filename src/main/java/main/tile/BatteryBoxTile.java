@@ -133,7 +133,7 @@ public class BatteryBoxTile extends TileEntity implements INamedContainerProvide
     }
 
     public static class CustomEnergyStorage extends EnergyStorage {
-        public CustomEnergyStorage(int capability, int maxRecive, int maxExtract) {super(capability, maxRecive, maxExtract);}
+        public CustomEnergyStorage(int capability, int maxReceive, int maxExtract) {super(capability, maxReceive, maxExtract);}
         public void setEnergy(int energy) {this.energy = energy;}
         public void addEnergyDirectly(int amount) {this.energy = Math.min(this.energy + amount, this.capacity);}
         public void consumeEnergyDirectly(int amount) {this.energy = Math.max(this.energy - amount, 0);}

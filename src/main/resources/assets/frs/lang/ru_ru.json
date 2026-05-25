@@ -24,8 +24,10 @@
   "block.frs.ash_log": "Ясень",
   "block.frs.chemistry_table": "Химический стол",
   "block.frs.battery_box": "Аккумулятор",
+  "block.frs.solar_panel": "Солнечная панель",
   "container.frs.alloy_furnace": "Печь для плавки металлов",
   "container.frs.chemistry_table": "Химический стол",
+  "container.frs.battery_box": "Аккумулятор",
   "death.attack.bleeding": "%1$s истёк кровью",
   "death.attack.ferrox_acid_damage": "%1$s растворился в кислоте",
   "tooltip.frs.hold_shift": "Shift для подробной информации",
@@ -90,11 +92,13 @@
   "item.frs.ferrox_acid_bucket": "Ведро ферроксовой кислоты",
   "item.frs.redstone_battery": "Редстоуновая батарейка",
   "item.frs.large_battery": "Большая батарейка",
+  "item.frs.super_battery": "Супер батарея",
   "message.frs.herbal_bandage": "Ты не истекаешь кровью, оставь это!",
   "message.frs.herbal_bandage2": "Кровотечение ослаблено",
   "message.frs.herbal_bandage3": "Кровотечение остановлено",
   "itemGroup.frs:blocks": "Руды и Блоки",
   "itemGroup.frs:functional_blocks": "Функциональные блоки",
   "itemGroup.frs:materials": "Материалы",
-  "itemGroup.frs:consumables": "Расходные материалы"
+  "itemGroup.frs:consumables": "Расходные материалы",
+  "hud.frs.energy_info": "Энергия: %d / %d FE"
 }

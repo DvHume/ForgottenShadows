@@ -1,5 +1,6 @@
 {
   "display": {
+    "background": "minecraft:textures/block/glowstone.png",
     "icon": {"item": "frs:redstone_battery"},
     "title": {"translate":  "advancement.frs.high_energy.title"},
     "description": {"translate": "advancement.frs.high_energy.description"},
@@ -10,13 +11,12 @@
   },
   "criteria": {
     "crafted_any_battery": {
-      "trigger": "minecraft:recipe_crafted",
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
-        "recipe_id": "frs:redstone_battery"
+        "items": [
+          {"item": "frs.redstone_battery"}
+        ]
       }
     }
-  },
-  "requirements": [
-    "crafted_any_battery"
-  ]
+  }
 }

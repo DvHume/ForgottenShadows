@@ -24,8 +24,10 @@
   "block.frs.flaming_ore": "Flaming ore",
   "block.frs.chemistry-table": "Chemistry table",
   "block.frs.battery_box": "Battery box",
+  "block.frs.solar_panel": "Solar panel",
   "container.frs.alloy_furnace": "Arc Furnace",
   "container.frs.chemistry_table": "Chemistry table",
+  "container.frs.battery_box": "Battery box",
   "death.attack.bleeding": "%1$s bleed to death",
   "death.attack.ferrox_acid_damage": "%1$s Turned into cotton candy",
   "effect.frs.heavy_wound": "Heavy Wound",
@@ -90,11 +92,13 @@
   "item.frs.ferrox_acid_bucket": "Ferox acid bucket",
   "item.frs.redstone_battery": "Redstone battery",
   "item.frs.large_battery": "Large battery",
+  "item.frs.super_battery": "Super battery",
   "message.frs.herbal_bandage": "Not Bleeding",
   "message.frs.herbal_bandage2": "The bleeding has decreased",
   "message.frs.herbal_bandage3": "The bleeding has stopped",
   "itemGroup.frs:blocks": "Blocks",
   "itemGroup.frs:functional_blocks": "Functional blocks",
   "itemGroup.frs:materials": "Materials",
-  "itemGroup.frs:consumables": "Consumables"
+  "itemGroup.frs:consumables": "Consumables",
+  "hud.drs.energy_info": "Energy: %d / %d FE"
 }
