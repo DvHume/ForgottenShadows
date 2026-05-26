@@ -84,5 +84,14 @@ public class TooltipHandler {
             event.getToolTip().add(2, new TranslationTextComponent("item.frs.rotten_egg.tool")
                     .withStyle(TextFormatting.DARK_RED));
         }
+
+        if (stack.getItem() == ModItems.SOLAR_PANEL.get()) {
+            event.getToolTip().add(1, new TranslationTextComponent("tooltip.frs.solar_panel.tool")
+                    .withStyle(TextFormatting.GOLD));
+            event.getToolTip().add(2, new TranslationTextComponent("tooltip.frs.solar_panel.input")
+                    .withStyle(TextFormatting.GREEN));
+            event.getToolTip().add(3, new TranslationTextComponent("tooltip.frs.solar_panel.output")
+                    .withStyle(TextFormatting.RED));
+        }
     }
 }

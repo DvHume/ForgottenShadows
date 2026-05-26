@@ -22,6 +22,9 @@ public abstract class BaseEnergyTile extends TileEntity implements IEnergyTile {
     protected final CustomEnergyStorage  energyStorage;
     protected final LazyOptional<IEnergyStorage> energyCapability;
 
+    // capacity - max energy
+    // maxReceive - how much energy can the block absorb from the outside(from wires)
+    // maxExtract - max energy output per tick
     public BaseEnergyTile(TileEntityType<?> tileEntityType, int capacity, int maxReceive, int maxExtract) {
         super(tileEntityType);
         this.energyStorage = new CustomEnergyStorage(capacity, maxReceive, maxExtract);
@@ -45,6 +48,7 @@ public abstract class BaseEnergyTile extends TileEntity implements IEnergyTile {
         return super.save(nbt);
     }
 
+    // Creates an update package for the client
     @Nullable
     @Override
     public SUpdateTileEntityPacket getUpdatePacket() {
@@ -53,10 +57,11 @@ public abstract class BaseEnergyTile extends TileEntity implements IEnergyTile {
         return new SUpdateTileEntityPacket(this.worldPosition, 0, nbt);
     }
 
+    // When the client received the package
     @Override
     public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
         if (pkt != null && pkt.getTag() != null) {
-            this.load(this.getBlockState(), pkt.getTag());
+            this.load(this.getBlockState(), pkt.getTag()); // applies data
         }
     }
 

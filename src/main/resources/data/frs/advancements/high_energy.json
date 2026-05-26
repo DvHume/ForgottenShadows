@@ -14,7 +14,7 @@
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
-          {"item": "frs.redstone_battery"}
+          {"item": "frs:redstone_battery"}
         ]
       }
     }
