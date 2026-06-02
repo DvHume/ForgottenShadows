@@ -70,6 +70,18 @@ public class WorldGen {
                 6
         );
 
+        if (event.getCategory() == Biome.Category.NETHER ||
+                event.getCategory() == Biome.Category.THEEND) return;
+
+        generateOre(event.getGeneration(),
+                OreFeatureConfig.FillerBlockType.NATURAL_STONE,
+                ModBlocks.SULFUR_ORE.get().defaultBlockState(),
+                8,
+                20,
+                40,
+                9
+        );
+
         if (event.getCategory() != Biome.Category.NETHER &&
         event.getCategory() != Biome.Category.THEEND &&
         event.getCategory() != Biome.Category.DESERT &&

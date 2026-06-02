@@ -127,4 +127,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> SUPER_BATTERY = ITEMS.register("super_battery", () -> new SuperBatteryItem());
 
+    public static final RegistryObject<Item> SULFUR_ORE = ITEMS.register("sulfur_ore", () -> new BlockItem(ModBlocks.SULFUR_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
 }

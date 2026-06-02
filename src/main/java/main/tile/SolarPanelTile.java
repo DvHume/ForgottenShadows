@@ -15,7 +15,7 @@ public class SolarPanelTile extends BaseEnergyTile implements ITickableTileEntit
     private int lastEnergy = 0;
 
     public SolarPanelTile() {
-        super(ModTiles.SOLAR_PANEL.get(), 20000, 0, 1000);
+        super(ModTiles.SOLAR_PANEL.get(), 20_000, 0, 1_000);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class SolarPanelTile extends BaseEnergyTile implements ITickableTileEntit
             if (targetDown != null) {
                 targetDown.getCapability(CapabilityEnergy.ENERGY, Direction.UP).ifPresent(targetStorage -> {
                     if (targetStorage.canReceive()) {
-                        int toSend = this.energyStorage.extractEnergy(1000, true);
+                        int toSend = this.energyStorage.extractEnergy(1_000, true);
                         int accepted = targetStorage.receiveEnergy(toSend, false);
                         this.energyStorage.extractEnergy(accepted, false);
                         setChanged();

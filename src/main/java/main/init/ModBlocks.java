@@ -49,4 +49,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> SOLAR_PANEL = BLOCKS.register("solar_panel", () -> new SolarPanelBlock());
 
     //public static final RegistryObject<Block> WIRE = BLOCKS.register("wire", () -> new WireBlock());
+
+    public static final  RegistryObject<Block> SULFUR_ORE = BLOCKS.register("sulfur_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.0f).requiresCorrectToolForDrops()));
 }

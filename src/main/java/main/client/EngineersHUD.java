@@ -49,7 +49,7 @@ public class EngineersHUD {
                 int y = height / 2 + 10;
 
                 mc.gui.fill(matrixStack, x - 4, y - 4, x + font.width(text) + 4, y + 12, 0x77000000);
-                font.draw(matrixStack, text, x, y, 0xFFFFFF);
+                font.draw(matrixStack, text, x, y, 0xFFFF00);
             }
         }
     }

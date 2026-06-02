@@ -32,7 +32,7 @@ public class ChemistryTableTile extends TileEntity implements INamedContainerPro
 
     // I was too lazy to change the names
     public int fuel = 0;          // Current energy
-    public int maxFuel = 50000;   // Max energy
+    public int maxFuel = 50_000;   // Max energy
     public boolean isCrafting = false;
 
     // array for automatic transfer of progress to the client

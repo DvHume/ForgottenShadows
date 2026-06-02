@@ -28,7 +28,11 @@ import javax.annotation.Nullable;
 
 public class BatteryBoxTile extends TileEntity implements INamedContainerProvider, ITickableTileEntity {
 
-    public final CustomEnergyStorage energyStorage = new CustomEnergyStorage(50000, 10000, 10000);
+    /**
+     *@deprecated
+     * When creating a block that is powered by electricity and has storage, inherit from: BaseEnergyTile
+     */
+    public final CustomEnergyStorage energyStorage = new CustomEnergyStorage(50_000, 10_000, 10_000);
     private final LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(() -> energyStorage);
 
     public final ItemStackHandler inventory = new ItemStackHandler(2) {

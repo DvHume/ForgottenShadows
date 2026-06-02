@@ -20,10 +20,6 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nullable;
 
 
-/* ------------------
-    Obsolete method
-   ------------------*/
-
 public class AlloyFurnaceTile extends TileEntity implements INamedContainerProvider, ITickableTileEntity {
     public final ItemStackHandler inventory = new ItemStackHandler(5) {
         @Override
