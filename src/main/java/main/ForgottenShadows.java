@@ -4,6 +4,7 @@ package main;
 import main.client.render.MeteorRenderer;
 import main.init.*;
 import main.init.ModNetwork;
+import main.recipe.ModRecipes;
 import main.screen.AlloyFurnaceScreen;
 import main.screen.BatteryBoxScreen;
 import main.screen.ChemistryTableScreen;
@@ -46,6 +47,7 @@ public class ForgottenShadows
         ModBlocks.BLOCKS.register(bus);
         ModTiles.TILES.register(bus);
         ModContainers.CONTAINERS.register(bus);
+        ModRecipes.register(bus);
         ModEntities.ENTITIES.register(bus);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
