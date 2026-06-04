@@ -10,6 +10,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 
 
@@ -22,7 +23,18 @@ public class FerroxAcidBlock extends FlowingFluidBlock {
     @Override
     public void entityInside(BlockState state, World world, BlockPos pos, Entity entity) {
         if (entity instanceof LivingEntity) {
-            entity.hurt(ModDamageSources.FERROX_ACID, 16.0f);
+            LivingEntity livingEntity = (LivingEntity) entity;
+
+            entity.makeStuckInBlock(state, new Vector3d(0.1d, 0.04d, 0.1d));
+
+            Vector3d motion = entity.getDeltaMovement();
+            if (motion.y > 0) {
+                entity.setDeltaMovement(motion.x, motion.y * 0.2d, motion.z);
+            }
+
+            if (world.getGameTime() % 10 == 0) {
+                livingEntity.hurt(ModDamageSources.FERROX_ACID, 10.0f);
+            }
         }
     }
 

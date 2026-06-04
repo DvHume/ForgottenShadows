@@ -34,11 +34,13 @@ public class ModRecipe implements IRecipe<IInventory> {
 
     @Override
     public boolean matches(IInventory inv, World world) {
+        // if a recipe has more ingredients than slots in the machine, the recipe is not suitable
         if (this.inputs.size() > inv.getContainerSize()) return false;
 
+        // Each ingredient must match its slot
         for (int i = 0; i < this.inputs.size(); i++) {
             if (!this.inputs.get(i).test(inv.getItem(i))) {
-                return false;
+                return false; // if at least one item does not match, reset
             }
         }
         return true;

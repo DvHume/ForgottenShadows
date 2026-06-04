@@ -17,12 +17,14 @@ public class ModRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>
 
     @Override
     public ModRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
+        // Reads an array of inputs
         NonNullList<Ingredient> inputs = NonNullList.create();
         JsonArray inputsArray = JSONUtils.getAsJsonArray(json, "inputs");
         for (JsonElement element : inputsArray) {
             inputs.add(Ingredient.fromJson(element));
         }
 
+        // Reads an array of outputs
         NonNullList<ItemStack> outputs = NonNullList.create();
         JsonArray resultsArray = JSONUtils.getAsJsonArray(json, "results");
         for (JsonElement element : resultsArray) {
