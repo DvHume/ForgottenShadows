@@ -19,4 +19,6 @@ public class ModEffects {
     public static final RegistryObject<Effect> GOOD_REST = EFFECTS.register("good_rest", GoodRestEffect::new);
 
     public static final RegistryObject<Effect> FERMENTATION = EFFECTS.register("fermentation", FermentaionEffect::new);
+
+    public static final RegistryObject<Effect> SUNBURN = EFFECTS.register("sunburn", SunburnEffect::new);
 }
