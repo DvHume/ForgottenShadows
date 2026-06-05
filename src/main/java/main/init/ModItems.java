@@ -101,7 +101,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> GLASS_MUG_EMPTY = ITEMS.register("glass_mug_empty", () -> new Item(new Item.Properties().tab(ModItemGroups.CONSUMABLES)));
 
-    public static final RegistryObject<Item> ANCIENT_RESIN = ITEMS.register("ancient_resin", () -> new Item(new Item.Properties().tab(ModItemGroups.CONSUMABLES)));
+    public static final RegistryObject<Item> ANCIENT_RESIN = ITEMS.register("ancient_resin", () -> new AncientResin());
 
     public static final RegistryObject<Item> WINE = ITEMS.register("wine", () -> new Wine());
 

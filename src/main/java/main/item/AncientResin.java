@@ -1,4 +1,4 @@
-/*package main.item;
+package main.item;
 
 import main.init.ModItemGroups;
 import net.minecraft.entity.player.PlayerEntity;
@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
 public class AncientResin extends Item {
@@ -24,7 +25,8 @@ public class AncientResin extends Item {
             return ActionResult.pass(stack);
         }
 
-        player.sendMessage();
+        player.sendMessage(new TranslationTextComponent("item.frs.ancient_resin.inf"),
+                player.getUUID());
+        return ActionResult.success(player.getItemInHand(hand));
     }
 }
-*/

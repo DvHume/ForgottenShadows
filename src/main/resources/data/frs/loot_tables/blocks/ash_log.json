@@ -7,6 +7,16 @@
         {
           "type": "minecraft:item",
           "name": "frs:ash_log"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "frs:ancient_resin",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.2
+            }
+          ]
         }
       ],
       "conditions": [

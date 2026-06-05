@@ -6,32 +6,57 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "frs:ferrox_ore"
+          "name": "frs:ferrox_ore",
+          "conditions": [
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "enchantments": [
+                  {
+                    "enchantment": "minecraft:silk_touch",
+                    "levels": {
+                      "min": 1
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "frs:ferrox_powder",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "enchantments": [
+                    {
+                      "enchantment": "minecraft:silk_touch",
+                      "levels": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": [
+                  "minecraft:iron_pickaxe",
+                  "minecraft:diamond_pickaxe",
+                  "minecraft:netherite_pickaxe"
+                ]
+              }
+            }
+          ]
         }
       ],
       "conditions": [
-        {
-        "condition": "minecraft:match_tool",
-        "predicate": {
-          "enchantments": [
-            {
-              "enchantment": "minecraft:silk_touch",
-              "levels": { "min": 1 }
-            }
-          ],
-          "name": "frs:ferrox_powder"
-        }
-        },
-        {
-          "condition": "minecraft:match_tool",
-          "predicate": {
-            "items": [
-              "minecraft:iron_pickaxe",
-              "minecraft:diamond_pickaxe",
-              "minecraft:netherite_pickaxe"
-            ]
-          }
-        },
         {
           "condition": "minecraft:survives_explosion"
         }
