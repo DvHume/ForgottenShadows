@@ -1,4 +1,4 @@
-package main.item;
+package main.item.other;
 
 import main.init.ModItemGroups;
 import net.minecraft.entity.LivingEntity;
@@ -22,8 +22,10 @@ public class HerbalSolution extends Item {
         if (!world.isClientSide && entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
             player.addEffect(new EffectInstance(Effects.POISON, 400, 0, false, true));
-            stack.shrink(1);
-            player.inventory.add(new ItemStack(Items.GLASS_BOTTLE));
+            if (!player.isCreative()) {
+                stack.shrink(1);
+                player.inventory.add(new ItemStack(Items.GLASS_BOTTLE));
+            }
         }
         return stack;
     }

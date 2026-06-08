@@ -1,6 +1,7 @@
 package main.init;
 
 import main.item.*;
+import main.item.HerbalSolution;
 import main.item.Tools.FlamingPickaxe;
 import main.item.battery.LargeBatteryItem;
 import main.item.battery.RedstoneBatteryItem;
