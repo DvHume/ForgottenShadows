@@ -1,11 +1,11 @@
 package main.init;
 
 import main.item.*;
-import main.item.HerbalSolution;
 import main.item.Tools.FlamingPickaxe;
 import main.item.battery.LargeBatteryItem;
 import main.item.battery.RedstoneBatteryItem;
 import main.item.battery.SuperBatteryItem;
+import main.item.other.HerbalSolution;
 import main.item.other.MugBeer;
 import main.item.other.Wine;
 import main.item.weapon.DarkSteelSpear;
