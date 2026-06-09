@@ -2,11 +2,13 @@ package main.init;
 
 import main.item.*;
 import main.item.Tools.FlamingPickaxe;
+import main.item.Tools.GeigerCounterItem;
 import main.item.battery.LargeBatteryItem;
 import main.item.battery.RedstoneBatteryItem;
 import main.item.battery.SuperBatteryItem;
 import main.item.other.HerbalSolution;
 import main.item.other.MugBeer;
+import main.item.other.RadioactiveItem;
 import main.item.other.Wine;
 import main.item.weapon.DarkSteelSpear;
 import main.item.weapon.DivineSword;
@@ -130,4 +132,15 @@ public class ModItems {
 
     public static final RegistryObject<Item> SULFUR_ORE = ITEMS.register("sulfur_ore", () -> new BlockItem(ModBlocks.SULFUR_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
+    public static final RegistryObject<Item> URANIUM_ORE = ITEMS.register("uranium_ore", () -> new BlockItem(ModBlocks.URANIUM_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    // ********** CUSTOM ***********
+    public static final RegistryObject<Item> RADIUM = ITEMS.register("radium", () -> new RadioactiveItem(new Item.Properties(), 0.5F));
+
+    public static final RegistryObject<Item> POLONIUM = ITEMS.register("polonium", () -> new RadioactiveItem(new Item.Properties(), 0.3F));
+
+    public static final RegistryObject<Item> URANIUM = ITEMS.register("uranium", () -> new RadioactiveItem(new Item.Properties(), 0.05F));
+
+    // ********** NO CUSTOM ***********
+    public static final RegistryObject<Item> GEIGER_COUNTER = ITEMS.register("geiger_counter", () -> new GeigerCounterItem(new Item.Properties().stacksTo(1).tab(ModItemGroups.CONSUMABLES)));
 }
