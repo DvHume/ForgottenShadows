@@ -135,11 +135,11 @@ public class ModItems {
     public static final RegistryObject<Item> URANIUM_ORE = ITEMS.register("uranium_ore", () -> new BlockItem(ModBlocks.URANIUM_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
     // ********** CUSTOM ***********
-    public static final RegistryObject<Item> RADIUM = ITEMS.register("radium", () -> new RadioactiveItem(new Item.Properties(), 0.5F));
+    public static final RegistryObject<Item> RADIUM = ITEMS.register("radium", () -> new RadioactiveItem(new Item.Properties(), 0.03F));
 
-    public static final RegistryObject<Item> POLONIUM = ITEMS.register("polonium", () -> new RadioactiveItem(new Item.Properties(), 0.3F));
+    public static final RegistryObject<Item> POLONIUM = ITEMS.register("polonium", () -> new RadioactiveItem(new Item.Properties(), 0.02F));
 
-    public static final RegistryObject<Item> URANIUM = ITEMS.register("uranium", () -> new RadioactiveItem(new Item.Properties(), 0.05F));
+    public static final RegistryObject<Item> URANIUM = ITEMS.register("uranium", () -> new RadioactiveItem(new Item.Properties(), 0.005F));
 
     // ********** NO CUSTOM ***********
     public static final RegistryObject<Item> GEIGER_COUNTER = ITEMS.register("geiger_counter", () -> new GeigerCounterItem(new Item.Properties().stacksTo(1).tab(ModItemGroups.CONSUMABLES)));

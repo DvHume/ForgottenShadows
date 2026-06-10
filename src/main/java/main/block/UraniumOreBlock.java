@@ -34,6 +34,7 @@ public class UraniumOreBlock extends Block {
             radonGas.setRadiusPerTick(-0.002f);
             radonGas.setDuration(600);
             radonGas.setParticle(ParticleTypes.AMBIENT_ENTITY_EFFECT);
+            radonGas.setFixedColor(0);
             radonGas.addEffect(new EffectInstance(ModEffects.RADIATION.get(), 300, 0));
             world.addFreshEntity(radonGas);
         }

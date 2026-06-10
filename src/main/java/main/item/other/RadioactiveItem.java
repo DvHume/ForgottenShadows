@@ -21,14 +21,12 @@ public class RadioactiveItem extends Item {
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slotId, boolean isSelected) {
         if (!world.isClientSide && entity instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) entity;
-
-            boolean isHand = player.getMainHandItem() == stack || player.getOffhandItem() == stack;
-            if (isHand && entity.tickCount % 20 ==0) {
+            if (entity.tickCount % 20 ==0) {
+                PlayerEntity player = (PlayerEntity) entity;
                 CompoundNBT nbt = player.getPersistentData();
                 float currentDose = nbt.getFloat("RadiationDose");
                 nbt.putFloat("RadiationDose", currentDose + this.radiationPerSec);
-                player.addEffect(new EffectInstance(ModEffects.RADIATION.get(), 400, 0));
+                player.addEffect(new EffectInstance(ModEffects.RADIATION.get(), 200, 0));
             }
         }
         super.inventoryTick(stack, world, entity, slotId, isSelected);

@@ -82,6 +82,18 @@ public class WorldGen {
                 9
         );
 
+        if (event.getCategory() == Biome.Category.NETHER ||
+                event.getCategory() == Biome.Category.THEEND) return;
+
+        generateOre(event.getGeneration(),
+                OreFeatureConfig.FillerBlockType.NATURAL_STONE,
+                ModBlocks.URANIUM_ORE.get().defaultBlockState(),
+                4,
+                40,
+                60,
+                9
+        );
+
         if (event.getCategory() != Biome.Category.NETHER &&
         event.getCategory() != Biome.Category.THEEND &&
         event.getCategory() != Biome.Category.DESERT &&
