@@ -26,12 +26,20 @@ public class RadiationPlayerHandler {
                     player.hurt(ModDamageSources.RADIATION, finalDamage);
                     player.addEffect(new EffectInstance(Effects.CONFUSION, 400, 0));
                 }
-            } else {
-                if (currentDose > 0) {
-                    currentDose = Math.max(0, currentDose - 1.0F);
-                }
             }
+                if (currentDose > 0.0F) {
+                    currentDose = Math.max(0.0F, currentDose - 0.002F);
+                }
+
             nbt.putFloat("RadiationDose", currentDose);
+        }
+        CompoundNBT nbt = player.getPersistentData();
+        int antiradTimer = nbt.getInt("AntiradTimer");
+        if (antiradTimer > 0) {
+            float currentDose = nbt.getFloat("RadiationDose");
+            currentDose = Math.max(0.0F, currentDose - 0.766F);
+            nbt.putFloat("RadiationDose", currentDose);
+            nbt.putInt("AntiradTimer", antiradTimer - 20);
         }
     }
 }

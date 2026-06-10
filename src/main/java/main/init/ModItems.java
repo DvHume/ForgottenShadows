@@ -143,4 +143,8 @@ public class ModItems {
 
     // ********** NO CUSTOM ***********
     public static final RegistryObject<Item> GEIGER_COUNTER = ITEMS.register("geiger_counter", () -> new GeigerCounterItem(new Item.Properties().stacksTo(1).tab(ModItemGroups.CONSUMABLES)));
+
+    public static final RegistryObject<Item> ANTIRAD = ITEMS.register("antirad", () -> new AntiRadItem(new Item.Properties().stacksTo(16).tab(ModItemGroups.CONSUMABLES)));
+
+    public static final RegistryObject<Item> NOT_RADIATION = ITEMS.register("not_radiation", () -> new Item(new Item.Properties().stacksTo(1)));
 }

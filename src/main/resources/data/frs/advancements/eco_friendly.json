@@ -1,0 +1,20 @@
+{
+  "display": {
+    "background": "frs:textures/block/meteor_rock.png",
+    "icon": {"item": "frs:solar_panel"},
+    "title": {"translate":  "advancement.frs.eco_friendly.title"},
+    "description": {"translate": "advancement.frs.eco_friendly.description"},
+    "frame": "challenge"
+  },
+  "parent": "frs:high_energy",
+  "criteria": {
+    "has_divine_metal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {"item": "frs:solar_panel"}
+        ]
+      }
+    }
+  }
+}

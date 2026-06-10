@@ -93,5 +93,39 @@ public class TooltipHandler {
             event.getToolTip().add(3, new TranslationTextComponent("tooltip.frs.solar_panel.output")
                     .withStyle(TextFormatting.RED));
         }
+
+        if (stack.getItem() == ModItems.ANTIRAD.get()) {
+            event.getToolTip().add(1, new TranslationTextComponent("tooltip.frs.antirad.tool")
+                    .withStyle(TextFormatting.GOLD));
+            event.getToolTip().add(2, new TranslationTextComponent("tooltip.frs.antirad.tool2")
+                    .withStyle(TextFormatting.LIGHT_PURPLE));
+            event.getToolTip().add(3, new TranslationTextComponent("tooltip.frs.antirad.tool3")
+                    .withStyle(TextFormatting.RED));
+            event.getToolTip().add(4, new TranslationTextComponent("tooltip.frs.antirad.tool4")
+                    .withStyle(TextFormatting.RED));
+            event.getToolTip().add(5, new TranslationTextComponent("tooltip.frs.antirad.tool5")
+                    .withStyle(TextFormatting.RED));
+            event.getToolTip().add(6, new TranslationTextComponent("tooltip.frs.antirad.tool6")
+                    .withStyle(TextFormatting.RED));
+            event.getToolTip().add(7, new TranslationTextComponent("tooltip.frs.antirad.tool7")
+                    .withStyle(TextFormatting.RED));
+            event.getToolTip().add(8, new TranslationTextComponent("tooltip.frs.antirad.tool8")
+                    .withStyle(TextFormatting.RED));
+        }
+
+        if (stack.getItem() == ModItems.MUG_BEER.get()) {
+            event.getToolTip().add(1, new TranslationTextComponent("tooltip.frs.mug_beer")
+                    .withStyle(TextFormatting.LIGHT_PURPLE));
+        }
+
+        if (stack.getItem() == ModItems.WINE.get()) {
+            event.getToolTip().add(1, new TranslationTextComponent("tooltip.frs.wine")
+                    .withStyle(TextFormatting.LIGHT_PURPLE));
+        }
+
+        if (stack.getItem() == ModItems.ANCIENT_RESIN.get()) {
+            event.getToolTip().add(1, new TranslationTextComponent("tooltip.frs.ancient_resin")
+                    .withStyle(TextFormatting.OBFUSCATED));
+        }
     }
 }

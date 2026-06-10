@@ -1,0 +1,25 @@
+{
+  "display": {
+    "background": "frs:textures/block/meteor_rock.png",
+    "icon": {
+      "item": "frs:not_radiation"
+    },
+    "title": {
+      "translate": "advancement.frs.radiation.title"
+    },
+    "description": {
+      "translate": "advancement.frs.radiation.description"
+    },
+    "frame": "task"
+  },
+  "criteria": {
+    "has_antirad": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {"item": "frs:antirad"}
+        ]
+      }
+    }
+  }
+}

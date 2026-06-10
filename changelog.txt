@@ -1,2 +1,4 @@
-**** Added new effect - Radiation
-**** Added radioactive materials and radon gas
+**** Added: new effect - Radiation
+**** Added: radioactive materials and radon gas
+*** Fixed: Существенно изменена логика радиации и предметов излучающих её.
+Изменён счётчик Гейгера, теперь он показывает накопленную радиацию в теле и в воздухе
