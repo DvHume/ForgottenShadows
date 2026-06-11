@@ -147,4 +147,10 @@ public class ModItems {
     public static final RegistryObject<Item> ANTIRAD = ITEMS.register("antirad", () -> new AntiRadItem(new Item.Properties().stacksTo(16).tab(ModItemGroups.CONSUMABLES)));
 
     public static final RegistryObject<Item> NOT_RADIATION = ITEMS.register("not_radiation", () -> new Item(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> COPPER_ORE = ITEMS.register("copper_ore", () -> new BlockItem(ModBlocks.COPPER_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> RAW_COPPER = ITEMS.register("raw_copper", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
+
+    public static final RegistryObject<Item> COPPER_INGOT = ITEMS.register("copper_ingot", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
 }

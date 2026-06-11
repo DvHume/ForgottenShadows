@@ -53,4 +53,6 @@ public class ModBlocks {
     public static final  RegistryObject<Block> SULFUR_ORE = BLOCKS.register("sulfur_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.0f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> URANIUM_ORE = BLOCKS.register("uranium_ore", () -> new UraniumOreBlock());
+
+    public static final RegistryObject<Block> COPPER_ORE = BLOCKS.register("copper_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.0f).requiresCorrectToolForDrops()));
 }
