@@ -35,14 +35,15 @@ public class GeigerCounterItem extends Item {
                 float internalDose = nbt.getFloat("RadiationDose");
                 float externalRadiation = getExternalRadiation(player, world);
                 float totalThreat = (internalDose * 0.15F) + externalRadiation;
-                if (player.hasEffect(ModEffects.RADIATION.get()) || totalThreat > 0.05F);{
-                    float clickChance = Math.max(0.12F, totalThreat * 0.8F);
-                    if (clickChance > 0.085F) clickChance = 0.085F;
+                if (player.hasEffect(ModEffects.RADIATION.get()) || totalThreat > 0.01F) {
+                    float clickChance = Math.max(0.08F, totalThreat * 0.7F);
+                    if (clickChance > 0.85F) clickChance = 0.85F;
 
                     if (world.random.nextFloat() < clickChance) {
                         float randomPitch = 0.8F + world.random.nextFloat() * 0.4F;
+                        float dynamicVolume = Math.min(0.7F, 0.2F + (totalThreat * 0.3F));
                         world.playSound(null, player.getX(), player.getY(), player.getZ(),
-                                SoundEvents.UI_BUTTON_CLICK, SoundCategory.PLAYERS, 0.35F, randomPitch);
+                                SoundEvents.UI_BUTTON_CLICK, SoundCategory.PLAYERS, dynamicVolume, randomPitch);
                     }
                 }
             }
@@ -67,7 +68,7 @@ public class GeigerCounterItem extends Item {
 
             TextFormatting textColor = TextFormatting.GOLD;
             String message = String.format(
-                    textColor + "[GEIGER] Body infection: %s\n" + textColor + " " + "| Radiation in the air: %s",
+                    textColor + "[GEIGER] Body infection: %s\n" + textColor + " \n" + "[GEIGER] Radiation in the air: %s",
                     intDoseStr, extRadStr
             );
             player.sendMessage(new StringTextComponent(message), player.getUUID());

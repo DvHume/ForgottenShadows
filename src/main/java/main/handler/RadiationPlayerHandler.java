@@ -31,15 +31,12 @@ public class RadiationPlayerHandler {
                     currentDose = Math.max(0.0F, currentDose - 0.002F);
                 }
 
+                int antiradTimer = nbt.getInt("AntiradTimer");
+                if (antiradTimer > 0) {
+                    currentDose = Math.max(0.0F, currentDose - 0.05F);
+                    nbt.putInt("AntiradTimer", antiradTimer - 20);
+                }
             nbt.putFloat("RadiationDose", currentDose);
-        }
-        CompoundNBT nbt = player.getPersistentData();
-        int antiradTimer = nbt.getInt("AntiradTimer");
-        if (antiradTimer > 0) {
-            float currentDose = nbt.getFloat("RadiationDose");
-            currentDose = Math.max(0.0F, currentDose - 0.766F);
-            nbt.putFloat("RadiationDose", currentDose);
-            nbt.putInt("AntiradTimer", antiradTimer - 20);
         }
     }
 }

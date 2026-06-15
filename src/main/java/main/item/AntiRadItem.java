@@ -18,7 +18,7 @@ public class AntiRadItem extends Item {
         if (!world.isClientSide && entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
             CompoundNBT nbt = player.getPersistentData();
-            nbt.putInt("AntiradTimer", 60);
+            nbt.putInt("AntiradTimer", 600);
         }
         return super.finishUsingItem(stack, world, entity);
     }
