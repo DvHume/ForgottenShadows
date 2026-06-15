@@ -91,6 +91,18 @@ public class WorldGen {
                 4,
                 40,
                 60,
+                5
+        );
+
+        if (event.getCategory() == Biome.Category.NETHER ||
+                event.getCategory() == Biome.Category.THEEND) return;
+
+        generateOre(event.getGeneration(),
+                OreFeatureConfig.FillerBlockType.NATURAL_STONE,
+                ModBlocks.COPPER_ORE.get().defaultBlockState(),
+                6,
+                20,
+                40,
                 9
         );
 

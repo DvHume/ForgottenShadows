@@ -17,4 +17,4 @@ As you can see, NO.
 
 > [!WARNING]
 > Don't run the mod on worlds that are important to you.
-> There may be ***errors***(__<u>not sure</u>__)
+> There may be ***errors***(__not sure__)

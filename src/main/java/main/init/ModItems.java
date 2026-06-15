@@ -153,4 +153,6 @@ public class ModItems {
     public static final RegistryObject<Item> RAW_COPPER = ITEMS.register("raw_copper", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
 
     public static final RegistryObject<Item> COPPER_INGOT = ITEMS.register("copper_ingot", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
+
+    public static final RegistryObject<Item> COPPER_NUGGET = ITEMS.register("copper_nugget", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
 }
