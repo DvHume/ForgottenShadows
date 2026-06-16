@@ -95,7 +95,7 @@ public class GeigerCounterItem extends Item {
                         // Считаем расстояние до блока
                         double distanceSq = player.distanceToSqr(targetPos.getX() + 0.5D, targetPos.getY() + 0.5D, targetPos.getZ() + 0.5);
                         // Чем ближе блок к игроку тем сильнее фонит гейгер
-                        externalRadiation += (float) (0.04D / Math.max(1.0D, distanceSq)); //Отризаем совсем мелкие значения
+                        externalRadiation += (float) (0.04D / Math.max(1.0D, distanceSq)); //Отрезаем совсем мелкие значения
                     }
                 }
             }

@@ -31,7 +31,6 @@ public class RadiationItemHandler {
                         BlockPos pos = itemEntity.blockPosition();
                         RadioactiveItem radItem = (RadioactiveItem) itemEntity.getItem().getItem();
                         float power = radItem.getRadiationPerSec();
-                        // Сука, это выглдяит ужасно.
                         int radius = Math.max(1, Math.round(power * 60.0F));
                         if (radius > 10) radius = 10;
                         for (int x = -radius; x <= radius; x++) {

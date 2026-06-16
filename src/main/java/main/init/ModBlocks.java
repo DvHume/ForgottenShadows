@@ -38,6 +38,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> FLAMING_ORE = BLOCKS.register("flaming_ore", () -> new FlamingOre());
 
+    public static final RegistryObject<Block> DARK_STEEL_BLOCK = BLOCKS.register("dark_steel_block", () -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5.1f).requiresCorrectToolForDrops()));
+
     public static final RegistryObject<Block> ASH_LOG = BLOCKS.register("ash_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD).strength(2)));
 
     public static final RegistryObject<Block> CHEMISTRY_TABLE = BLOCKS.register("chemistry_table", () -> new ChemistryTable(AbstractBlock.Properties.of(Material.METAL).strength(3.5f).requiresCorrectToolForDrops()));
@@ -57,4 +59,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> COPPER_ORE = BLOCKS.register("copper_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.0f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> RADIOACTIVE_BLOCK = BLOCKS.register("radioactive_block", () -> new RadioactiveScorchedBlock());
+
+    public static final RegistryObject<Block> LEAD_ORE = BLOCKS.register("lead_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> LEAD_BLOCK = BLOCKS.register("lead_block", () -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(3.5f).requiresCorrectToolForDrops()));
 }

@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "frs:sulfur_ore"
+              "name": "frs:lead_ore"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "frs:sulfur"
+              "name": "frs:raw_lead"
             }
           ]
         }

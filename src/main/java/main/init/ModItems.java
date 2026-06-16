@@ -157,4 +157,14 @@ public class ModItems {
     public static final RegistryObject<Item> COPPER_NUGGET = ITEMS.register("copper_nugget", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
 
     public static final RegistryObject<Item> RADIOACTIVE_BLOCK = ITEMS.register("radioactive_block", () -> new BlockItem(ModBlocks.RADIOACTIVE_BLOCK.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> LEAD_ORE = ITEMS.register("lead_ore", () -> new BlockItem(ModBlocks.LEAD_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> LEAD_BLOCK = ITEMS.register("lead_block", () -> new BlockItem(ModBlocks.LEAD_BLOCK.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> DARK_STEEL_BLOCK = ITEMS.register("dark_steel_block", () -> new BlockItem(ModBlocks.DARK_STEEL_BLOCK.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> RAW_LEAD = ITEMS.register("raw_lead", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
+
+    public static final RegistryObject<Item> LEAD_INGOT = ITEMS.register("lead_ingot", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
 }
