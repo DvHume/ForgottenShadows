@@ -155,4 +155,6 @@ public class ModItems {
     public static final RegistryObject<Item> COPPER_INGOT = ITEMS.register("copper_ingot", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
 
     public static final RegistryObject<Item> COPPER_NUGGET = ITEMS.register("copper_nugget", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
+
+    public static final RegistryObject<Item> RADIOACTIVE_BLOCK = ITEMS.register("radioactive_block", () -> new BlockItem(ModBlocks.RADIOACTIVE_BLOCK.get(), new Item.Properties()));
 }

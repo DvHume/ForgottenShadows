@@ -31,4 +31,9 @@ public class RadioactiveItem extends Item {
         }
         super.inventoryTick(stack, world, entity, slotId, isSelected);
     }
+
+    // Геттер для чтения
+    public float getRadiationPerSec() {
+        return this.radiationPerSec;
+    }
 }

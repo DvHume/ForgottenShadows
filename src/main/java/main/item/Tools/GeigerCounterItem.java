@@ -1,6 +1,8 @@
 package main.item.Tools;
 
+import main.init.ModBlocks;
 import main.init.ModEffects;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,6 +16,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -68,7 +71,7 @@ public class GeigerCounterItem extends Item {
 
             TextFormatting textColor = TextFormatting.GOLD;
             String message = String.format(
-                    textColor + "[GEIGER] Body infection: %s\n" + textColor + " \n" + "[GEIGER] Radiation in the air: %s",
+                    textColor + "[GEIGER] Body infection: %s\n" + textColor +"------\n" + "[GEIGER] Radiation in the air: %s",
                     intDoseStr, extRadStr
             );
             player.sendMessage(new StringTextComponent(message), player.getUUID());
@@ -78,6 +81,25 @@ public class GeigerCounterItem extends Item {
 
     private float getExternalRadiation(PlayerEntity player, World world) {
         float externalRadiation = 0.0F;
+
+        BlockPos playerPos = player.blockPosition();
+        int blockRadius = 2; // Проверяем область 5x5x5 вокруг игрока
+        for (int x = -blockRadius; x <= blockRadius; x++) {
+            for (int y = -blockRadius; y <= blockRadius; y++) {
+                for (int z = -blockRadius; z <= blockRadius; z++) {
+                    BlockPos targetPos = playerPos.offset(x, y, z);
+                    BlockState state = world.getBlockState(targetPos);
+
+                    // Если заражённый блок под ногами или рядом
+                    if (state.is(ModBlocks.RADIOACTIVE_BLOCK.get())) {
+                        // Считаем расстояние до блока
+                        double distanceSq = player.distanceToSqr(targetPos.getX() + 0.5D, targetPos.getY() + 0.5D, targetPos.getZ() + 0.5);
+                        // Чем ближе блок к игроку тем сильнее фонит гейгер
+                        externalRadiation += (float) (0.04D / Math.max(1.0D, distanceSq)); //Отризаем совсем мелкие значения
+                    }
+                }
+            }
+        }
 
         AxisAlignedBB searchBox = player.getBoundingBox().inflate(5.0D);
         List<AreaEffectCloudEntity> cloudEntities = world.getEntitiesOfClass(AreaEffectCloudEntity.class, searchBox);

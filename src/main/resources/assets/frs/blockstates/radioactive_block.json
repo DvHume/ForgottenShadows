@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=dead_grass": { "model": "frs:block/radioactive_grass" },
+    "type=dead_sand": { "model": "frs:block/radioactive_sand" },
+    "type=dead_gravel": { "model": "frs:block/radioactive_gravel" }
+  }
+}
