@@ -39,9 +39,9 @@ public class RadiationItemHandler {
                                 // формула круга: x^2 + z^2 <= r^2
                                 if ((x * x + z * z) <= (radius * radius)) {
                                     // Процент удаления от эпицентра -> 0 в центре, 1 на самом краю
-                                    double distancePercent = Math.sqrt(x * x + z* z) / radius;
+                                    double distancePercent = Math.sqrt(x * x + z * z) / radius;
                                     // Рандом создаёт проплешины. Чем ближе блок к краю, тем выше шанс, что он уцелеет
-                                    if (world.random.nextDouble() > (distancePercent* 0.5D)) {
+                                    if (world.random.nextDouble() > (distancePercent * 0.5D)) {
                                         BlockState state = world.getBlockState(targetPos);
                                         BlockState radioactiveState = null;
                                         if (state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.DIRT)

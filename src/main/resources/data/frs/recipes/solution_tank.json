@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    " S ",
+    "SSS"
+  ],
+  "key": {
+    "A": {
+      "item": "frs:dark_steel"
+    }
+  },
+  "result": {
+    "item": "frs:antirad",
+    "count": 3
+  }
+}

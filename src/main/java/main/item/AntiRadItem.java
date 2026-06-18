@@ -1,11 +1,12 @@
 package main.item;
 
+import main.init.ModEffects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.world.World;
 
 public class AntiRadItem extends Item {
@@ -17,8 +18,7 @@ public class AntiRadItem extends Item {
     public ItemStack finishUsingItem(ItemStack stack, World world, LivingEntity entity) {
         if (!world.isClientSide && entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
-            CompoundNBT nbt = player.getPersistentData();
-            nbt.putInt("AntiradTimer", 600);
+            player.addEffect(new EffectInstance(ModEffects.ANTIRAD.get(), 200, 1));
         }
         return super.finishUsingItem(stack, world, entity);
     }

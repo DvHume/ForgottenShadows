@@ -3,12 +3,15 @@ package main.init;
 import main.container.AlloyFurnaceContainer;
 import main.container.BatteryBoxContainer;
 import main.container.ChemistryTableContainer;
+import main.container.LeadContainer;
 import main.tile.AlloyFurnaceTile;
 import main.tile.BatteryBoxTile;
 import main.tile.ChemistryTableTile;
 import net.minecraft.inventory.container.ContainerType;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -31,6 +34,15 @@ public class ModContainers {
         net.minecraft.util.math.BlockPos pos = data.readBlockPos();
         BatteryBoxTile tile = (BatteryBoxTile) playerInventory.player.level.getBlockEntity(pos);
         return new BatteryBoxContainer(id, playerInventory, tile, tile.dataAccess);
+    }));
+
+    public static final RegistryObject<ContainerType<LeadContainer>> LEAD_CONTAINER = CONTAINERS.register("lead_container", () -> IForgeContainerType.create((id,  playerInventory, data) -> {
+        ItemStack containerStack = data.readItem();
+        ItemStackHandler clientHandler = new ItemStackHandler(10);
+        if (containerStack.hasTag() && containerStack.getTag().contains("Inventory")) {
+            clientHandler.deserializeNBT(containerStack.getTag().getCompound("Inventory"));
+        }
+        return new LeadContainer(id, playerInventory, containerStack, clientHandler);
     }));
 
 }

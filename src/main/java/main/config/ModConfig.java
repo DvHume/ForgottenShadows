@@ -17,7 +17,7 @@ public class ModConfig {
 
         FATAL_RADIATION_DOSE = BUILDER
                 .comment("At what radiation dose level does the player start taking damage? Max allowed: 50.0 (Default: 4.0)")
-                .defineInRange("fatalRadiationDose", 4.0D, 0.5D, 50D);
+                .defineInRange("fatalRadiationDose", 6.0D, 0.5D, 50D);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

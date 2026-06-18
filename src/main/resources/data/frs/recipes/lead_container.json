@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAS",
+    "ATS",
+    "ASS"
+  ],
+  "key": {
+    "A": {
+      "item": "frs:lead_ingot"
+    },
+    "S": {
+      "item": "frs:copper_ingot"
+    },
+    "T": {
+      "item": "frs:solution_tank"
+    }
+  },
+  "result": {
+    "item": "frs:lead_container",
+    "count": 1
+  }
+}

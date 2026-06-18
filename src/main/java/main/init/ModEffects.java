@@ -23,4 +23,6 @@ public class ModEffects {
     public static final RegistryObject<Effect> SUNBURN = EFFECTS.register("sunburn", SunburnEffect::new);
 
     public static final RegistryObject<Effect> RADIATION = EFFECTS.register("radiation", RadiationEffect::new);
+
+    public static final RegistryObject<Effect> ANTIRAD = EFFECTS.register("antirad", AntiradEffect::new);
 }

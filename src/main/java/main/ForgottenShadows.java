@@ -2,12 +2,14 @@ package main;
 
 //import main.capability.SoulCapability;
 import main.client.render.MeteorRenderer;
+import main.container.LeadContainer;
 import main.init.*;
 import main.init.ModNetwork;
 import main.recipe.ModRecipes;
 import main.screen.AlloyFurnaceScreen;
 import main.screen.BatteryBoxScreen;
 import main.screen.ChemistryTableScreen;
+import main.screen.LeadContainerScreen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
@@ -73,6 +75,7 @@ public class ForgottenShadows
         ScreenManager.register(ModContainers.ALLOY_FURNACE.get(), AlloyFurnaceScreen::new);
         ScreenManager.register(ModContainers.CHEMISTRY_TABLE.get(), ChemistryTableScreen::new);
         ScreenManager.register(ModContainers.BATTERY_BOX.get(), BatteryBoxScreen::new);
+        ScreenManager.register(ModContainers.LEAD_CONTAINER.get(), LeadContainerScreen::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.METEOR.get(), MeteorRenderer::new);
         RenderTypeLookup.setRenderLayer(ModBlocks.SHEPHERDS_PURSE.get(), RenderType.cutout());
 

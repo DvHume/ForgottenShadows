@@ -3,6 +3,7 @@ package main.init;
 import main.item.*;
 import main.item.Tools.FlamingPickaxe;
 import main.item.Tools.GeigerCounterItem;
+import main.item.Tools.LeadContainerItem;
 import main.item.battery.LargeBatteryItem;
 import main.item.battery.RedstoneBatteryItem;
 import main.item.battery.SuperBatteryItem;
@@ -141,6 +142,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> URANIUM = ITEMS.register("uranium", () -> new RadioactiveItem(new Item.Properties(), 0.005F));
 
+    public static final RegistryObject<Item> URANIUM_INGOT = ITEMS.register("uranium_ingot", () -> new RadioactiveItem(new Item.Properties(), 11000.0F));
+
     // ********** NO CUSTOM ***********
     public static final RegistryObject<Item> GEIGER_COUNTER = ITEMS.register("geiger_counter", () -> new GeigerCounterItem(new Item.Properties().stacksTo(1).tab(ModItemGroups.CONSUMABLES)));
 
@@ -167,4 +170,14 @@ public class ModItems {
     public static final RegistryObject<Item> RAW_LEAD = ITEMS.register("raw_lead", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
 
     public static final RegistryObject<Item> LEAD_INGOT = ITEMS.register("lead_ingot", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
+
+    public static final RegistryObject<Item> RADIOACTIVE_DUST = ITEMS.register("radioactive_dust", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
+
+    public static final RegistryObject<Item> LEAD_CONTAINER = ITEMS.register("lead_container", () -> new LeadContainerItem());
+
+    public static final RegistryObject<Item> BOTTLE_SOLUTION = ITEMS.register("bottle_solution", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(1)));
+
+    public static final RegistryObject<Item> EMPTY_BOTTLE_SOLUTION = ITEMS.register("empty_bottle_solution", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
+
+    public static final RegistryObject<Item> SOLUTION_TANK = ITEMS.register("solution_tank", () -> new Item(new Item.Properties().tab(ModItemGroups.MATERIALS).stacksTo(64)));
 }

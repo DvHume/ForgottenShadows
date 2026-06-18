@@ -1,5 +1,6 @@
 package main.item.Tools;
 
+import main.config.ModConfig;
 import main.init.ModBlocks;
 import main.init.ModEffects;
 import net.minecraft.block.BlockState;
@@ -60,13 +61,15 @@ public class GeigerCounterItem extends Item {
             CompoundNBT nbt = player.getPersistentData();
             float internalDose = nbt.getFloat("RadiationDose");
             float externalRadiation = getExternalRadiation(player, world);
+            float fatalDose = ModConfig.FATAL_RADIATION_DOSE.get().floatValue();
+            fatalDose = Math.max(0.5F, Math.min(50.0F, fatalDose));
             TextFormatting intColor = TextFormatting.GREEN;
-            if (internalDose >= 1.0F && internalDose < 4.0F) intColor = TextFormatting.YELLOW;
-            if (internalDose >= 4.0F) intColor = TextFormatting.RED;
+            if (internalDose >= fatalDose * 0.3F && internalDose < fatalDose * 0.7F) intColor = TextFormatting.YELLOW;
+            if (internalDose >= fatalDose * 0.7F) intColor = TextFormatting.RED;
             TextFormatting extColor = TextFormatting.GREEN;
             if (externalRadiation >= 0.2F && externalRadiation < 0.6F) extColor = TextFormatting.YELLOW;
             if (externalRadiation >= 0.6F) extColor = TextFormatting.RED;
-            String intDoseStr = String.format(intColor + "%.3f Rad/s" + TextFormatting.RESET, internalDose);
+            String intDoseStr = String.format(intColor + "%.3f Rad" + TextFormatting.RESET, internalDose);
             String extRadStr = String.format(extColor + "%.3f Rad/s" + TextFormatting.RESET, externalRadiation);
 
             TextFormatting textColor = TextFormatting.GOLD;
