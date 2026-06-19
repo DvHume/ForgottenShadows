@@ -65,22 +65,12 @@ public class LeadContainerItem extends Item {
                 return;
             }
 
-            // Автоматическое засасывание раствора
-            ItemStack fluidBottle = internalInventory.getStackInSlot(9);
-            float currentFluid = nbt.getFloat("FluidBuffer");
-
-            if (fluidBottle.getItem() == ModItems.HERBAL_SOLUTION.get() && currentFluid <= 800.0F) {
-                nbt.putFloat("FluidBuffer", currentFluid + 200.0F);
-                internalInventory.setStackInSlot(9, new ItemStack(ModItems.EMPTY_BOTTLE_SOLUTION.get(), 1));
-                nbt.put("Inventory", internalInventory.serializeNBT());
-            }
-
             // Трата раствора или обычное разрушение
             if (checkContainerHasRadiation(internalInventory)) {
                 float fluid = nbt.getFloat("FluidBuffer");
 
                 if (fluid > 0.0F) {
-                    nbt.putFloat("FloatBuffer", Math.max(0.0F, fluid - 0.2F));
+                    nbt.putFloat("FluidBuffer", Math.max(0.0F, fluid - 0.2F));
                 } else {
                     int damage = nbt.getInt("ContainerDamage") + 1;
                     nbt.putInt("ContainerDamage", damage);
@@ -100,35 +90,38 @@ public class LeadContainerItem extends Item {
     @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if (world.isClientSide) {
+        if (!world.isClientSide && player instanceof ServerPlayerEntity) {
             CompoundNBT nbt = stack.getOrCreateTag();
+            NetworkHooks.openGui((ServerPlayerEntity) player, new INamedContainerProvider() {
+                @Override
+                public ITextComponent getDisplayName() {
+                    return new TranslationTextComponent("container.frs.lead_container");
+                }
 
-            if (player instanceof ServerPlayerEntity) {
-                NetworkHooks.openGui((ServerPlayerEntity) player, new INamedContainerProvider() {
-                    @Override
-                    public ITextComponent getDisplayName() {
-                        return new TranslationTextComponent("container.frs.lead_container");
+                @Nullable
+                @Override
+                public Container createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
+                    ItemStackHandler handler = new ItemStackHandler(10);
+                    if (nbt.contains("Inventory")) {
+                        handler.deserializeNBT(nbt.getCompound("Inventory"));
                     }
-
-                    @Nullable
-                    @Override
-                    public Container createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-                        ItemStackHandler handler = new ItemStackHandler(10);
-                        if (nbt.contains("Inventory")) {
-                            handler.deserializeNBT(nbt.getCompound("Inventory"));
+                        return new LeadContainer(i, playerInventory, stack, handler) {
+                        @Override
+                            public void broadcastChanges() {
+                            super.broadcastChanges();
+                            stack.getOrCreateTag().put("Inventory", handler.serializeNBT());
                         }
-                            return new LeadContainer(i, playerInventory, stack, handler) {
-                            @Override
-                                public void broadcastChanges() {
-                                super.broadcastChanges();
-                                stack.getOrCreateTag().put("Inventory", handler.serializeNBT());
-                            }
-                        };
-                    }
-                }, buffer -> buffer.writeItem(stack));
-            }
+                    };
+                }
+            }, buffer -> buffer.writeItem(stack));
+
         }
         return ActionResult.success(stack);
+    }
+
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack stack, ItemStack stack2, boolean slotChanged) {
+        return slotChanged;
     }
 
     // Метод: Ищет внутри контейнера критический элемент >= 10k Rad

@@ -8,21 +8,21 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.PacketBuffer;
-import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class LeadContainer extends Container {
 
     private final ItemStack containerStack;
-    private final IItemHandler itemHandler;
+    private final ItemStackHandler itemHandler;
 
     public LeadContainer(int id, PlayerInventory playerInv, PacketBuffer buf) {
         this(id, playerInv, playerInv.player.getMainHandItem(), new ItemStackHandler(10));
     }
 
-    public LeadContainer(int id, PlayerInventory playerInv, ItemStack stack, IItemHandler handler) {
+    public LeadContainer(int id, PlayerInventory playerInv, ItemStack stack, ItemStackHandler handler) {
         super(ModContainers.LEAD_CONTAINER.get(), id);
         this.containerStack = stack;
         this.itemHandler = handler;
@@ -51,6 +51,24 @@ public class LeadContainer extends Container {
             public boolean mayPlace(ItemStack stack) {
                 // В этот слот можно класть только банки с раствором
                 return stack.getItem() == ModItems.BOTTLE_SOLUTION.get();
+            }
+
+            @Override
+            public void setChanged() {
+                super.setChanged();
+
+                ItemStack fluidBottle = this.getItem();
+                if (!containerStack.isEmpty() && fluidBottle.getItem() == ModItems.BOTTLE_SOLUTION.get()) {
+                    CompoundNBT nbt = containerStack.getOrCreateTag();
+                    float currentFluid = nbt.getFloat("FluidBuffer");
+
+                    if (currentFluid <= 800.0F) {
+                        nbt.putFloat("FluidBuffer", currentFluid + 200.0F);
+                        this.set(new ItemStack(ModItems.EMPTY_BOTTLE_SOLUTION.get(), 1));
+                        nbt.put("Inventory", handler.serializeNBT());
+                        broadcastChanges();
+                    }
+                }
             }
         });
 

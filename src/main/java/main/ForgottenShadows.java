@@ -2,7 +2,6 @@ package main;
 
 //import main.capability.SoulCapability;
 import main.client.render.MeteorRenderer;
-import main.container.LeadContainer;
 import main.init.*;
 import main.init.ModNetwork;
 import main.recipe.ModRecipes;

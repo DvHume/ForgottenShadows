@@ -10,7 +10,7 @@ import net.minecraft.util.text.ITextComponent;
 
 public class LeadContainerScreen extends ContainerScreen<LeadContainer> {
 
-    private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("frs", "textures/gui/lead_container.png");
+    private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("frs", "textures/gui/container/lead_container.png");
 
     public LeadContainerScreen(LeadContainer container, PlayerInventory playerInv, ITextComponent title) {
         super(container, playerInv, title);

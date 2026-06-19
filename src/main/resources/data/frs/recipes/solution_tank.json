@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " S ",
-    " S ",
-    "SSS"
+    " A ",
+    " A ",
+    "AAA"
   ],
   "key": {
     "A": {
-      "item": "frs:dark_steel"
+      "item": "frs:dark_steel_ingot"
     }
   },
   "result": {
-    "item": "frs:antirad",
-    "count": 3
+    "item": "frs:solution_tank",
+    "count": 1
   }
 }
