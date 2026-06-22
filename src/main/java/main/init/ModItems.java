@@ -4,6 +4,7 @@ import main.item.*;
 import main.item.Tools.FlamingPickaxe;
 import main.item.Tools.GeigerCounterItem;
 import main.item.Tools.LeadContainerItem;
+import main.item.battery.IronNickelBattery;
 import main.item.battery.LargeBatteryItem;
 import main.item.battery.RedstoneBatteryItem;
 import main.item.battery.SuperBatteryItem;
@@ -130,6 +131,8 @@ public class ModItems {
     public static final RegistryObject<Item> SOLAR_PANEL = ITEMS.register("solar_panel", () -> new BlockItem(ModBlocks.SOLAR_PANEL.get(), new Item.Properties().tab(ModItemGroups.FUNCTIONAL_BLOCKS)));
 
     public static final RegistryObject<Item> SUPER_BATTERY = ITEMS.register("super_battery", () -> new SuperBatteryItem());
+
+    public static final RegistryObject<Item> IRON_NICKEL_BATTERY = ITEMS.register("iron_nickel_battery", IronNickelBattery::new);
 
     public static final RegistryObject<Item> SULFUR_ORE = ITEMS.register("sulfur_ore", () -> new BlockItem(ModBlocks.SULFUR_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 

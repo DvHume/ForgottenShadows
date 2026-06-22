@@ -22,7 +22,7 @@ public class RadiationPlayerHandler {
             CompoundNBT nbt = player.getPersistentData();
             float currentDose = nbt.getFloat("RadiationDose");
 
-            /** Вытаскиваем значение из конфига
+            /* Вытаскиваем значение из конфига
              * Предохраняет от сломанных цифр в конфиге
              * Доза не должна быть меньше 0.5 и больше 50.0
             */
@@ -39,9 +39,10 @@ public class RadiationPlayerHandler {
             }
 
             boolean underRadiation = player.hasEffect(ModEffects.RADIATION.get());
+            boolean underAntirad = player.hasEffect(ModEffects.ANTIRAD.get());
 
             // Пассивное выведение радиации организмом(возможно я сделаю так, что это можно будет улучшать. Но не сейчас)
-            if (!underRadiation && !player.hasEffect(ModEffects.ANTIRAD.get()) && currentDose > 0.0F) {
+            if (!underRadiation && !underAntirad && currentDose > 0.0F) {
                 currentDose = Math.max(0.0F, currentDose - 0.002F);
                 }
             nbt.putFloat("RadiationDose", currentDose);

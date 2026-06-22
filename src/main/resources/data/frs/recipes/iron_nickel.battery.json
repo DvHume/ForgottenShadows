@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A A",
+    "ATS",
+    "ASS"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "frs:nickel_ingot"
+    },
+    "T": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "frs:iron_nickel_battery",
+    "count": 1
+  }
+}

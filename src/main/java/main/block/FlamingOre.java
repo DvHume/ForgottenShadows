@@ -24,10 +24,12 @@ public class FlamingOre  extends Block {
 
     @Override
     public void stepOn(World world, BlockPos pos, Entity entity) {
-        if (!entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
-            entity.hurt(DamageSource.HOT_FLOOR, 1.0f);
+        if (!world.isClientSide) {
+            if (!entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
+                entity.hurt(DamageSource.HOT_FLOOR, 1.0f);
+            }
+            super.stepOn(world, pos, entity);
         }
-        super.stepOn(world, pos, entity);
     }
 
     @Override
