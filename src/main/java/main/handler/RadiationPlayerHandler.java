@@ -22,13 +22,13 @@ public class RadiationPlayerHandler {
             CompoundNBT nbt = player.getPersistentData();
             float currentDose = nbt.getFloat("RadiationDose");
 
-            /* Вытаскиваем значение из конфига
+            /* Вытаскиваем значение из конфига.
              * Предохраняет от сломанных цифр в конфиге
              * Доза не должна быть меньше 0.5 и больше 50.0
             */
             float fatalDose = ModConfig.FATAL_RADIATION_DOSE.get().floatValue();
             fatalDose = Math.max(0.5F, Math.min(50.0F, fatalDose));
-            // Исправил потому что, какого-то ху.. я написал здесь проверку на эффект
+            // Исправил потому что, какого-то ху... я написал здесь проверку на эффект
             if (currentDose >= fatalDose) {
                 // Высчитываем базовый урон
                 float rawDamage = 1.0F + ((currentDose - fatalDose) * 2.0F);

@@ -14,8 +14,6 @@ public class ModEffects {
 
     public static final RegistryObject<Effect> BLEEDING = EFFECTS.register("bleeding", BleedingEffect::new);
 
-    //public static final RegistryObject<Effect> CURSE_SOUL = EFFECTS.register("curse_soul", CurseSoulEffect::new);
-
     public static final RegistryObject<Effect> GOOD_REST = EFFECTS.register("good_rest", GoodRestEffect::new);
 
     public static final RegistryObject<Effect> FERMENTATION = EFFECTS.register("fermentation", FermentaionEffect::new);

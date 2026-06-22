@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
+@SuppressWarnings("all")
 public abstract class AbstractBatteryItem extends Item {
 
     // Max battery capacity in FE
@@ -40,7 +41,7 @@ public abstract class AbstractBatteryItem extends Item {
     /* Устанавливает кол-во энергии.
      *
      * Значение автоматически ограничивается
-     * диапозоном от 0 до maxEnergy
+     * диапазоном от 0 до maxEnergy
      */
     public void setEnergy(ItemStack stack, int energy) {
         CompoundNBT nbt = stack.getOrCreateTag();
@@ -63,7 +64,7 @@ public abstract class AbstractBatteryItem extends Item {
 
     /*
      * Меняет цвет полоски заряда
-     * Используется HSV-градиент
+     * используется HSV-градиент
      * красный --> жёлтый --> зелёный
      */
     @Override

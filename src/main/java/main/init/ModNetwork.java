@@ -2,7 +2,6 @@ package main.init;
 
 import main.network.ChemistryCraftPacket;
 import main.network.LanguageSyncPacket;
-//import main.network.SoulSyncPacket;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
@@ -18,17 +17,12 @@ public class ModNetwork {
     );
 
     public static void register() {
-        /*CHANNEL.registerMessage(0, SoulSyncPacket.class,
-                SoulSyncPacket::encode,
-                SoulSyncPacket::decode,
-                SoulSyncPacket::handle);*/
-
-        CHANNEL.registerMessage(1, LanguageSyncPacket.class,
+        CHANNEL.registerMessage(0, LanguageSyncPacket.class,
                 LanguageSyncPacket::encode,
                 LanguageSyncPacket::decode,
                 LanguageSyncPacket::handle);
 
-        CHANNEL.registerMessage(2, ChemistryCraftPacket.class,
+        CHANNEL.registerMessage(1, ChemistryCraftPacket.class,
                 ChemistryCraftPacket::encode,
                 ChemistryCraftPacket::decode,
                 ChemistryCraftPacket::handle);

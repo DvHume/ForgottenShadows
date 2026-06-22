@@ -1,6 +1,5 @@
 package main;
 
-//import main.capability.SoulCapability;
 import main.client.render.MeteorRenderer;
 import main.init.*;
 import main.init.ModNetwork;
@@ -63,7 +62,6 @@ public class ForgottenShadows
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        //SoulCapability.register();
         ModNetwork.register();
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
