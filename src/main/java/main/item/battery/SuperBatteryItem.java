@@ -7,6 +7,6 @@ import net.minecraft.item.Item;
 public class SuperBatteryItem extends AbstractBatteryItem {
 
     public SuperBatteryItem() {
-        super(new Item.Properties().tab(ModItemGroups.CONSUMABLES).stacksTo(1), 120000);
+        super(new Item.Properties().tab(ModItemGroups.CONSUMABLES), 120000);
     }
 }

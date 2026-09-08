@@ -1,6 +1,7 @@
 package main;
 
 import main.client.render.MeteorRenderer;
+import main.data.DataGenerators;
 import main.init.*;
 import main.init.ModNetwork;
 import main.recipe.ModRecipes;
@@ -38,6 +39,7 @@ import java.util.stream.Collectors;
 @Mod("frs")
 public class ForgottenShadows
 {
+    public static final String MOD_ID = "frs";
     private static final Logger LOGGER = LogManager.getLogger();
 
     public ForgottenShadows() {
@@ -45,9 +47,9 @@ public class ForgottenShadows
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, main.config.ModConfig.SPEC, "frs-common.toml");
         ModEffects.EFFECTS.register(bus);
         ModItems.ITEMS.register(bus);
-        ModSounds.SOUNDS.register(bus);
-        ModFluids.FLUIDS.register(bus);
         ModBlocks.BLOCKS.register(bus);
+        ModFluids.FLUIDS.register(bus);
+        ModSounds.SOUNDS.register(bus);
         ModTiles.TILES.register(bus);
         ModContainers.CONTAINERS.register(bus);
         ModRecipes.register(bus);
@@ -57,6 +59,7 @@ public class ForgottenShadows
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
+        bus.addListener(DataGenerators::gatherData);
         MinecraftForge.EVENT_BUS.register(this);
     }
 

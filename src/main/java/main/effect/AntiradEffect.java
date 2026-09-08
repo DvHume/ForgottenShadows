@@ -36,13 +36,13 @@ public class AntiradEffect extends Effect {
     private float getRadiationToRemove(int amplifier) {
         switch (amplifier) {
             case 0:
-                return 2.5F;
+                return 0.5F;
             case 1:
-                return 7.5F;
+                return 0.25F;
             case 2:
-                return 16.0F;
+                return 0.6F;
             default: //Если случайно(или нет) указан уровень которого нет в списке
-                return  1.0F;
+                return  0.1F;
         }
     }
 }

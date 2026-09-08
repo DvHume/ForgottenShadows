@@ -7,6 +7,6 @@ import net.minecraft.item.Item;
 public class RedstoneBatteryItem extends AbstractBatteryItem {
 
     public RedstoneBatteryItem() {
-        super(new Item.Properties().tab(ModItemGroups.CONSUMABLES).stacksTo(1), 30000);
+        super(new Item.Properties().tab(ModItemGroups.CONSUMABLES), 30000);
     }
 }

@@ -6,6 +6,6 @@ import net.minecraft.item.Item;
 
 public class IronNickelBattery extends AbstractBatteryItem {
     public IronNickelBattery() {
-        super(new Item.Properties().tab(ModItemGroups.CONSUMABLES).stacksTo(1), 150_000);
+        super(new Item.Properties().tab(ModItemGroups.CONSUMABLES), 150_000);
     }
 }
