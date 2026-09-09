@@ -1,4 +1,4 @@
-package main.data;
+/*package main.data;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
@@ -49,9 +49,9 @@ public class ModLootTableProvider extends LootTableProvider {
         @Override
         protected Iterable<Block> getKnownBlocks() {
             return ImmutableList.of();
-            /*return ModBlocks.BLOCKS.getEntries().stream()
+            return ModBlocks.BLOCKS.getEntries().stream()
                     .map(RegistryObject::get)
-                    .collect(Collectors.toList());*/
+                    .collect(Collectors.toList());
         }
 
 
@@ -59,4 +59,4 @@ public class ModLootTableProvider extends LootTableProvider {
             this.add(block, createOreDrop(block, block.asItem()));
         }
     }
-}
+}*/
