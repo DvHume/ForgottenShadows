@@ -85,7 +85,7 @@ public class TooltipHandler {
                     .withStyle(TextFormatting.DARK_RED));
         }
 
-        if (stack.getItem() == ModItems.SOLAR_PANEL_ITEM.get()) {
+        if (stack.getItem() == ModItems.SOLAR_PANEL.get()) {
             event.getToolTip().add(1, new TranslationTextComponent("tooltip.frs.solar_panel.tool")
                     .withStyle(TextFormatting.GOLD));
             event.getToolTip().add(2, new TranslationTextComponent("tooltip.frs.solar_panel.input")

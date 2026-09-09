@@ -64,7 +64,7 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> URANIUM_ORE = BLOCKS.register("uranium_ore",
-            () -> new UraniumOreBlock());
+            UraniumOreBlock::new);
 
     public static final RegistryObject<Block> COPPER_ORE = BLOCKS.register("copper_ore",
             () -> new Block(AbstractBlock.Properties.of(Material.STONE)
@@ -77,7 +77,7 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> FLAMING_ORE = BLOCKS.register("flaming_ore",
-            () -> new FlamingOre());
+            FlamingOre::new);
 
     // ============================================================
     // ====== BLOCKS ======
@@ -98,7 +98,7 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> SOLAR_PANEL = BLOCKS.register("solar_panel",
-            () -> new SolarPanelBlock());
+            SolarPanelBlock::new);
 
     public static final RegistryObject<Block> DARK_STEEL_BLOCK = BLOCKS.register("dark_steel_block",
             () -> new Block(AbstractBlock.Properties.of(Material.METAL)
@@ -111,22 +111,27 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> RADIOACTIVE_BLOCK = BLOCKS.register("radioactive_block",
-            () -> new RadioactiveScorchedBlock());
+            RadioactiveScorchedBlock::new);
+
+    public static final RegistryObject<Block> TEST_BLOCK = BLOCKS.register("test_block",
+            () -> new Block(AbstractBlock.Properties.of(Material.STONE)
+                    .strength(3.0f)
+                    .requiresCorrectToolForDrops()));
 
     // ============================================================
     // ====== METEORS ======
     // ============================================================
     public static final RegistryObject<Block> METEOR_ROCK = BLOCKS.register("meteor_rock",
-            () -> new MeteorRockBlock());
+            MeteorRockBlock::new);
 
     public static final RegistryObject<Block> METEOR_MAGMA = BLOCKS.register("meteor_magma",
-            () -> new MeteorMagmaBlock());
+            MeteorMagmaBlock::new);
 
     // ============================================================
     // ====== F ======
     // ============================================================
     public static final RegistryObject<Block> SHEPHERDS_PURSE = BLOCKS.register("shepherds_purse",
-            () -> new ShepherdsPurse());
+            ShepherdsPurse::new);
 
     // ============================================================
     // ====== WOOD ======

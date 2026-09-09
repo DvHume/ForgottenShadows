@@ -1,5 +1,6 @@
 package main.data;
 
+import main.init.ModBlocks;
 import main.init.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
@@ -18,6 +19,8 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         // ==== HERE ====
         generated(ModItems.GREEN_BATTERY);
+
+        blockItem(ModBlocks.TEST_BLOCK);
     }
 
 

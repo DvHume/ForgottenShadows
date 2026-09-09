@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "frs:block/test_block"
+    }
+  }
+}

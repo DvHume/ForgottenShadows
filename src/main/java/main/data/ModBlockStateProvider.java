@@ -1,6 +1,5 @@
 package main.data;
 
-import main.ForgottenShadows;
 import main.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.RotatedPillarBlock;
@@ -19,6 +18,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         // ==== HERE ====
+        registerCubeAll(ModBlocks.TEST_BLOCK);
     }
 
     private void registerCubeAll(RegistryObject<Block> block) {
@@ -38,7 +38,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(block.get(), model);
     }
 
-    private void registerSolarPanel(RegistryObject<Block> block) {
+    /*private void registerSolarPanel(RegistryObject<Block> block) {
         ModelFile model = models().cubeBottomTop(
                 block.getId().getPath(),
                 modLoc("block/" + block.getId().getPath() + "_side"),
@@ -46,7 +46,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 modLoc("block/" + block.getId().getPath() + "_top")
         );
         simpleBlock(block.get(), model);
-    }
+    }*/
 
     private void registerCross(RegistryObject<Block> block, String texture) {
         ModelFile model = models().cross(

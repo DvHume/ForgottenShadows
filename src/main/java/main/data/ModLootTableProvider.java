@@ -13,14 +13,12 @@ import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTableManager;
 import net.minecraft.loot.ValidationTracker;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.RegistryObject;
 
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 public class ModLootTableProvider extends LootTableProvider {
 
@@ -45,13 +43,15 @@ public class ModLootTableProvider extends LootTableProvider {
         @Override
         protected void addTables() {
             // ========== HERE ===========
+            dropSelf(ModBlocks.TEST_BLOCK.get());
         }
 
         @Override
         protected Iterable<Block> getKnownBlocks() {
-            return ModBlocks.BLOCKS.getEntries().stream()
+            return ImmutableList.of();
+            /*return ModBlocks.BLOCKS.getEntries().stream()
                     .map(RegistryObject::get)
-                    .collect(Collectors.toList());
+                    .collect(Collectors.toList());*/
         }
 
 

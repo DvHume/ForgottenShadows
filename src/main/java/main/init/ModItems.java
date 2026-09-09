@@ -17,80 +17,83 @@ public class ModItems {
     // ============================================================
     // ====== BLOCK ITEMS (for all blocks) ======
     // ============================================================
-    public static final RegistryObject<Item> TIN_ORE_ITEM = ITEMS.register("tin_ore",
+    public static final RegistryObject<Item> TIN_ORE = ITEMS.register("tin_ore",
             () -> new BlockItem(ModBlocks.TIN_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> METEOR_IRON_ORE_ITEM = ITEMS.register("meteor_iron_ore",
+    public static final RegistryObject<Item> METEOR_IRON_ORE = ITEMS.register("meteor_iron_ore",
             () -> new BlockItem(ModBlocks.METEOR_IRON_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> METEOR_GOLD_ORE_ITEM = ITEMS.register("meteor_gold_ore",
+    public static final RegistryObject<Item> METEOR_GOLD_ORE = ITEMS.register("meteor_gold_ore",
             () -> new BlockItem(ModBlocks.METEOR_GOLD_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> IRIDIUM_ORE_ITEM = ITEMS.register("iridium_ore",
+    public static final RegistryObject<Item> IRIDIUM_ORE = ITEMS.register("iridium_ore",
             () -> new BlockItem(ModBlocks.IRIDIUM_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> OSMIUM_ORE_ITEM = ITEMS.register("osmium_ore",
+    public static final RegistryObject<Item> OSMIUM_ORE = ITEMS.register("osmium_ore",
             () -> new BlockItem(ModBlocks.OSMIUM_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> PLATINUM_ORE_ITEM = ITEMS.register("platinum_ore",
+    public static final RegistryObject<Item> PLATINUM_ORE = ITEMS.register("platinum_ore",
             () -> new BlockItem(ModBlocks.PLATINUM_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> NICKEL_ORE_ITEM = ITEMS.register("nickel_ore",
+    public static final RegistryObject<Item> NICKEL_ORE = ITEMS.register("nickel_ore",
             () -> new BlockItem(ModBlocks.NICKEL_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> BLOOD_QUARTZ_ORE_ITEM = ITEMS.register("blood_quartz_ore",
+    public static final RegistryObject<Item> BLOOD_QUARTZ_ORE = ITEMS.register("blood_quartz_ore",
             () -> new BlockItem(ModBlocks.BLOOD_QUARTZ_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> FERROX_ORE_ITEM = ITEMS.register("ferrox_ore",
+    public static final RegistryObject<Item> FERROX_ORE = ITEMS.register("ferrox_ore",
             () -> new BlockItem(ModBlocks.FERROX_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> SULFUR_ORE_ITEM = ITEMS.register("sulfur_ore",
+    public static final RegistryObject<Item> SULFUR_ORE = ITEMS.register("sulfur_ore",
             () -> new BlockItem(ModBlocks.SULFUR_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> URANIUM_ORE_ITEM = ITEMS.register("uranium_ore",
+    public static final RegistryObject<Item> URANIUM_ORE = ITEMS.register("uranium_ore",
             () -> new BlockItem(ModBlocks.URANIUM_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> COPPER_ORE_ITEM = ITEMS.register("copper_ore",
+    public static final RegistryObject<Item> COPPER_ORE = ITEMS.register("copper_ore",
             () -> new BlockItem(ModBlocks.COPPER_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> LEAD_ORE_ITEM = ITEMS.register("lead_ore",
+    public static final RegistryObject<Item> LEAD_ORE = ITEMS.register("lead_ore",
             () -> new BlockItem(ModBlocks.LEAD_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> FLAMING_ORE_ITEM = ITEMS.register("flaming_ore",
+    public static final RegistryObject<Item> FLAMING_ORE = ITEMS.register("flaming_ore",
             () -> new BlockItem(ModBlocks.FLAMING_ORE.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> ALLOY_FURNACE_ITEM = ITEMS.register("alloy_furnace",
+    public static final RegistryObject<Item> ALLOY_FURNACE = ITEMS.register("alloy_furnace",
             () -> new BlockItem(ModBlocks.ALLOY_FURNACE.get(), new Item.Properties().tab(ModItemGroups.FUNCTIONAL_BLOCKS)));
 
-    public static final RegistryObject<Item> CHEMISTRY_TABLE_ITEM = ITEMS.register("chemistry_table",
+    public static final RegistryObject<Item> CHEMISTRY_TABLE = ITEMS.register("chemistry_table",
             () -> new BlockItem(ModBlocks.CHEMISTRY_TABLE.get(), new Item.Properties().tab(ModItemGroups.FUNCTIONAL_BLOCKS)));
 
-    public static final RegistryObject<Item> BATTERY_BOX_ITEM = ITEMS.register("battery_box",
+    public static final RegistryObject<Item> BATTERY_BOX = ITEMS.register("battery_box",
             () -> new BlockItem(ModBlocks.BATTERY_BOX.get(), new Item.Properties().tab(ModItemGroups.FUNCTIONAL_BLOCKS)));
 
-    public static final RegistryObject<Item> SOLAR_PANEL_ITEM = ITEMS.register("solar_panel",
+    public static final RegistryObject<Item> SOLAR_PANEL = ITEMS.register("solar_panel",
             () -> new BlockItem(ModBlocks.SOLAR_PANEL.get(), new Item.Properties().tab(ModItemGroups.FUNCTIONAL_BLOCKS)));
 
-    public static final RegistryObject<Item> DARK_STEEL_BLOCK_ITEM = ITEMS.register("dark_steel_block",
+    public static final RegistryObject<Item> DARK_STEEL_BLOCK = ITEMS.register("dark_steel_block",
             () -> new BlockItem(ModBlocks.DARK_STEEL_BLOCK.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> LEAD_BLOCK_ITEM = ITEMS.register("lead_block",
+    public static final RegistryObject<Item> LEAD_BLOCK = ITEMS.register("lead_block",
             () -> new BlockItem(ModBlocks.LEAD_BLOCK.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> RADIOACTIVE_BLOCK_ITEM = ITEMS.register("radioactive_block",
+    public static final RegistryObject<Item> RADIOACTIVE_BLOCK = ITEMS.register("radioactive_block",
             () -> new BlockItem(ModBlocks.RADIOACTIVE_BLOCK.get(), new Item.Properties()));
 
-    public static final RegistryObject<Item> METEOR_ROCK_ITEM = ITEMS.register("meteor_rock",
+    public static final RegistryObject<Item> METEOR_ROCK = ITEMS.register("meteor_rock",
             () -> new BlockItem(ModBlocks.METEOR_ROCK.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> METEOR_MAGMA_ITEM = ITEMS.register("meteor_magma",
+    public static final RegistryObject<Item> METEOR_MAGMA = ITEMS.register("meteor_magma",
             () -> new BlockItem(ModBlocks.METEOR_MAGMA.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> SHEPHERDS_PURSE_ITEM = ITEMS.register("shepherds_purse",
+    public static final RegistryObject<Item> SHEPHERDS_PURSE = ITEMS.register("shepherds_purse",
             () -> new BlockItem(ModBlocks.SHEPHERDS_PURSE.get(), new Item.Properties().tab(ItemGroup.TAB_MISC)));
 
-    public static final RegistryObject<Item> ASH_LOG_ITEM = ITEMS.register("ash_log",
+    public static final RegistryObject<Item> ASH_LOG = ITEMS.register("ash_log",
             () -> new BlockItem(ModBlocks.ASH_LOG.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
+
+    public static final RegistryObject<Item> TEST_BLOCK = ITEMS.register("test_block",
+            () -> new BlockItem(ModBlocks.TEST_BLOCK.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
     // ============================================================
     // ====== MATERIALS (INGOTS, DUST, ETC) ======
