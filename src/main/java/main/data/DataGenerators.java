@@ -19,6 +19,6 @@ public class DataGenerators {
 
         generator.addProvider(new ModItemModelProvider(generator, ForgottenShadows.MOD_ID, existingFileHelper));
 
-        generator.addProvider(new ModLootTableProvider(generator));
+        //generator.addProvider(new ModLootTableProvider(generator));
     }
 }
