@@ -36,7 +36,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.stream.Collectors;
 
-@Mod("frs")
+@Mod(MOD_ID)
 public class ForgottenShadows
 {
     public static final String MOD_ID = "frs";
