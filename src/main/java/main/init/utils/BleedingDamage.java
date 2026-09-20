@@ -5,6 +5,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
+import javax.annotation.Nonnull;
+
 public class BleedingDamage extends DamageSource {
 
     public BleedingDamage() {
@@ -14,6 +16,7 @@ public class BleedingDamage extends DamageSource {
         this.bypassMagic();
     }
 
+    @Nonnull
     @Override
     public ITextComponent getLocalizedDeathMessage(LivingEntity entity) {
         String langKey = "death.attack." + this.msgId;

@@ -2,6 +2,7 @@ package main.client;
 
 import api.IEnergyTile;
 import com.mojang.blaze3d.matrix.MatrixStack;
+import main.ForgottenShadows;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -14,7 +15,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = "frs", value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = ForgottenShadows.MOD_ID, value = Dist.CLIENT)
 public class EngineersHUD {
 
     @SubscribeEvent

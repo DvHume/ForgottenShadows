@@ -36,6 +36,8 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.stream.Collectors;
 
+import static main.ForgottenShadows.MOD_ID;
+
 @Mod(MOD_ID)
 public class ForgottenShadows
 {

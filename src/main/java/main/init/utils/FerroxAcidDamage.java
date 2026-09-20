@@ -5,6 +5,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
+import javax.annotation.Nonnull;
+
 public class FerroxAcidDamage extends DamageSource {
 
     public FerroxAcidDamage() {
@@ -13,6 +15,7 @@ public class FerroxAcidDamage extends DamageSource {
         this.bypassArmor();
     }
 
+    @Nonnull
     @Override
     public ITextComponent getLocalizedDeathMessage(LivingEntity entity) {
         String langKey = "death.attack." + this.msgId;

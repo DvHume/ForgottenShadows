@@ -1,5 +1,6 @@
 package main.handler;
 
+import main.ForgottenShadows;
 import main.entity.MeteorEntity;
 import main.init.ModEntities;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -14,7 +15,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.List;
 import java.util.Random;
 
-@Mod.EventBusSubscriber(modid = "frs")
+@Mod.EventBusSubscriber(modid = ForgottenShadows.MOD_ID)
 public class MeteorSpawnHandler {
 
     private static final int MIN_INTERVAL = 36000;
