@@ -5,7 +5,6 @@ on:
     branches:
       - main
       - master
-      - radiation-problem
 
   pull_request:
 
