@@ -57,7 +57,7 @@
   "tooltip.frs.solar_panel.tool": "Generates energy from sunlight",
   "tooltip.frs.solar_panel.input": "Max input - 300FE/t",
   "tooltip.frs.solar_panel.output": "Max output - 1000FE/t",
-  "tooltip.frs.antirad.tool": "-150/t",
+  "tooltip.frs.antirad.tool": "-55 mRad/t",
   "tooltip.frs.antirad.tool2": "* Not recommended",
   "tooltip.frs.antirad.tool3": "* Do not take with milk",
   "tooltip.frs.antirad.tool4": "* Not recommended for individuals who have used products from ''Cloudy Eye'',",

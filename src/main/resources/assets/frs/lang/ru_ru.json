@@ -49,7 +49,7 @@
   "tooltip.frs.solar_panel.tool": "Генерирует энергию от солнечных лучей(Должен быть непосредственно под солнцем)",
   "tooltip.frs.solar_panel.input": "Макс. генерация - 300FE/t",
   "tooltip.frs.solar_panel.output": "Макс. выход - 1000FE/t",
-  "tooltip.frs.antirad.tool": "Выводит: -150/t",
+  "tooltip.frs.antirad.tool": "Выводит: -55 mRad/t",
   "tooltip.frs.antirad.tool2": "Официальное предупреждение Госс ''Минздрав Края''",
   "tooltip.frs.antirad.tool3": "* Не принимать одновременно с молоком",
   "tooltip.frs.antirad.tool4": "* Не рекомендуется лицам употребившим/лявшим продукты от ''Мутное око'',",

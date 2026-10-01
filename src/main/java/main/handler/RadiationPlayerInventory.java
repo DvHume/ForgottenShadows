@@ -61,7 +61,7 @@ public class RadiationPlayerInventory {
                     }
                 }
 
-                // 2. Заражение предметов в инвентаре (безопасная замена без краша)
+                // 2. Заражение предметов в инвентаре
                 if (hasRadioactiveSource) {
                     for (int i = 0; i < player.inventory.getContainerSize(); i++) {
                         ItemStack stack = player.inventory.getItem(i);
@@ -87,7 +87,7 @@ public class RadiationPlayerInventory {
                     }
                 }
 
-                // 3. Начисление дозы в NBT игрока
+                // 3. Начисление дозы в NBT
                 float finalTickDose = 0.0F;
                 if (hasRadioactiveSource) {
                     finalTickDose = maxSourceRadiation;
@@ -99,7 +99,7 @@ public class RadiationPlayerInventory {
                     CompoundNBT playerNbt = player.getPersistentData();
                     float currentDose = playerNbt.getFloat("RadiationDose");
                     playerNbt.putFloat("RadiationDose", currentDose + finalTickDose);
-                    // Вешаем статус-эффект на 2 секунды (40 тиков), чтобы он спадал сам, когда источник убран
+                    // Тут вешаем статус-эффект на 2 секунды (40 тиков), чтобы он спадал сам, когда источник убран
                     player.addEffect(new EffectInstance(ModEffects.RADIATION.get(), 40, 0, false, false));
                 }
             }

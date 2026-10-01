@@ -28,7 +28,7 @@ public class RadiationPlayerHandler {
             float fatalDose = ModConfig.FATAL_RADIATION_DOSE.get().floatValue();
             fatalDose = Math.max(0.5F, Math.min(50.0F, fatalDose));
 
-            // 1. Урон при превышении смертельной дозы
+            // Урон при превышении смертельной дозы
             if (currentDose >= fatalDose) {
                 float rawDamage = 1.0F + ((currentDose - fatalDose) * 2.0F);
                 float finalDamage = Math.min(10.0F, rawDamage);
@@ -39,7 +39,7 @@ public class RadiationPlayerHandler {
             boolean underRadiation = player.hasEffect(ModEffects.RADIATION.get());
             boolean underAntirad = player.hasEffect(ModEffects.ANTIRAD.get());
 
-            // 2. Пассивное очищение организма
+            // Пассивное очищение организма
             // Радиация выводится если активен антирад ИЛИ если рядом нет радиоактивного источника
             if (underAntirad || (!underRadiation && currentDose > 0.0F)) {
                 float reduction = underAntirad ? 0.05F : 0.005F;

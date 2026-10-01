@@ -104,7 +104,7 @@ public class GeigerCounterItem extends Item {
             }
         }
 
-        // 2. Облака (без тяжелого saveWithoutId)
+        // 2. Облака. Вообще, это та ещё херня
         AxisAlignedBB searchBox = player.getBoundingBox().inflate(5.0D);
         List<AreaEffectCloudEntity> cloudEntities = world.getEntitiesOfClass(AreaEffectCloudEntity.class, searchBox);
         for (AreaEffectCloudEntity cloud : cloudEntities) {
