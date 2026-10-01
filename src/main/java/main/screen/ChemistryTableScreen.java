@@ -2,6 +2,7 @@ package main.screen;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
+import main.ForgottenShadows;
 import main.container.ChemistryTableContainer;
 import main.init.ModNetwork;
 import main.network.ChemistryCraftPacket;
@@ -12,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
 public class ChemistryTableScreen extends ContainerScreen<ChemistryTableContainer> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("frs", "textures/gui/container/chemistry_table.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(ForgottenShadows.MOD_ID, "textures/gui/container/chemistry_table.png");
 
     public ChemistryTableScreen(ChemistryTableContainer container, PlayerInventory playerInventory, ITextComponent title) {
         super(container, playerInventory, title);

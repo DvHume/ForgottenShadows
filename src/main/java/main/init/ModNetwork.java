@@ -1,5 +1,6 @@
 package main.init;
 
+import main.ForgottenShadows;
 import main.network.ChemistryCraftPacket;
 import main.network.LanguageSyncPacket;
 import net.minecraft.util.ResourceLocation;
@@ -10,7 +11,7 @@ public class ModNetwork {
     private static final String PROTOCOL = "1";
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
 
-            new ResourceLocation("frs", "main"),
+            new ResourceLocation(ForgottenShadows.MOD_ID, "main"),
             () -> PROTOCOL,
             PROTOCOL::equals,
             PROTOCOL::equals

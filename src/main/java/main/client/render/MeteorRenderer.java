@@ -2,6 +2,7 @@ package main.client.render;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
+import main.ForgottenShadows;
 import main.client.model.MeteorModel;
 import main.entity.MeteorEntity;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
@@ -14,7 +15,7 @@ import net.minecraft.util.math.vector.Vector3f;
 
 public class MeteorRenderer extends EntityRenderer<MeteorEntity> {
 
-    private static final ResourceLocation TEXTURE = new ResourceLocation("frs", "textures/entity/meteor.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(ForgottenShadows.MOD_ID, "textures/entity/meteor.png");
     private final MeteorModel<MeteorEntity> model = new MeteorModel<>();
 
     public MeteorRenderer(EntityRendererManager renderManagerIn) {

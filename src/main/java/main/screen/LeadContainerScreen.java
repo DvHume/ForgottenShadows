@@ -2,6 +2,7 @@ package main.screen;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
+import main.ForgottenShadows;
 import main.container.LeadContainer;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
@@ -10,7 +11,7 @@ import net.minecraft.util.text.ITextComponent;
 
 public class LeadContainerScreen extends ContainerScreen<LeadContainer> {
 
-    private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("frs", "textures/gui/container/lead_container.png");
+    private static final ResourceLocation GUI_TEXTURE = new ResourceLocation(ForgottenShadows.MOD_ID, "textures/gui/container/lead_container.png");
 
     public LeadContainerScreen(LeadContainer container, PlayerInventory playerInv, ITextComponent title) {
         super(container, playerInv, title);

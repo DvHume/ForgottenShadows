@@ -27,7 +27,7 @@ public abstract class AbstractBatteryItem extends Item {
         this.maxEnergy = maxEnergy;
     }
 
-    public int getMaxEnergy() {return this.maxEnergy;}
+    public int getMaxEnergy() { return this.maxEnergy; }
 
     /* Получает текущий заряд батареи
      *

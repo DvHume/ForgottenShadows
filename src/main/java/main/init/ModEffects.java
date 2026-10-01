@@ -1,5 +1,6 @@
 package main.init;
 
+import main.ForgottenShadows;
 import main.effect.*;
 import net.minecraft.potion.Effect;
 import net.minecraftforge.fml.RegistryObject;
@@ -8,7 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 
 public class ModEffects {
-    public static final DeferredRegister<Effect> EFFECTS = DeferredRegister.create(ForgeRegistries.POTIONS, "frs");
+    public static final DeferredRegister<Effect> EFFECTS = DeferredRegister.create(ForgeRegistries.POTIONS, ForgottenShadows.MOD_ID);
 
     public static final RegistryObject<Effect> HEAVY_WOUND = EFFECTS.register("heavy_wound", HeavyWoundEffect::new);
 

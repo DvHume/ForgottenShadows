@@ -1,5 +1,6 @@
 package main.init;
 
+import main.ForgottenShadows;
 import main.block.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -9,7 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
-            DeferredRegister.create(ForgeRegistries.BLOCKS, "frs");
+            DeferredRegister.create(ForgeRegistries.BLOCKS, ForgottenShadows.MOD_ID);
 
     // ============================================================
     // ====== ORES ======

@@ -17,6 +17,7 @@ import net.minecraftforge.energy.IEnergyStorage;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+@SuppressWarnings("all") // Remove later
 public abstract class BaseEnergyTile extends TileEntity implements IEnergyTile {
 
     protected final CustomEnergyStorage  energyStorage;
@@ -60,7 +61,8 @@ public abstract class BaseEnergyTile extends TileEntity implements IEnergyTile {
     // When the client received the package
     @Override
     public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
-        if (pkt != null && pkt.getTag() != null) {
+        if (pkt != null) {
+            pkt.getTag();
             this.load(this.getBlockState(), pkt.getTag()); // applies data
         }
     }

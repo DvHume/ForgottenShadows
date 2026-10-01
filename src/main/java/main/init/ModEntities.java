@@ -1,5 +1,6 @@
 package main.init;
 
+import main.ForgottenShadows;
 import main.entity.MeteorEntity;
 import main.entity.RottenEggEntity;
 import net.minecraft.entity.EntityClassification;
@@ -10,7 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES =
-            DeferredRegister.create(ForgeRegistries.ENTITIES, "frs");
+            DeferredRegister.create(ForgeRegistries.ENTITIES, ForgottenShadows.MOD_ID);
 
     public static final RegistryObject<EntityType<MeteorEntity>> METEOR =
             ENTITIES.register("meteor", () ->

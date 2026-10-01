@@ -1,5 +1,6 @@
 package main.init;
 
+import main.ForgottenShadows;
 import main.item.*;
 import main.item.Tools.*;
 import main.item.battery.*;
@@ -12,7 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, "frs");
+            DeferredRegister.create(ForgeRegistries.ITEMS, ForgottenShadows.MOD_ID);
 
     // ============================================================
     // ====== BLOCK ITEMS (for all blocks) ======

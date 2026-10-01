@@ -1,5 +1,6 @@
 package main.recipe;
 
+import main.ForgottenShadows;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.util.ResourceLocation;
@@ -11,7 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModRecipes {
     public static final DeferredRegister<IRecipeSerializer<?>> SERIALIZER =
-            DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, "frs");
+            DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, ForgottenShadows.MOD_ID);
 
     public static final RegistryObject<IRecipeSerializer<?>> FACTORY_SERIALIZER =
             SERIALIZER.register("factory_crafting_serializer", ModRecipeSerializer::new);

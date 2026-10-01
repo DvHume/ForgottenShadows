@@ -2,6 +2,7 @@ package main.screen;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
+import main.ForgottenShadows;
 import main.container.AlloyFurnaceContainer;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
@@ -9,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
 public class AlloyFurnaceScreen extends ContainerScreen<AlloyFurnaceContainer> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("frs", "textures/gui/container/alloy_furnace.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(ForgottenShadows.MOD_ID, "textures/gui/container/alloy_furnace.png");
 
     public AlloyFurnaceScreen(AlloyFurnaceContainer container, PlayerInventory playerInventory, ITextComponent title) {
         super(container, playerInventory, title);

@@ -1,5 +1,6 @@
 package main.init;
 
+import main.ForgottenShadows;
 import main.container.AlloyFurnaceContainer;
 import main.container.BatteryBoxContainer;
 import main.container.ChemistryTableContainer;
@@ -16,7 +17,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModContainers {
-    public static final DeferredRegister<ContainerType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, "frs");
+    public static final DeferredRegister<ContainerType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, ForgottenShadows.MOD_ID);
 
     public static final RegistryObject<ContainerType<AlloyFurnaceContainer>> ALLOY_FURNACE = CONTAINERS.register("alloy_furnace", () -> IForgeContainerType.create((id, playerInventory, data) -> {
         net.minecraft.util.math.BlockPos pos = data.readBlockPos();
