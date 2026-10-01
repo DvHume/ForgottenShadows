@@ -1,3 +1,5 @@
 Nothing is planned yet.
 I will correct the shit code that I wrote earlier
 Possibly
+
+Ну я понял в принципе, что нужно было рассчитывать за каждый тик. Столько времени впустую привело меня к этому
