@@ -21,22 +21,22 @@ public class RadiationPlayerInventory {
         if (event.phase == TickEvent.Phase.END && !event.player.level.isClientSide) {
             PlayerEntity player = event.player;
 
+            // Работаем ровно 1 раз в секунду (20 тиков)
             if (player.tickCount % 20 == 0) {
                 float maxSourceRadiation = 0.0F;
                 float maxInfectedRad = 0.0F;
                 boolean hasRadioactiveSource = false;
 
+                // 1. Поиск источников
                 for (int i = 0; i < player.inventory.getContainerSize(); i++) {
                     ItemStack stack = player.inventory.getItem(i);
                     if (stack.isEmpty()) continue;
 
                     if (stack.getItem() == ModItems.LEAD_CONTAINER.get()) {
                         CompoundNBT containerNbt = stack.getTag();
-
                         if (containerNbt != null) {
                             float fluid = containerNbt.getFloat("FluidBuffer");
                             int damage = containerNbt.getInt("ContainerDamage");
-
                             if (fluid <= 0.0F && damage > 0) {
                                 maxInfectedRad = Math.max(maxInfectedRad, 0.4F);
                                 hasRadioactiveSource = true;
@@ -48,7 +48,7 @@ public class RadiationPlayerInventory {
                     CompoundNBT nbt = stack.getTag();
                     if (stack.getItem() instanceof RadioactiveItem) {
                         RadioactiveItem radItem = (RadioactiveItem) stack.getItem();
-                        float itemRad = radItem.getRadiationPerSec();
+                        float itemRad = radItem.getRadiationPerSec() * stack.getCount();
                         if (itemRad > maxSourceRadiation) {
                             maxSourceRadiation = itemRad;
                         }
@@ -61,20 +61,19 @@ public class RadiationPlayerInventory {
                     }
                 }
 
+                // 2. Заражение предметов в инвентаре (безопасная замена без краша)
                 if (hasRadioactiveSource) {
-                    boolean inventoryChanged = false;
                     for (int i = 0; i < player.inventory.getContainerSize(); i++) {
                         ItemStack stack = player.inventory.getItem(i);
                         if (stack.isEmpty() || stack.getItem() instanceof RadioactiveItem) continue;
-                        if (stack == player.getMainHandItem()|| stack == player.getOffhandItem()) continue;
+                        if (stack == player.getMainHandItem() || stack == player.getOffhandItem()) continue;
+
                         CompoundNBT nbt = stack.getOrCreateTag();
                         float currentInfection = nbt.getFloat("InfectedRad");
-
                         float newInfection = currentInfection + 0.005F;
                         nbt.putFloat("InfectedRad", newInfection);
-                        inventoryChanged = true;
 
-
+                        // Безопасное превращение еды в радиоактивную пыль
                         if (stack.getItem().isEdible() && currentInfection >= 0.05F) {
                             int originalCount = stack.getCount();
                             int dustCount = originalCount > 2 ? (int) Math.round(originalCount * 0.6D) : 1;
@@ -82,17 +81,14 @@ public class RadiationPlayerInventory {
                             ItemStack dustStack = new ItemStack(ModItems.RADIOACTIVE_DUST.get(), dustCount);
                             CompoundNBT dustNbt = dustStack.getOrCreateTag();
                             dustNbt.putFloat("InfectedRad", newInfection);
+
                             player.inventory.setItem(i, dustStack);
                         }
                     }
-
-                    if (inventoryChanged && player.containerMenu != null) {
-                        player.containerMenu.broadcastChanges();
-                    }
                 }
 
+                // 3. Начисление дозы в NBT игрока
                 float finalTickDose = 0.0F;
-
                 if (hasRadioactiveSource) {
                     finalTickDose = maxSourceRadiation;
                 } else if (maxInfectedRad > 0.0F) {
@@ -103,7 +99,8 @@ public class RadiationPlayerInventory {
                     CompoundNBT playerNbt = player.getPersistentData();
                     float currentDose = playerNbt.getFloat("RadiationDose");
                     playerNbt.putFloat("RadiationDose", currentDose + finalTickDose);
-                    player.addEffect(new EffectInstance(ModEffects.RADIATION.get(), 25, 0));
+                    // Вешаем статус-эффект на 2 секунды (40 тиков), чтобы он спадал сам, когда источник убран
+                    player.addEffect(new EffectInstance(ModEffects.RADIATION.get(), 40, 0, false, false));
                 }
             }
         }
@@ -122,7 +119,7 @@ public class RadiationPlayerInventory {
                 if (infectedRad > 0.0F) {
                     CompoundNBT playerNbt = player.getPersistentData();
                     float currentDose = playerNbt.getFloat("RadiationDose");
-                    float internalDose = infectedRad * 50.0F;
+                    float internalDose = infectedRad * 10.0F;
                     playerNbt.putFloat("RadiationDose", currentDose + internalDose);
 
                     player.addEffect(new EffectInstance(Effects.POISON, 150, 1));

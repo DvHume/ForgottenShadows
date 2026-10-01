@@ -1,6 +1,3 @@
-**** Added: new effect - Radiation
-**** Added: radioactive materials and radon gas
-*** Fixed: Существенно изменена логика радиации и предметов излучающих её.
-Изменён счётчик Гейгера, теперь он показывает накопленную радиацию в теле и в воздухе
-*** Added: Добавлены радиоактивные блоки(один блок, хранящий теги). Счётчик гейгера теперь реагирует на них.
-Пока что их радиоактивность зависит от выбрашенного предмета
+Nothing is planned yet.
+I will correct the shit code that I wrote earlier
+Possibly

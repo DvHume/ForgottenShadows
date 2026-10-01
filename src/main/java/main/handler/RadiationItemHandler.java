@@ -33,19 +33,17 @@ public class RadiationItemHandler {
                         float power = radItem.getRadiationPerSec();
                         int radius = Math.max(1, Math.round(power * 60.0F));
                         if (radius > 10) radius = 10;
+
                         for (int x = -radius; x <= radius; x++) {
                             for (int z = -radius; z <= radius; z++) {
                                 BlockPos targetPos = pos.offset(x, -1, z);
-                                // формула круга: x^2 + z^2 <= r^2
                                 if ((x * x + z * z) <= (radius * radius)) {
-                                    // Процент удаления от эпицентра -> 0 в центре, 1 на самом краю
                                     double distancePercent = Math.sqrt(x * x + z * z) / radius;
-                                    // Рандом создаёт проплешины. Чем ближе блок к краю, тем выше шанс, что он уцелеет
                                     if (world.random.nextDouble() > (distancePercent * 0.5D)) {
                                         BlockState state = world.getBlockState(targetPos);
                                         BlockState radioactiveState = null;
                                         if (state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.DIRT)
-                                        || state.is(Blocks.PODZOL) || state.is(Blocks.MYCELIUM)) {
+                                                || state.is(Blocks.PODZOL) || state.is(Blocks.MYCELIUM)) {
                                             radioactiveState = ModBlocks.RADIOACTIVE_BLOCK.get().defaultBlockState().setValue(RadioactiveScorchedBlock.TYPE, RadioactiveType.GRASS);
                                         } else if (state.is(Blocks.SAND) || state.is(Blocks.RED_SAND)) {
                                             radioactiveState = ModBlocks.RADIOACTIVE_BLOCK.get().defaultBlockState().setValue(RadioactiveScorchedBlock.TYPE, RadioactiveType.SAND);
@@ -53,22 +51,22 @@ public class RadiationItemHandler {
                                             radioactiveState = ModBlocks.RADIOACTIVE_BLOCK.get().defaultBlockState().setValue(RadioactiveScorchedBlock.TYPE, RadioactiveType.GRAVEL);
                                         }
                                         if (radioactiveState != null) {
-                                            if (world.random.nextDouble() > (distancePercent * 0.5D)) {
-                                                world.setBlockAndUpdate(targetPos, radioactiveState);
-                                            }
+                                            world.setBlockAndUpdate(targetPos, radioactiveState);
                                         }
                                     }
                                 }
                             }
                         }
+
                         AreaEffectCloudEntity localRadiation = new AreaEffectCloudEntity(
                                 world, pos.getX(), pos.getY(), pos.getZ()
                         );
-                        // Радиус облака чуть меньше физического заражения блоков
                         float cloudRadius = Math.max(1.5F, radius * 0.6F);
                         localRadiation.setRadius(cloudRadius);
                         localRadiation.setDuration(120);
                         localRadiation.addEffect(new EffectInstance(ModEffects.RADIATION.get(), 200, 0));
+                        // Флаг для оптимизации поиска гейгером:
+                        localRadiation.getPersistentData().putBoolean("RadiationCloud", true);
                         world.addFreshEntity(localRadiation);
                     }
                 }
