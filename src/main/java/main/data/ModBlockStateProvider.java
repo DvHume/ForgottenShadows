@@ -18,7 +18,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         // ==== HERE ====
-        registerCubeAll(ModBlocks.TEST_BLOCK);
     }
 
     private void registerCubeAll(RegistryObject<Block> block) {

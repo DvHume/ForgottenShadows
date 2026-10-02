@@ -20,7 +20,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         // ==== HERE ====
         generated(ModItems.GREEN_BATTERY);
 
-        blockItem(ModBlocks.TEST_BLOCK);
     }
 
 
