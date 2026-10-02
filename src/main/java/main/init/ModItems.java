@@ -93,9 +93,6 @@ public class ModItems {
     public static final RegistryObject<Item> ASH_LOG = ITEMS.register("ash_log",
             () -> new BlockItem(ModBlocks.ASH_LOG.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
 
-    public static final RegistryObject<Item> TEST_BLOCK = ITEMS.register("test_block",
-            () -> new BlockItem(ModBlocks.TEST_BLOCK.get(), new Item.Properties().tab(ModItemGroups.BLOCKS)));
-
     // ============================================================
     // ====== MATERIALS (INGOTS, DUST, ETC) ======
     // ============================================================

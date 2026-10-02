@@ -114,11 +114,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> RADIOACTIVE_BLOCK = BLOCKS.register("radioactive_block",
             RadioactiveScorchedBlock::new);
 
-    public static final RegistryObject<Block> TEST_BLOCK = BLOCKS.register("test_block",
-            () -> new Block(AbstractBlock.Properties.of(Material.STONE)
-                    .strength(3.0f)
-                    .requiresCorrectToolForDrops()));
-
     // ============================================================
     // ====== METEORS ======
     // ============================================================
