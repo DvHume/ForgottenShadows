@@ -23,4 +23,6 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> IRON_GOLEM_RU = SOUNDS.register("iron_golem_ru", () -> new SoundEvent(new ResourceLocation(ForgottenShadows.MOD_ID, "iron_golem_ru")));
 
     public static final RegistryObject<SoundEvent> STOMACH_GURGLE = SOUNDS.register("stomach_gurgle", () -> new SoundEvent(new ResourceLocation(ForgottenShadows.MOD_ID, "stomach_gurgle")));
+
+    public static final RegistryObject<SoundEvent> RADIATION = SOUNDS.register("radiation", () -> new SoundEvent(new ResourceLocation(ForgottenShadows.MOD_ID, "radiation")));
 }

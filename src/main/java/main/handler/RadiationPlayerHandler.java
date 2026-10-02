@@ -19,21 +19,33 @@ public class RadiationPlayerHandler {
         PlayerEntity player = event.player;
         if (!player.level.isClientSide && event.phase == TickEvent.Phase.END && player.tickCount % 20 == 0) {
 
-            if (player.isCreative() || player.isSpectator()) return;
+            if (player.isSpectator()) return;
 
             CompoundNBT nbt = player.getPersistentData();
             float currentDose = nbt.getFloat("RadiationDose");
 
-            // Читаем смертельный порог из конфига (по умолчанию 6.0)
+            // Читаем смертельный порог из конфига (по умолчанию 4.0)
             float fatalDose = ModConfig.FATAL_RADIATION_DOSE.get().floatValue();
             fatalDose = Math.max(0.5F, Math.min(50.0F, fatalDose));
+
+            if (currentDose >= 1.0F) {
+                int targetAmplifier = (int) Math.floor(currentDose) - 1;
+                // Ограничивает максимальный уровень тошноты, до 3 ур
+                targetAmplifier = Math.min(3, Math.max(0, targetAmplifier));
+
+                EffectInstance currentConfusion = player.getEffect(Effects.CONFUSION);
+
+                if (currentConfusion == null || currentConfusion.getAmplifier() != targetAmplifier || currentConfusion.getDuration() <= 40) {
+                    player.addEffect(new EffectInstance(Effects.CONFUSION, 160, targetAmplifier, false, false));
+                }
+            }
 
             // Урон при превышении смертельной дозы
             if (currentDose >= fatalDose) {
                 float rawDamage = 1.0F + ((currentDose - fatalDose) * 2.0F);
                 float finalDamage = Math.min(10.0F, rawDamage);
                 player.hurt(ModDamageSources.RADIATION, finalDamage);
-                player.addEffect(new EffectInstance(Effects.CONFUSION, 400, 0));
+                //player.addEffect(new EffectInstance(Effects.CONFUSION, 400, 0));
             }
 
             boolean underRadiation = player.hasEffect(ModEffects.RADIATION.get());

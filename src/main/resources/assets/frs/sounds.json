@@ -33,6 +33,11 @@
     "sounds": [
       "frs:stomach_gurgle"
     ]
+  },
+  "radiation": {
+    "sounds": [
+      "frs:radiation"
+    ]
   }
 }
 

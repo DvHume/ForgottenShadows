@@ -21,13 +21,13 @@ public class RadiationPlayerInventory {
         if (event.phase == TickEvent.Phase.END && !event.player.level.isClientSide) {
             PlayerEntity player = event.player;
 
-            // Работаем ровно 1 раз в секунду (20 тиков)
+            // Работаем ровно 1 раз в секунду
             if (player.tickCount % 20 == 0) {
                 float maxSourceRadiation = 0.0F;
                 float maxInfectedRad = 0.0F;
                 boolean hasRadioactiveSource = false;
 
-                // 1. Поиск источников
+                // Поиск источников
                 for (int i = 0; i < player.inventory.getContainerSize(); i++) {
                     ItemStack stack = player.inventory.getItem(i);
                     if (stack.isEmpty()) continue;
@@ -61,7 +61,7 @@ public class RadiationPlayerInventory {
                     }
                 }
 
-                // 2. Заражение предметов в инвентаре
+                // Заражение предметов в инвентаре
                 if (hasRadioactiveSource) {
                     for (int i = 0; i < player.inventory.getContainerSize(); i++) {
                         ItemStack stack = player.inventory.getItem(i);
@@ -99,7 +99,6 @@ public class RadiationPlayerInventory {
                     CompoundNBT playerNbt = player.getPersistentData();
                     float currentDose = playerNbt.getFloat("RadiationDose");
                     playerNbt.putFloat("RadiationDose", currentDose + finalTickDose);
-                    // Тут вешаем статус-эффект на 2 секунды (40 тиков), чтобы он спадал сам, когда источник убран
                     player.addEffect(new EffectInstance(ModEffects.RADIATION.get(), 40, 0, false, false));
                 }
             }

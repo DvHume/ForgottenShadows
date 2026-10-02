@@ -32,7 +32,7 @@ public class GeigerCounterItem extends Item {
         if (!world.isClientSide && entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
             boolean isHand = player.getMainHandItem() == stack || player.getOffhandItem() == stack;
-            
+
             if (isHand) {
                 CompoundNBT nbt = player.getPersistentData();
                 float internalDose = nbt.getFloat("RadiationDose");
@@ -64,8 +64,8 @@ public class GeigerCounterItem extends Item {
             fatalDose = Math.max(0.5F, Math.min(50.0F, fatalDose));
 
             TextFormatting intColor = TextFormatting.GREEN;
-            if (internalDose >= fatalDose * 0.3F && internalDose < fatalDose * 0.7F) intColor = TextFormatting.YELLOW;
-            if (internalDose >= fatalDose * 0.7F) intColor = TextFormatting.RED;
+            if (internalDose >= (fatalDose * 0.5F) - 0.01F) intColor = TextFormatting.YELLOW;
+            if (internalDose >= fatalDose - 0.01F) intColor = TextFormatting.RED;
 
             TextFormatting extColor = TextFormatting.GREEN;
             if (externalRadiation >= 0.2F && externalRadiation < 0.6F) extColor = TextFormatting.YELLOW;
@@ -87,7 +87,6 @@ public class GeigerCounterItem extends Item {
     private float getExternalRadiation(PlayerEntity player, World world) {
         float externalRadiation = 0.0F;
 
-        // 1. Блоки
         BlockPos playerPos = player.blockPosition();
         int blockRadius = 2;
         for (int x = -blockRadius; x <= blockRadius; x++) {
@@ -104,7 +103,6 @@ public class GeigerCounterItem extends Item {
             }
         }
 
-        // 2. Облака. Вообще, это та ещё херня
         AxisAlignedBB searchBox = player.getBoundingBox().inflate(5.0D);
         List<AreaEffectCloudEntity> cloudEntities = world.getEntitiesOfClass(AreaEffectCloudEntity.class, searchBox);
         for (AreaEffectCloudEntity cloud : cloudEntities) {
