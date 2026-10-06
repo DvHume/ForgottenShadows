@@ -53,7 +53,7 @@ public class MeteorEntity extends Entity {
         if (tickCount % 40 == 0) {
             level.playSound(null, getX(), getY(), getZ(),
                     ModSounds.METEOR_FLY.get(),
-                    SoundCategory.AMBIENT, 50.0f, 0.5f);
+                    SoundCategory.AMBIENT, 4.0f, 0.8f + random.nextFloat() * 0.2f);
         }
 
         Vector3d motion = this.getDeltaMovement();
@@ -74,7 +74,7 @@ public class MeteorEntity extends Entity {
 
         level.playSound(null, getX(), getY() + 1.0D, getZ(),
                 ModSounds.METEOR_IMPACT.get(),
-                SoundCategory.AMBIENT, 10.0f, 1.0f);
+                SoundCategory.BLOCKS, 4.0f, 0.9f + random.nextFloat() * 0.2f);
 
         level.explode(this, getX(), getY(), getZ(), 3.0f, false,
                 Explosion.Mode.DESTROY);

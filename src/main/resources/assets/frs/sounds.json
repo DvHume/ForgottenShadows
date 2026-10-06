@@ -34,9 +34,9 @@
       "frs:stomach_gurgle"
     ]
   },
-  "radiation": {
+  "geiger": {
     "sounds": [
-      "frs:radiation"
+      "frs:geiger"
     ]
   }
 }

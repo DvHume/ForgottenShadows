@@ -8,6 +8,7 @@ public class ModConfig {
 
     public static ForgeConfigSpec.BooleanValue ENABLE_DESERT_SUNBURN;
     public static ForgeConfigSpec.DoubleValue FATAL_RADIATION_DOSE;
+    public static ForgeConfigSpec.BooleanValue ENABLE_METEORS;
 
     static {
         BUILDER.push("General Settings");
@@ -18,6 +19,10 @@ public class ModConfig {
         FATAL_RADIATION_DOSE = BUILDER
                 .comment("At what radiation dose level does the player start taking damage? Max allowed: 50.0 (Default: 4.0)")
                 .defineInRange("fatalRadiationDose", 4.0D, 0.5D, 50D);
+
+        ENABLE_METEORS = BUILDER
+                .comment("Enable natural meteor spawns? (true/false)")
+                .define("enableMeteors", true);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

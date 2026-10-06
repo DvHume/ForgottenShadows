@@ -24,5 +24,5 @@ public class ModSounds {
 
     public static final RegistryObject<SoundEvent> STOMACH_GURGLE = SOUNDS.register("stomach_gurgle", () -> new SoundEvent(new ResourceLocation(ForgottenShadows.MOD_ID, "stomach_gurgle")));
 
-    public static final RegistryObject<SoundEvent> RADIATION = SOUNDS.register("radiation", () -> new SoundEvent(new ResourceLocation(ForgottenShadows.MOD_ID, "radiation")));
+    public static final RegistryObject<SoundEvent> GEIGER = SOUNDS.register("geiger", () -> new SoundEvent(new ResourceLocation(ForgottenShadows.MOD_ID, "geiger")));
 }
