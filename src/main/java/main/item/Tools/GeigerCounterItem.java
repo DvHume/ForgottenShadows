@@ -3,6 +3,7 @@ package main.item.Tools;
 import main.config.ModConfig;
 import main.init.ModBlocks;
 import main.init.ModEffects;
+import main.init.ModSounds;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.Entity;
@@ -13,7 +14,6 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
@@ -46,7 +46,7 @@ public class GeigerCounterItem extends Item {
                         float randomPitch = 0.8F + world.random.nextFloat() * 0.4F;
                         float dynamicVolume = Math.min(0.7F, 0.2F + (totalThreat * 0.3F));
                         world.playSound(null, player.getX(), player.getY(), player.getZ(),
-                                SoundEvents.UI_BUTTON_CLICK, SoundCategory.PLAYERS, dynamicVolume, randomPitch);
+                                ModSounds.GEIGER.get(), SoundCategory.PLAYERS, dynamicVolume, randomPitch);
                     }
                 }
             }

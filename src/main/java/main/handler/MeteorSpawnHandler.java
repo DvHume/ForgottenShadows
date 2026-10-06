@@ -1,6 +1,7 @@
 package main.handler;
 
 import main.ForgottenShadows;
+import main.config.ModConfig;
 import main.entity.MeteorEntity;
 import main.init.ModEntities;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -25,6 +26,8 @@ public class MeteorSpawnHandler {
     public static void onWorldTick(TickEvent.WorldTickEvent event) {
         if (event.phase != TickEvent.Phase.END || event.world.isClientSide) return;
         if (event.world.dimension() != net.minecraft.world.World.OVERWORLD) return;
+
+        if (!ModConfig.ENABLE_METEORS.get()) return;
 
         ServerWorld world = (ServerWorld) event.world;
         MeteorSavedData data = MeteorSavedData.get(world);

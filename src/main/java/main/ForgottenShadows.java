@@ -1,5 +1,6 @@
 package main;
 
+import main.client.gui.ModConfigScreen;
 import main.client.render.MeteorRenderer;
 import main.data.DataGenerators;
 import main.init.*;
@@ -20,6 +21,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ExtensionPoint;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -46,6 +48,10 @@ public class ForgottenShadows
     public ForgottenShadows() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, main.config.ModConfig.SPEC, "frs-common.toml");
+        ModLoadingContext.get().registerExtensionPoint(
+                ExtensionPoint.CONFIGGUIFACTORY,
+                () -> (mc, parentScreen) -> new ModConfigScreen(parentScreen));
+
         ModEffects.EFFECTS.register(bus);
         ModItems.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
