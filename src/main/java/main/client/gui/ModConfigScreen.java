@@ -110,11 +110,11 @@ public class ModConfigScreen extends Screen {
     @Override
     public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
         this.renderBackground(matrixStack);
-        drawCenteredString(matrixStack, this.font, this.title, this.width / 2, 25, 0xFFFFFF);
+        drawCenteredString(matrixStack, this.font, this.title, this.width / 2, 15, 0xFFFFFF);
 
         String doseFormatted = String.format(java.util.Locale.US, "%.1f Rad", ModConfig.FATAL_RADIATION_DOSE.get());
         TranslationTextComponent doseText = new TranslationTextComponent("gui.frs.config.fatal_dose");
-        drawCenteredString(matrixStack, this.font, doseText.getString() + ": " + doseFormatted, this.width / 2, this.height / 6 + 55, 0xAAAAAA);
+        drawCenteredString(matrixStack, this.font, doseText.getString() + ": " + doseFormatted, this.width / 2, this.height / 6 + 85, 0xAAAAAA);
 
         super.render(matrixStack, mouseX, mouseY, partialTicks);
     }
