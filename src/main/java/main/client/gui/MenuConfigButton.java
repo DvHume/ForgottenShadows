@@ -1,4 +1,4 @@
-package main.handler;
+package main.client.gui;
 
 import main.ForgottenShadows;
 import main.client.gui.ModConfigScreen;
