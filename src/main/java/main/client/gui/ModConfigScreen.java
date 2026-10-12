@@ -38,7 +38,7 @@ public class ModConfigScreen extends Screen {
                 button -> {
                     boolean currentState = ModConfig.ENABLE_METEORS.get();
 
-                    // Если метеориты включены -> запрашиваем подтверждение перед выключением
+                    // Если метеориты включены - запрашиваем подтверждение перед выключением
                     if (currentState) {
                         this.minecraft.setScreen(new ConfirmScreen(
                                 (confirmed) -> {
@@ -53,7 +53,7 @@ public class ModConfigScreen extends Screen {
                                 new TranslationTextComponent("gui.frs.config.meteor_warn.desc")
                         ));
                     } else {
-                        // Если они были выключены просто включаем
+                        // Если они были выключены просто включаем. Т.е без окна подтверждения
                         ModConfig.ENABLE_METEORS.set(true);
                         ModConfig.SPEC.save();
                         button.setMessage(getToggleText("gui.frs.config.enable_meteors", true));

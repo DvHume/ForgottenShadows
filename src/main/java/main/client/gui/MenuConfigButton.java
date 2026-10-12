@@ -1,7 +1,6 @@
 package main.client.gui;
 
 import main.ForgottenShadows;
-import main.client.gui.ModConfigScreen;
 import net.minecraft.client.gui.screen.IngameMenuScreen;
 import net.minecraft.client.gui.widget.button.ImageButton;
 import net.minecraft.util.ResourceLocation;
