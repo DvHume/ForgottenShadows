@@ -72,9 +72,9 @@ public class MeteorEntity extends Entity {
     private void onImpact() {
         if (level.isClientSide) return;
 
-        level.playSound(null, getX(), getY() + 1.0D, getZ(),
+        /*level.playSound(null, getX(), getY() + 1.0D, getZ(),
                 ModSounds.METEOR_IMPACT.get(),
-                SoundCategory.BLOCKS, 4.0f, 0.9f + random.nextFloat() * 0.2f);
+                SoundCategory.BLOCKS, 4.0f, 0.9f + random.nextFloat() * 0.2f);*/
 
         level.explode(this, getX(), getY(), getZ(), 3.0f, false,
                 Explosion.Mode.DESTROY);
