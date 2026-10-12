@@ -1,4 +1,4 @@
-package main.client.gui;
+/*package main.client.gui;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -102,4 +102,4 @@ public class CustomConfirmScreen extends Screen {
             this.minecraft.setScreen(this.parentScreen);
         }
     }
-}
+    }*/
