@@ -15,7 +15,7 @@ public class SolarPanelTile extends BaseEnergyTile implements ITickableTileEntit
     private int lastEnergy = 0;
 
     public SolarPanelTile() {
-        super(ModTiles.SOLAR_PANEL.get(), 20_000, 0, 1_000);
+        super(ModTiles.SOLAR_PANEL.get(), 20_000, 0, 500);
     }
 
     @Override
@@ -33,8 +33,13 @@ public class SolarPanelTile extends BaseEnergyTile implements ITickableTileEntit
                 && this.energyStorage.getEnergyStored() == this.lastEnergy) {return; } // just exit
 
 
+        boolean isRain = level.isRaining();
+        boolean isThund = level.isThundering();
+
+        if (isRain || isThund) return;
+
         if (level.isDay() && level.getBrightness(LightType.SKY, worldPosition.above()) > 10) {
-            int energyToGenerate = 300;
+            int energyToGenerate = 122;
             this.energyStorage.addEnergyDirectly(energyToGenerate);
             setChanged();
         }
