@@ -18,12 +18,7 @@ public class ModNetwork {
     );
 
     public static void register() {
-        CHANNEL.registerMessage(0, LanguageSyncPacket.class,
-                LanguageSyncPacket::encode,
-                LanguageSyncPacket::decode,
-                LanguageSyncPacket::handle);
-
-        CHANNEL.registerMessage(1, ChemistryCraftPacket.class,
+        CHANNEL.registerMessage(0, ChemistryCraftPacket.class,
                 ChemistryCraftPacket::encode,
                 ChemistryCraftPacket::decode,
                 ChemistryCraftPacket::handle);

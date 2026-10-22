@@ -207,9 +207,6 @@ public class ModItems {
     public static final RegistryObject<Item> DISINFECTED_CLOTH = ITEMS.register("disinfected_cloth",
             () -> new Item(new Item.Properties().tab(ModItemGroups.CONSUMABLES)));
 
-    public static final RegistryObject<Item> HEART_ITEM = ITEMS.register("heart_item",
-            () -> new HeartItem());
-
     public static final RegistryObject<Item> MUG_BEER = ITEMS.register("mug_beer",
             () -> new MugBeer());
 
