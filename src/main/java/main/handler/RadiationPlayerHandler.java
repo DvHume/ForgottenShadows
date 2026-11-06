@@ -2,7 +2,7 @@ package main.handler;
 
 import main.config.ModConfig;
 import main.init.ModEffects;
-import main.init.utils.ModDamageSources;
+import main.util.ModDamageSources;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
