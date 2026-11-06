@@ -1,4 +1,4 @@
-package main.init.utils;
+package main.util;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.DamageSource;
@@ -7,13 +7,12 @@ import net.minecraft.util.text.TranslationTextComponent;
 
 import javax.annotation.Nonnull;
 
-public class BleedingDamage extends DamageSource {
+public class RadiationDamage extends DamageSource {
 
-    public BleedingDamage() {
-        super("bleeding");
-
-        this.bypassArmor();
+    public RadiationDamage() {
+        super("radiation_damage");
         this.bypassMagic();
+        this.bypassArmor();
     }
 
     @Nonnull

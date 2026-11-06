@@ -1,6 +1,6 @@
 package main.effect;
 
-import main.init.utils.ModDamageSources;
+import main.util.ModDamageSources;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;

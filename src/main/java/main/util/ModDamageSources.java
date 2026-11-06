@@ -1,4 +1,4 @@
-package main.init.utils;
+package main.util;
 
 import net.minecraft.util.DamageSource;
 

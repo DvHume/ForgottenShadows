@@ -1,6 +1,6 @@
 package main.block;
 
-import main.init.utils.ModDamageSources;
+import main.util.ModDamageSources;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
