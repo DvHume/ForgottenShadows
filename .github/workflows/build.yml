@@ -1,6 +1,9 @@
 name: Build Mod
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
     branches:
       - master
@@ -26,9 +29,11 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build mod
+        if: github.event_name == 'pull_request'
         run: ./gradlew build -x test
 
       - name: Upload jar
+        if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           name: forgotten-shadows-${{ github.event.pull_request.head.sha }}
