@@ -1,13 +1,18 @@
 package main.handler;
 
 import main.init.ModItems;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipe;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,8 +24,8 @@ import java.util.Optional;
 public class FlamingPickaxeHandler {
     @SubscribeEvent
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
-        if (!(event.getPlayer() != null)) return;
-        net.minecraft.entity.player.PlayerEntity player = event.getPlayer();
+        if ((event.getPlayer() != null)) return;
+        PlayerEntity player = event.getPlayer();
         ItemStack held = player.getMainHandItem();
 
         // Checking that is this a FlamingPickaxe
@@ -32,10 +37,10 @@ public class FlamingPickaxeHandler {
         World world = (World) event.getWorld();
         if (world.isClientSide) return;
 
-        net.minecraft.util.math.BlockPos pos = event.getPos();
-        net.minecraft.block.BlockState state = event.getState();
+        BlockPos pos = event.getPos();
+        BlockState state = event.getState();
 
-        net.minecraft.block.Block.getDrops(state, (net.minecraft.world.server.ServerWorld) world, pos, world.getBlockEntity(pos))
+        Block.getDrops(state, (ServerWorld) world, pos, world.getBlockEntity(pos))
                 .forEach(drop -> {
             Inventory inv = new Inventory(1);
             inv.setItem(0, drop);

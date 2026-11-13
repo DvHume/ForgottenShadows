@@ -1,7 +1,9 @@
 package main.handler;
 
 import main.init.ModEffects;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CampfireBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
@@ -98,8 +100,9 @@ public class CampfireHealHandler {
             for (int y = -RADIUS; y <= RADIUS; y++) {
                 for (int z = -RADIUS; z <= RADIUS; z++) {
                     BlockPos pos = playerPos.offset(x, y, z);
+                    BlockState state = world.getBlockState(pos);
                     // Check that the fire is only a regular one
-                    if (world.getBlockState(pos).getBlock() == Blocks.CAMPFIRE) {
+                    if (world.getBlockState(pos).getBlock() == Blocks.CAMPFIRE && state.getValue(CampfireBlock.LIT)) {
                         return true;
                     }
                 }
